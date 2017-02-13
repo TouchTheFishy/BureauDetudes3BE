@@ -11,7 +11,7 @@ Then we'll start our coding process.
 #Contributor
 - Puissant Baeyens Victor, 12098, [MisterTarock](https://github.com/MisterTarock)
 - De Keyzer  Paolo, 13201, [KB1395](https://github.com/KB1395)
-- de Viron Manoelle, 14147, [manoelledeviron](https://github.com/manoelledeviron)
+- de Viron Manoëlle, 14147, [manoelledeviron](https://github.com/manoelledeviron)
 - Chagnot William, 14151, [WilliamChagnot](https://github.com/WilliamChagnot)
 
 #References
