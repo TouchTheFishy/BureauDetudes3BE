@@ -8,5 +8,8 @@ namespace KewLox
 {
     class Box
     {
+        List<ConstructionParts> Parts = new List<ConstructionParts>();
+        List<Options> OptParts = new List<Options>();
+         
     }
 }
