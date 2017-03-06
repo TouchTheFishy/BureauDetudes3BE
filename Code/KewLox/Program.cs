@@ -10,6 +10,9 @@ namespace KewLox
     {
         static void Main(string[] args)
         {
+            Closet closet1 = new Closet();
+            closet1.CalculateHeightOptions();
         }
+
     }
 }
