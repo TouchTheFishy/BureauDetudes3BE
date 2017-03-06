@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Angles.cs" />
+    <Compile Include="Barcket.cs" />
+    <Compile Include="Box.cs" />
+    <Compile Include="Closet.cs" />
+    <Compile Include="ConstructionParts.cs" />
+    <Compile Include="Crossbars.cs" />
+    <Compile Include="Door.cs" />
+    <Compile Include="Options.cs" />
+    <Compile Include="Pannel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

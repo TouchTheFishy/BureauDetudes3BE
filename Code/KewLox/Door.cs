@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace KewLox
 {
-    class Box
+    class Door : Options
     {
-        List<ConstructionParts> Parts = new List<ConstructionParts>();
-        List<Options> OptParts = new List<Options>();
-         
     }
 }
