@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KewLox
 {
-    class Box
+    class Pannel:ConstructionParts
     {
     }
 }

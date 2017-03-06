@@ -1,1 +1,2 @@
 c:\users\paolo\documents\visual studio 2015\Projects\KewLox\KewLox\bin\Debug\KewLox.exe.config
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
