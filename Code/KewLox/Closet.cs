@@ -8,5 +8,9 @@ namespace KewLox
 {
     class Closet
     {
+        public Closet()
+        {
+            
+        }
     }
 }
