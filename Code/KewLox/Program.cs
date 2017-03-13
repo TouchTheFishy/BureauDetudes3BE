@@ -12,7 +12,9 @@ namespace KewLox
         {
             Closet closet1 = new Closet();
             closet1.CalculateHeightOptions();
-            closet1.AddBoxes();
+            List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> Parts = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
+            Parts = closet1.AddBoxes();
+            closet1.CalculateTotalParts(Parts);
 
 
 
