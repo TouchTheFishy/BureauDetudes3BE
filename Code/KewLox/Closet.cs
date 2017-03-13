@@ -10,38 +10,98 @@ namespace KewLox
 
     class Closet
     {
-        double totalHeight;
-        public List<string> CalculateHeightOptions()
+        private static List<ConstructionParts> parts;
+
+        public static List<ConstructionParts> Parts
+        {
+            get { return parts; }
+            set { parts = value; }
+
+        }
+
+        private static int width;
+
+        public static int Width
+        {
+            get { return width; }
+            set { width = value; }
+
+        }
+        public static int maxNbBoxes;
+        public static int MaxNbBoxes
+        {
+            get { return maxNbBoxes; }
+            set { maxNbBoxes = value; }
+
+        }
+        public static int minNbBoxes;
+        public static int MinNbBoxes
+        {
+            get { return minNbBoxes; }
+            set { minNbBoxes = value; }
+
+        }
+        public static int boxamount;
+        public static int Boxamount
+        {
+            get { return boxamount; }
+            set { boxamount= value; }
+
+        }
+        private static int depth;
+
+        public static int Depth
+        {
+            get { return depth; }
+            set { depth = value; }
+
+        }
+        private static int totalHeight;
+        public static int TotalHeight
+        {
+            get { return totalHeight; }
+            set { depth = value; }
+
+        }
+        private static int actualHeight=0;
+        public static int ActualHeight
+        {
+            get { return actualHeight; }
+            set { actualHeight = value; }
+
+        }
+        public void CalculateHeightOptions()
 
         {
             Console.WriteLine("Wich height is available? (in cm)");
-            this.totalHeight=Convert.ToDouble(Console.ReadLine());
-            int minNbBoxes=Convert.ToInt32(Math.Floor((this.totalHeight-4)/32));
-            int maxNbBoxes = Convert.ToInt32(Math.Floor((this.totalHeight - 4) / 52));
-            if (minNbBoxes > 7)
+            totalHeight=Convert.ToInt32(Console.ReadLine());
+            TotalHeight = totalHeight;
+            int MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
+            int MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
+            if (MinNbBoxes > 7)
             {
-                minNbBoxes = 7;
+                MinNbBoxes = 7;
             }
-            if (maxNbBoxes > 7)
+            if (MaxNbBoxes > 7)
             {
-                maxNbBoxes = 7;
+                MaxNbBoxes = 7;
             }
-            
-            
 
 
             bool ok = false;
             while (ok == false)
             {
                 Console.WriteLine("Available width: 32, 42, 52. Select one");
-                int width = Convert.ToInt32(Console.ReadLine());
-                if (width != 32 || width !=42 || width != 52)
+
+                width = Convert.ToInt32(Console.ReadLine());
+                if (width == 32 || width ==42 || width == 52)
                 {
-                    Console.WriteLine("Select an available width");
+                    Width = width;
+                    ok = true;
                 }
                 else
                 {
-                    ok = true;
+                    Console.WriteLine("Select an available width");
                 }
 
             }
@@ -49,23 +109,68 @@ namespace KewLox
             while (ok == false)
             {
                 Console.WriteLine("Available depth: 32, 42, 52. Select one");
-                int width = Convert.ToInt32(Console.ReadLine());
-                if (width != 32 || width != 42 || width != 52)
+                depth = Convert.ToInt32(Console.ReadLine());
+                if (depth == 32 || depth == 42 || depth== 52)
                 {
-                    Console.WriteLine("Select an available depth");
+                    Depth = depth;
+                    ok = true;
                 }
                 else
                 {
-                    ok = true;
+                    Console.WriteLine("Select an available depth");
                 }
 
             }
-            Console.WriteLine("Min boxes amount" + minNbBoxes);
-            Console.ReadKey();
+            Console.WriteLine("Min boxes amount = " + MinNbBoxes);
+            Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
+            Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
+            
+        }
+        public void AddBoxes()
+        {
+            
+            bool ok = false;
+            while (ok == false)
+            {
+                Console.WriteLine("How many boxes would you like?");
+                int boxamount = Convert.ToInt32(Console.ReadLine());
+                if (boxamount > MaxNbBoxes || boxamount < MinNbBoxes)
+                {
+                    Console.WriteLine("Select a available amount");
 
-            List<string> heightOptions = new List<string>();
+                }
+                else
+                {
+                    Boxamount = boxamount;
+                    ok = true;
 
-            return heightOptions;
+                }
+            }
+            int i = 1;
+            while (i < Boxamount)
+            {
+                Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+                ok = false;
+                while (ok == false)
+                {
+                    Console.WriteLine("Available heights: 32, 42, 52. Select one");
+                    int height = Convert.ToInt32(Console.ReadLine());
+                    if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
+                    {
+                        Box box = new Box();
+                        
+                        ok = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Select an available depth");
+                    }
+
+                }
+                
+
+            }
+
         }
 
     }

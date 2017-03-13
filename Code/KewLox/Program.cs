@@ -12,6 +12,13 @@ namespace KewLox
         {
             Closet closet1 = new Closet();
             closet1.CalculateHeightOptions();
+            closet1.AddBoxes();
+
+
+
+
+            Console.ReadKey();
+
         }
 
     }
