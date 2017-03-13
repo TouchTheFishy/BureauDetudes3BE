@@ -1,5 +1,13 @@
 c:\users\paolo\documents\visual studio 2015\Projects\KewLox\KewLox\bin\Debug\KewLox.exe.config
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
 C:\Users\william\Documents\ECAM\Bloc3\PI\Projet g‚nie logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
+<<<<<<< HEAD
 C:\Users\william\Desktop\Code\KewLox\bin\Debug\KewLox.exe.config
 E:\Code\KewLox\bin\Debug\KewLox.exe.config
+=======
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.pdb
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
+C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
+>>>>>>> 524cc54930fb5bcbc471f5e86e974a8b0e5b91b0
