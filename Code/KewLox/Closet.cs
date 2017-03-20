@@ -128,7 +128,6 @@ namespace KewLox
         }
         public void AddBoxes()
         {
-            
             bool ok = false;
             while (ok == false)
             {
@@ -149,7 +148,7 @@ namespace KewLox
             int i = 1;
             while (i < Boxamount)
             {
-                Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+                Console.WriteLine("Which height for this box? Height remaining : " + (TotalHeight - ActualHeight));
                 ok = false;
                 while (ok == false)
                 {
@@ -163,16 +162,10 @@ namespace KewLox
                     }
                     else
                     {
-                        Console.WriteLine("Select an available depth");
+                        Console.WriteLine("Select an available height");
                     }
-
                 }
-                
-
             }
-
         }
-
->>>>>>> 524cc54930fb5bcbc471f5e86e974a8b0e5b91b0
     }
 }
