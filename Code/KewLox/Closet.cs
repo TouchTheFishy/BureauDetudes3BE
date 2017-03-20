@@ -126,7 +126,7 @@ namespace KewLox
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
-        public void AddBoxes()
+        public List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> AddBoxes()
         {
             
             bool ok = false;
@@ -147,6 +147,7 @@ namespace KewLox
                 }
             }
             int i = 1;
+            List<KeyValuePair<int,List<KeyValuePair<ConstructionParts, int>>>> PartsPerBox = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
             while (i < Boxamount)
             {
                 Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
@@ -158,6 +159,7 @@ namespace KewLox
                     if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
                     {
                         Box box = new Box();
+                        PartsPerBox.Add(new KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>(i,box.AddConstructionParts(height)));
                         
                         ok = true;
                     }
@@ -170,9 +172,16 @@ namespace KewLox
                 
 
             }
+            return PartsPerBox;
 
         }
+        public List<KeyValuePair<ConstructionParts, int>> CalculateTotalParts(List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> partsperbox)
+        {
+            List<KeyValuePair<ConstructionParts, int>> TotalParts = new List<KeyValuePair<ConstructionParts, int>>();
+            foreach (KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>> box in partsperbox)
+            {
 
->>>>>>> 524cc54930fb5bcbc471f5e86e974a8b0e5b91b0
+            }
+        }
     }
 }
