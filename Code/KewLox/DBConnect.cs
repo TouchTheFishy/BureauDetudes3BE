@@ -9,8 +9,6 @@ namespace KewLox
 {
     public class DBConnect
     {
-        public class DBConnection
-        {
             private MySqlConnection connection;
             private string server;
             private string database;
@@ -18,7 +16,7 @@ namespace KewLox
             private string password;
 
             // Constructor
-            public DBConnection()
+            public void DBConnection()
             {
                 Initialize();
             }
@@ -207,6 +205,5 @@ namespace KewLox
             // Restor
             public void Restore()
             { }
-        }
     }
 }
