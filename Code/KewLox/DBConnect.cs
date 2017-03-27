@@ -16,7 +16,7 @@ namespace KewLox
             private string password;
 
             // Constructor
-            public void DBConnection()
+            public DBConnect()
             {
                 Initialize();
             }
@@ -80,41 +80,45 @@ namespace KewLox
             // Create table
             public void CreateTable(string nametable) // Penser à avoir des "nametable" unique pour retrouver le client.
             {
-                string query = "CREATE TABLE " + nametable +
-                    " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color";
+            string query = "CREATE TABLE " + nametable +
+                    " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255))";
+            
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+                // Create mysql command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                // Open connection
-                if (this.OpenConnection() == true)
-                {
-                    // Create mysql command
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                // Execute command
+                cmd.ExecuteNonQuery();
 
-                    // Execute command
-                    cmd.ExecuteNonQuery();
-
-                    // Close connection
-                    this.CloseConnection();
-                }
+                // Close connection
+                this.CloseConnection();
+            }
             }
 
             // Insert statement
-            public void Insert(string table, string namecolumn, string value)
-            {
-                string query = "INSERT INTO " + table + " (" + namecolumn + ") VALUES('" + value + "')";
-
+        public int Insert(string table, string namecolumn, string value)
+        {
+            string query = "INSERT INTO " + table + " (" + namecolumn + ") VALUES(" + value + ")";
+            int id;
                 // Open connection
-                if (this.OpenConnection() == true)
-                {
-                    // Create command and assign the query and connection from the constructor
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
+            if (this.OpenConnection() == true)
+            {
+                // Create command and assign the query and connection from the constructor
+                MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                    // Execute command
-                    cmd.ExecuteNonQuery();
+                // Execute command
+                cmd.ExecuteNonQuery();
+                id = Convert.ToInt32(cmd.LastInsertedId);
 
-                    // Close connection
-                    this.CloseConnection();
-                }
+                // Close connection
+                this.CloseConnection();
+                return id;
             }
+            else { return 0; }
+                
+        }
 
             // Update statement
             public void Update(string table, string namecolumn, string value, string exvalue)
@@ -155,9 +159,9 @@ namespace KewLox
             }
 
             // Select statement
-            public List<string>[] SelectAll(string table, int nbvalues)
+            public List<string>[] Select(string what, string table, int nbvalues)
             {
-                string query = "SELECT * FROM " + table;
+                string query = "SELECT" +  what + "FROM " + table;
 
                 // Create a list to store the result
                 List<string>[] list = new List<string>[3]; // A voir comment on le modifie pour que ça colle bien à ce qu'on veut (ici j'ai mis comme dans le site : https://www.codeproject.com/Articles/43438/Connect-C-to-MySQL )
