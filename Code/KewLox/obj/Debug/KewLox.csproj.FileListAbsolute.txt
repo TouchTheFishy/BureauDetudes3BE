@@ -5,3 +5,6 @@ C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\D
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
