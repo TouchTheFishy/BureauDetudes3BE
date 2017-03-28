@@ -8,5 +8,7 @@ namespace KewLox
 {
     class Pannel:ConstructionParts
     {
+        public int Height { get; set; }
+        public int Width { get; set; }
     }
 }

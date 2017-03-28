@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace KewLox
 {
-    class Angles:ConstructionParts
+    class Bracket:ConstructionParts
     {
+        public int Dim { get; set; }
     }
 }
