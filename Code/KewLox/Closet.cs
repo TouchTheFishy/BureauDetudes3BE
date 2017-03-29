@@ -126,8 +126,9 @@ namespace KewLox
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
-        public void AddBoxes()
+        public List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> AddBoxes()
         {
+            
             bool ok = false;
             while (ok == false)
             {
@@ -146,9 +147,10 @@ namespace KewLox
                 }
             }
             int i = 1;
+            List<KeyValuePair<int,List<KeyValuePair<ConstructionParts, int>>>> PartsPerBox = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
             while (i < Boxamount)
             {
-                Console.WriteLine("Which height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+                Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
                 ok = false;
                 while (ok == false)
                 {
@@ -157,15 +159,31 @@ namespace KewLox
                     if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
                     {
                         Box box = new Box();
+                        PartsPerBox.Add(new KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>(i,box.AddConstructionParts(height)));
                         
                         ok = true;
                     }
                     else
                     {
-                        Console.WriteLine("Select an available height");
+                        Console.WriteLine("Select an available depth");
                     }
+
                 }
+                
+
             }
+            return PartsPerBox;
+
+        }
+        public List<KeyValuePair<ConstructionParts, int>> CalculateTotalParts(List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> partsperbox)
+        {
+            List<KeyValuePair<ConstructionParts, int>> TotalParts = new List<KeyValuePair<ConstructionParts, int>>();
+            foreach (KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>> box in partsperbox)
+            {
+                
+            }
+            List<KeyValuePair<ConstructionParts, int>> list = new List<KeyValuePair<ConstructionParts, int>>();
+            return list;
         }
     }
 }

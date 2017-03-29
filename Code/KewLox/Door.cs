@@ -10,7 +10,7 @@ namespace KewLox
     {
         public int height;
 
-        static void Main()
+        static void Dickss()
         {
             List<int> listheight = new List<int>();
             listheight.Add(32);

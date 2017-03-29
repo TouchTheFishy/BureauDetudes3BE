@@ -9,8 +9,6 @@ namespace KewLox
 {
     public class DBConnect
     {
-        public class DBConnection
-        {
             private MySqlConnection connection;
             private string server;
             private string database;
@@ -18,7 +16,7 @@ namespace KewLox
             private string password;
 
             // Constructor
-            public DBConnection()
+            public DBConnect()
             {
                 Initialize();
             }
@@ -35,6 +33,7 @@ namespace KewLox
                     database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
                 connection = new MySqlConnection(connectionString);
+                
             }
 
             // Open connection to database
@@ -83,7 +82,7 @@ namespace KewLox
             public void CreateTable(string nametable) // Penser à avoir des "nametable" unique pour retrouver le client.
             {
                 string query = "CREATE TABLE " + nametable +
-                    " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color";
+                    " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255) )";
 
                 // Open connection
                 if (this.OpenConnection() == true)
@@ -99,10 +98,28 @@ namespace KewLox
                 }
             }
 
-            // Insert statement
-            public void Insert(string table, string namecolumn, string value)
+            // Insert statement. Take the name of the table and two list, non restriction in length.
+            public void Insert(string table, string[] namecolumns, string[] namevalues)
             {
-                string query = "INSERT INTO " + table + " (" + namecolumn + ") VALUES('" + value + "')";
+                int i = 0;
+                string columns = namecolumns[i];
+                string values = "'" + namevalues[i] + "'";
+                if (namevalues.Length != namecolumns.Length)
+                {
+                    Console.WriteLine("The number of columns and values are not the same");
+                }
+                else
+                {
+                    i += 1;
+                    while (i < namecolumns.Length)
+                    {
+                        columns += " ," + namecolumns[i];
+                        values += " ,'" + namevalues[i] + "'";
+                        i += 1;
+                    }
+                }
+                string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
+                Console.WriteLine(query);
 
                 // Open connection
                 if (this.OpenConnection() == true)
@@ -118,10 +135,10 @@ namespace KewLox
                 }
             }
 
-            // Update statement
-            public void Update(string table, string namecolumn, string value, string exvalue)
+            // Update statement. The value2 is used for the id.
+            public void Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
             {
-                string query = "UPDATE " + table + " SET " + namecolumn + "='" + value + "' WHERE " + namecolumn + "='" + exvalue + "'";
+                string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
 
                 // Open connection
                 if (this.OpenConnection() == true)
@@ -207,6 +224,5 @@ namespace KewLox
             // Restor
             public void Restore()
             { }
-        }
     }
 }
