@@ -9,19 +9,7 @@ namespace KewLox
 {
     public class DBConnect
     {
-<<<<<<< HEAD
-            private MySqlConnection connection;
-            private string server;
-            private string database;
-            private string uid;
-            private string password;
 
-            // Constructor
-            public DBConnect()
-            {
-                Initialize();
-            }
-=======
         private MySqlConnection connection;
         private string server;
         private string database;
@@ -47,7 +35,6 @@ namespace KewLox
 
             connection = new MySqlConnection(connectionString);
         }
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
 
         // Open connection to database
         private bool OpenConnection()
@@ -100,15 +87,6 @@ namespace KewLox
             // Open connection
             if (this.OpenConnection() == true)
             {
-<<<<<<< HEAD
-            string query = "CREATE TABLE " + nametable +
-                    " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255))";
-            
-            // Open connection
-            if (this.OpenConnection() == true)
-            {
-=======
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
                 // Create mysql command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
@@ -118,8 +96,7 @@ namespace KewLox
                 // Close connection
                 this.CloseConnection();
             }
-<<<<<<< HEAD
-=======
+
         }
 
         // Insert statement. Take the name of the table and two list, non restriction in length.
@@ -142,31 +119,17 @@ namespace KewLox
                     values += " ,'" + namevalues[i] + "'";
                     i += 1;
                 }
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
             }
             string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
             Console.WriteLine(query);
 
-<<<<<<< HEAD
-            // Insert statement
-        public int Insert(string table, string namecolumn, string value)
-        {
-            string query = "INSERT INTO " + table + " (" + namecolumn + ") VALUES(" + value + ")";
-            int id;
-                // Open connection
-=======
             // Open connection
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
+
             if (this.OpenConnection() == true)
             {
                 // Create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-
-<<<<<<< HEAD
-                // Execute command
-=======
                 // Execute command and get the ID back
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
                 cmd.ExecuteNonQuery();
                 id = Convert.ToInt32(cmd.LastInsertedId);
 
@@ -174,16 +137,8 @@ namespace KewLox
                 this.CloseConnection();
                 return id;
             }
-<<<<<<< HEAD
-            else { return 0; }
-                
-        }
 
-            // Update statement
-            public void Update(string table, string namecolumn, string value, string exvalue)
-=======
             else
->>>>>>> 30396768bc22139f54802313e218c12b1407ccef
             {
                 return 0;
             }
