@@ -18,13 +18,16 @@ namespace KewLox
         public List<KeyValuePair<ConstructionParts, int>> AddConstructionParts(int height)
         {
 
+            DbLink.Add("OrderID");
             DbLink.Add("NameObject");
             DbLink.Add("Quantity");
             DbLink.Add("Height");
-            DbLink.Add("Depth");
             DbLink.Add("Width");
+            DbLink.Add("Depth");
             DbLink.Add("Color");
-            string DbColumn = DbLink[0] + ", " + DbLink[1] + ", " + DbLink[2] + ", " + DbLink[3] + ", " + DbLink[4] + ", " + DbLink[5];
+            DbLink.Add("Cup");
+
+            DBConnect database = new DBConnect();
 
             Parts.Add(new KeyValuePair<ConstructionParts, int>(new Crossbars() {Dim = Closet.Width },2)); // Front crossbar (traverse avant) x2?
             Parts.Add(new KeyValuePair<ConstructionParts, int>(new Crossbars() { Dim = Closet.Width }, 2)); // Back crossbar (traverse arrière) x2?
