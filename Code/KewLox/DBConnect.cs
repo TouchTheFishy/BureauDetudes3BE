@@ -9,6 +9,7 @@ namespace KewLox
 {
     public class DBConnect
     {
+<<<<<<< HEAD
             private MySqlConnection connection;
             private string server;
             private string database;
@@ -20,72 +21,94 @@ namespace KewLox
             {
                 Initialize();
             }
+=======
+        private MySqlConnection connection;
+        private string server;
+        private string database;
+        private string uid;
+        private string password;
 
-            // Initialize values
-            private void Initialize()
+        // Constructor
+        public DBConnect()
+        {
+            Initialize();
+        }
+
+        // Initialize values
+        private void Initialize()
+        {
+            server = "localhost";
+            database = "KewLox";
+            uid = "root";
+            password = "";
+            string connectionString;
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
+                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+
+            connection = new MySqlConnection(connectionString);
+        }
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
+
+        // Open connection to database
+        private bool OpenConnection()
+        {
+            try
             {
-                server = "localhost";
-                database = "KewLox";
-                uid = "root";
-                password = "";
-                string connectionString;
-                connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-                    database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
-                connection = new MySqlConnection(connectionString);
+                connection.Open();
+                return true;
             }
-
-            // Open connection to database
-            private bool OpenConnection()
+            catch (MySqlException ex)
             {
-                try
+                /* When handling errors, the application's response 
+                 * can be based on the number. The most common are 
+                    * 0: can not connect to server, 
+                    * 1045: Invalid username and/or password. */
+                switch (ex.Number)
                 {
-                    connection.Open();
-                    return true;
+                    case 0:
+                        Console.WriteLine("Can not connect to server. Contact administrator"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                        break;
+                    case 1045:
+                        Console.WriteLine("Invalid username/password, please try again"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                        break;
                 }
-                catch (MySqlException ex)
-                {
-                    /* When handling errors, the application's response 
-                     * can be based on the number. The most common are 
-                     * 0: can not connect to server, 
-                     * 1045: Invalid username and/or password. */
-                    switch (ex.Number)
-                    {
-                        case 0:
-                            Console.WriteLine("Can not connect to server. Contact administrator"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
-                            break;
-                        case 1045:
-                            Console.WriteLine("Invalid username/password, please try again"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
-                            break;
-                    }
-                    return false;
-                }
+                return false;
             }
+        }
 
-            // Close connection
-            private bool CloseConnection()
+        // Close connection
+        private bool CloseConnection()
+        {
+            try
             {
-                try
-                {
-                    connection.Close();
-                    return true;
-                }
-                catch (MySqlException ex)
-                {
-                    Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
-                    return false;
-                }
+                connection.Close();
+                return true;
             }
-
-            // Create table
-            public void CreateTable(string nametable) // Penser à avoir des "nametable" unique pour retrouver le client.
+            catch (MySqlException ex)
             {
+                Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                return false;
+            }
+        }
+
+        // Create table
+        public void CreateTable(string nametable) // Penser à avoir des "nametable" unique pour retrouver le client.
+        {
+            string query = "CREATE TABLE " + nametable +
+                " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255))";
+            
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+<<<<<<< HEAD
             string query = "CREATE TABLE " + nametable +
                     " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255))";
             
             // Open connection
             if (this.OpenConnection() == true)
             {
+=======
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
                 // Create mysql command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
@@ -95,20 +118,55 @@ namespace KewLox
                 // Close connection
                 this.CloseConnection();
             }
-            }
+<<<<<<< HEAD
+=======
+        }
 
+        // Insert statement. Take the name of the table and two list, non restriction in length.
+        public int Insert(string table, string[] namecolumns, string[] namevalues)
+        {
+            int id;
+            int i = 0;
+            string columns = namecolumns[i];
+            string values = "'" + namevalues[i] + "'";
+            if (namevalues.Length != namecolumns.Length)
+            {
+                Console.WriteLine("The number of columns and values are not the same");
+            }
+            else
+            {
+                i += 1;
+                while (i < namecolumns.Length)
+                {
+                    columns += " ," + namecolumns[i];
+                    values += " ,'" + namevalues[i] + "'";
+                    i += 1;
+                }
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
+            }
+            string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
+            Console.WriteLine(query);
+
+<<<<<<< HEAD
             // Insert statement
         public int Insert(string table, string namecolumn, string value)
         {
             string query = "INSERT INTO " + table + " (" + namecolumn + ") VALUES(" + value + ")";
             int id;
                 // Open connection
+=======
+            // Open connection
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
             if (this.OpenConnection() == true)
             {
                 // Create command and assign the query and connection from the constructor
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
+<<<<<<< HEAD
                 // Execute command
+=======
+                // Execute command and get the ID back
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
                 cmd.ExecuteNonQuery();
                 id = Convert.ToInt32(cmd.LastInsertedId);
 
@@ -116,37 +174,48 @@ namespace KewLox
                 this.CloseConnection();
                 return id;
             }
+<<<<<<< HEAD
             else { return 0; }
                 
         }
 
             // Update statement
             public void Update(string table, string namecolumn, string value, string exvalue)
+=======
+            else
+>>>>>>> 30396768bc22139f54802313e218c12b1407ccef
             {
-                string query = "UPDATE " + table + " SET " + namecolumn + "='" + value + "' WHERE " + namecolumn + "='" + exvalue + "'";
-
-                // Open connection
-                if (this.OpenConnection() == true)
-                {
-                    // create mysql command
-                    MySqlCommand cmd = new MySqlCommand();
-
-                    // Assign the query using CommandText
-                    cmd.CommandText = query;
-
-                    // Assign the connection using Connection
-                    cmd.Connection = connection;
-
-                    // Execute query
-                    cmd.ExecuteNonQuery();
-
-                    // Close connection
-                    this.CloseConnection();
-                }
+                return 0;
             }
+        }
 
-            // Delate statement
-            public void Delete(string table, string namecolumn, string value)
+        // Update statement. The value2 is used for the id.
+        public void Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
+        {
+            string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+                // create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+
+                // Assign the query using CommandText
+                cmd.CommandText = query;
+
+                // Assign the connection using Connection
+                cmd.Connection = connection;
+
+                // Execute query
+                cmd.ExecuteNonQuery();
+
+                // Close connection
+                this.CloseConnection();
+            }
+        }
+
+        // Delate statement
+        public void Delete(string table, string namecolumn, string value)
             {
                 string query = "DELETE FROM " + table + " WHERE " + namecolumn + "='" + value + "'";
 
