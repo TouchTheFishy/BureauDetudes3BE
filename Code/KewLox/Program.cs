@@ -11,6 +11,13 @@ namespace KewLox
 {
     class Program
     {
+        private static int id;
+        public static int Id
+        {
+            get { return id; }
+            set { id = value; }
+
+        }
         static void Main(string[] args)
         {
             string table = "commandes";
@@ -18,7 +25,7 @@ namespace KewLox
             string[] donnee = new string[] { "William", "Chagnot", "carbure.de.tungstene@gmail.com", "0488577410" };
             DBConnect database = new DBConnect();
 
-            database.Insert(table, columns, donnee);
+            int test = database.Insert(table, columns, donnee);
 
             string column1 = "Prix";
             string column2 = "id";
@@ -27,17 +34,9 @@ namespace KewLox
 
             database.Update(table, column1, column2, prix, id);
 
-            // Trouver un moyen de générer un id unique pour les clients.
-            /*closet1.CalculateHeightOptions();
-            List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> Parts = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
-            Parts = closet1.AddBoxes();
-            closet1.CalculateTotalParts(Parts);
-            
-
-
-
+            Console.WriteLine(test);
             Console.ReadKey();
-            */
+            
         }
     }
 }

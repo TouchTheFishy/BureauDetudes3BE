@@ -5,17 +5,13 @@ C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\D
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
 C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
-E:\PG\Code\KewLox\bin\Debug\KewLox.exe.config
-E:\PG\Code\KewLox\bin\Debug\KewLox.exe
-E:\PG\Code\KewLox\bin\Debug\KewLox.pdb
-E:\PG\Code\KewLox\bin\Debug\MySql.Data.dll
-E:\PG\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
-E:\PG\Code\KewLox\obj\Debug\KewLox.exe
-E:\PG\Code\KewLox\obj\Debug\KewLox.pdb
-K:\PG\Code\KewLox\bin\Debug\KewLox.exe.config
-K:\PG\Code\KewLox\obj\Debug\KewLox.exe
-K:\PG\Code\KewLox\obj\Debug\KewLox.pdb
-K:\PG\Code\KewLox\bin\Debug\KewLox.exe
-K:\PG\Code\KewLox\bin\Debug\KewLox.pdb
-K:\PG\Code\KewLox\bin\Debug\MySql.Data.dll
-K:\PG\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
+C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe.config
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.exe
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.pdb
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.pdb
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\MySql.Data.dll
+C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
