@@ -1,17 +1,1 @@
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.pdb
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\MySql.Data.dll
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
-C:\Data\Cours\BLOC 3\P2\Projet Genie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
-C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
-C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
-C:\Users\manoelledeviron\Documents\ECAM\3BE\Projet Génie Logiciel\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe.config
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.exe
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.pdb
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.pdb
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\bin\Debug\MySql.Data.dll
-C:\Users\william\Desktop\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
+
