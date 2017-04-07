@@ -8,6 +8,6 @@ namespace KewLox
 {
     class Crossbars:ConstructionParts
     {
-        public int Dim { get; set; }
+        public string Name ="Crossbars";
     }
 }

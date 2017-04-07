@@ -21,21 +21,17 @@ namespace KewLox
         static void Main(string[] args)
         {
 
-            string table = "commandes";
-            string[] columns = new string[] { "FirstName", "LastName", "Email", "Numero" };
-            string[] donnee = new string[] { "William", "Chagnot", "carbure.de.tungstene@gmail.com", "0488577410" };
+            
             DBConnect database = new DBConnect();
+            string[] column = new string[1] { "FirstName" };
+            string[] name = new string[1] { "temp" };
+            Id = database.Insert("commandes", column, name);
+            Closet closet1 = new KewLox.Closet();
+            closet1.CalculateHeightOptions();
+            closet1.AddBoxes();
+                      
 
-            int test = database.Insert(table, columns, donnee);
-
-            string column1 = "Prix";
-            string column2 = "id";
-            string prix = "25";
-            int id = 1;
-
-            database.Update(table, column1, column2, prix, id);
-
-            Console.WriteLine(test);
+            
             Console.ReadKey();
             
         }

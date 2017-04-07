@@ -76,8 +76,8 @@ namespace KewLox
             Console.WriteLine("Wich height is available? (in cm)");
             totalHeight=Convert.ToInt32(Console.ReadLine());
             TotalHeight = totalHeight;
-            int MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
-            int MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
+            MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
+            MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
             if (MinNbBoxes > 7)
             {
                 MinNbBoxes = 7;
@@ -126,31 +126,33 @@ namespace KewLox
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
-        public List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> AddBoxes()
+        public void AddBoxes()
         {
             
             bool ok = false;
             while (ok == false)
             {
+                Console.WriteLine("Min boxes amount = " + MinNbBoxes);
+                Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
                 Console.WriteLine("How many boxes would you like?");
                 int boxamount = Convert.ToInt32(Console.ReadLine());
-                if (boxamount > MaxNbBoxes || boxamount < MinNbBoxes)
+                if (boxamount>=1 && boxamount<=MaxNbBoxes )
                 {
-                    Console.WriteLine("Select a available amount");
+                    Boxamount = boxamount;
+                    ok = true;
+                    
 
                 }
                 else
                 {
-                    Boxamount = boxamount;
-                    ok = true;
+                    Console.WriteLine("Select a available amount");
 
                 }
             }
             int i = 1;
-            List<KeyValuePair<int,List<KeyValuePair<ConstructionParts, int>>>> PartsPerBox = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
             while (i < Boxamount)
             {
-                Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+                Console.WriteLine("Which height for this box? Height remaining : " + (TotalHeight - ActualHeight));
                 ok = false;
                 while (ok == false)
                 {
@@ -159,7 +161,7 @@ namespace KewLox
                     if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
                     {
                         Box box = new Box();
-                        PartsPerBox.Add(new KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>(i,box.AddConstructionParts(height)));
+                        box.AddConstructionParts(height);
                         
                         ok = true;
                     }
@@ -169,21 +171,12 @@ namespace KewLox
                     }
 
                 }
+                i += 1;
                 
 
             }
-            return PartsPerBox;
 
         }
-        public List<KeyValuePair<ConstructionParts, int>> CalculateTotalParts(List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> partsperbox)
-        {
-            List<KeyValuePair<ConstructionParts, int>> TotalParts = new List<KeyValuePair<ConstructionParts, int>>();
-            foreach (KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>> box in partsperbox)
-            {
-                
-            }
-            List<KeyValuePair<ConstructionParts, int>> list = new List<KeyValuePair<ConstructionParts, int>>();
-            return list;
-        }
+        
     }
 }

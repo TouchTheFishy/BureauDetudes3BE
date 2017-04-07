@@ -14,40 +14,46 @@ namespace KewLox
         List<Options> OptParts = new List<Options>();
 
         List<string> DbLink = new List<string>(6);
+        String[] DbColumn;
         
-        public List<KeyValuePair<ConstructionParts, int>> AddConstructionParts(int height)
+        public void AddConstructionParts(int height)
         {
-
-            DbLink.Add("OrderID");
-            DbLink.Add("NameObject");
-            DbLink.Add("Quantity");
+            DBConnect database = new DBConnect();
+            DbLink.Add("Name");
             DbLink.Add("Height");
             DbLink.Add("Width");
             DbLink.Add("Depth");
-            DbLink.Add("Color");
-            DbLink.Add("Cup");
+            DbLink.Add("Quantity");
+            DbLink.Add("OrderId");
+            DbColumn = DbLink.ToArray();
 
-            DBConnect database = new DBConnect();
+            ConstructionParts FrontBackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Tasseau"};
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Tasseau" };
+            ConstructionParts SideP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau" };
+            ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(Closet.Width), Name = "Panneau" };
+            ConstructionParts UpDnP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau" };
+            ConstructionParts VertCB = new ConstructionParts { Height = Convert.ToString(Closet.Width), Name = "Tasseau" };
 
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Crossbars() {Dim = Closet.Width },2)); // Front crossbar (traverse avant) x2?
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Crossbars() { Dim = Closet.Width }, 2)); // Back crossbar (traverse arrière) x2?
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Crossbars() { Dim = Closet.Depth }, 4)); // Lateral crossbar x4?
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Pannel() { Height = height, Width = Closet.Depth },2)); // Lateral Pannel x2?
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Pannel() { Height = height, Width = Closet.Width }, 1)); // Back pannel
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Pannel() { Height = Closet.Depth, Width = Closet.Width }, 2)); // Up/Down pannel x2?
-            Parts.Add(new KeyValuePair<ConstructionParts, int>(new Bracket() { Dim = height }, 4)); // Bracket (tasseaux verticaux) x4?
+            string[]  request1 = FrontBackCB.AddPart(4);
+            string[] request2 = SideCB.AddPart(4);
+            string[] request3 = SideP.AddPart(2);
+            string[] request4 = BackP.AddPart(1);
+            string[] request5 = UpDnP.AddPart(2);
+            string[] request6 = VertCB.AddPart(4);
 
-            // Add all this to the database.
-            //Program.DBConnect.Insert(iduser, DbColumn, "Front Crossbar" + ", " + "2" + ", " + Closet.Width + ", " + "0" + ", " + "0" + ", " + "none");
-            //DBConnection.Insert(iduser, DbColumn, "Back Crossbar" + ", " + "2" + ", " + Closet.Width + ", " + "0" + ", " + "0" + ", " + "none");
-            //DBConnection.Insert(iduser, DbColumn, "Lateral Crossbar" + ", " + "4" + ", " + Closet.Depth + ", " + "0" + ", " + "0" + ", " + "none");
-            //DBConnection.Insert(iduser, DbColumn, "Lateral Pannel" + ", " + "2" + ", " + height + ", " + Closet.Depth + ", " + "0" + ", " + Pannel.Color); 
-            //DBConnection.Insert(iduser, DbColumn, "Back Pannel" + ", " + "1" + ", " + height + ", " + Closet.Width + ", " + "0" + ", " + "none");
-            //DBConnection.Insert(iduser, DbColumn, "Up/Down Pannel" + ", " + "2" + ", " + Closet.Depth + ", " + Closet.Width + ", " + "0" + ", " + "none");
-            //DBConnection.Insert(iduser, DbColumn, "Bracket" + ", " + "2" + ", " + height + ", " + "0" + ", " + "0" + ", " + "none");
+            database.Insert("commandespieces", DbColumn, request1);
+            database.Insert("commandespieces", DbColumn, request2);
+            database.Insert("commandespieces", DbColumn, request3);
+            database.Insert("commandespieces", DbColumn, request4);
+            database.Insert("commandespieces", DbColumn, request5);
+            database.Insert("commandespieces", DbColumn, request6);
 
-            return Parts;
+
         }
+        
+
+        
+
         
     }
 }

@@ -1,1 +1,7 @@
 C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe.config
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.exe
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\bin\Debug\KewLox.pdb
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\bin\Debug\MySql.Data.dll
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.exe
+C:\Data\ECAM\Cours\3eme\P2\Bureau d'Etudes\BureauDetudes3BE\Code\KewLox\obj\Debug\KewLox.pdb
