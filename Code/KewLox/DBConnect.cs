@@ -121,7 +121,7 @@ namespace KewLox
                 }
             }
             string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
-            Console.WriteLine(query);
+            //Console.WriteLine(query);
 
             // Open connection
 

@@ -121,8 +121,7 @@ namespace KewLox
                 }
 
             }
-            Console.WriteLine("Min boxes amount = " + MinNbBoxes);
-            Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
+            
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
@@ -132,9 +131,7 @@ namespace KewLox
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Min boxes amount = " + MinNbBoxes);
-                Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
-                Console.WriteLine("How many boxes would you like?");
+                Console.WriteLine("How many boxes would you like? (Max "+MaxNbBoxes+" boxes)");
                 int boxamount = Convert.ToInt32(Console.ReadLine());
                 if (boxamount>=1 && boxamount<=MaxNbBoxes )
                 {
@@ -149,10 +146,11 @@ namespace KewLox
 
                 }
             }
-            int i = 1;
+            int i = 0;
             while (i < Boxamount)
             {
-                Console.WriteLine("Which height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+
+                Console.WriteLine("Which height for this box? "+i+" boxes (maximum " + ((Boxamount*52) - ActualHeight)+"cm left m)");
                 ok = false;
                 while (ok == false)
                 {
@@ -162,6 +160,7 @@ namespace KewLox
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
+                        ActualHeight = ActualHeight + height;
                         
                         ok = true;
                     }
@@ -172,6 +171,14 @@ namespace KewLox
 
                 }
                 i += 1;
+
+                //Ajout des cornières à la fin de la commande (hauteur = hauteur de toutes les boites +4)
+                DBConnect database = new DBConnect();
+                ConstructionParts angles= new ConstructionParts() { Name="Angles", Height=Convert.ToString(ActualHeight+4)};
+                string[] query = new string[6] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId" };
+                string[] data = angles.AddPart(4);
+                database.Insert("commandespieces", query, data);
+
                 
 
             }
