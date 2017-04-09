@@ -55,7 +55,7 @@ namespace KewLox
                         while (check == false)
                         {
                             
-                            Console.WriteLine("Which color for the " + choices[i]);
+                            Console.WriteLine("Which color for the " + choices[i]+" Brown or White?");
                             string color = Console.ReadLine();
                             if (color == "Brown" || color == "White")
                             {
