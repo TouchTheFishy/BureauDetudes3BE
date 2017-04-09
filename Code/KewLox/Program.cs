@@ -26,9 +26,9 @@ namespace KewLox
             string[] column = new string[1] { "FirstName" };
             string[] name = new string[1] { "temp" };
             Id = database.Insert("commandes", column, name);
-            Closet closet1 = new KewLox.Closet();
-            closet1.CalculateHeightOptions();
-            closet1.AddBoxes();
+            Closet closet1 = new Closet();
+            //closet1.CalculateHeightOptions();
+            //closet1.AddBoxes();
 
 
             Console.WriteLine("Press any key to exit");
