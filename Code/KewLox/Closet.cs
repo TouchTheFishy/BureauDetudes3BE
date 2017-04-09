@@ -91,10 +91,10 @@ namespace KewLox
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Available width: 32, 42, 52. Select one");
+                Console.WriteLine("Available width: 32, 42, 52, 62, 80, 100, 120. Select one");
 
                 width = Convert.ToInt32(Console.ReadLine());
-                if (width == 32 || width ==42 || width == 52)
+                if (width == 32 || width ==42 || width == 52 || width == 62 || width == 80 || width == 100 || width == 120)
                 {
                     Width = width;
                     ok = true;
@@ -108,9 +108,9 @@ namespace KewLox
             ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Available depth: 32, 42, 52. Select one");
+                Console.WriteLine("Available depths: 32, 42, 52, 62. Select one");
                 depth = Convert.ToInt32(Console.ReadLine());
-                if (depth == 32 || depth == 42 || depth== 52)
+                if (depth == 32 || depth == 42 || depth== 52 || depth==62)
                 {
                     Depth = depth;
                     ok = true;
@@ -150,13 +150,14 @@ namespace KewLox
             while (i < Boxamount)
             {
 
-                Console.WriteLine("Which height for this box? "+i+" boxes (maximum " + ((Boxamount*52) - ActualHeight)+"cm left m)");
+                Console.WriteLine("Which height for box number "+i+"? (maximum " + ((Boxamount*56) - ActualHeight)+"cm and"+ (boxamount-i) +" boxes left)");
                 ok = false;
                 while (ok == false)
                 {
-                    Console.WriteLine("Available heights: 32, 42, 52. Select one");
+                    //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
+                    Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
+                    if (height == 36 || height == 46 || height == 56 && (ActualHeight+height)<=TotalHeight)
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
@@ -166,21 +167,32 @@ namespace KewLox
                     }
                     else
                     {
-                        Console.WriteLine("Select an available depth");
+                        Console.WriteLine("Select an available height");
                     }
 
                 }
                 i += 1;
-
-                //Ajout des cornières à la fin de la commande (hauteur = hauteur de toutes les boites +4)
-                DBConnect database = new DBConnect();
-                ConstructionParts angles= new ConstructionParts() { Name="Angles", Height=Convert.ToString(ActualHeight+4)};
-                string[] query = new string[6] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId" };
-                string[] data = angles.AddPart(4);
-                database.Insert("commandespieces", query, data);
-
                 
-
+            }
+            //Ajout des cornières à la fin de la commande 
+            DBConnect database = new DBConnect();
+            ok = false;
+            while (ok == false)
+            {
+                Console.WriteLine("what Color would you like for your angles? Available: White, Black, Brown, Chromed");
+                string answer = Console.ReadLine();
+                if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
+                {
+                    ConstructionParts angles = new ConstructionParts() { Name = "Angles", Height = Convert.ToString(ActualHeight), Color = answer };
+                    string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
+                    string[] data = angles.AddPart(4);
+                    database.Insert("commandespieces", query, data);
+                    ok = true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input");
+                }
             }
 
         }

@@ -29,9 +29,9 @@ namespace KewLox
             Closet closet1 = new KewLox.Closet();
             closet1.CalculateHeightOptions();
             closet1.AddBoxes();
-                      
 
-            
+
+            Console.WriteLine("Press any key to exit");
             Console.ReadKey();
             
         }

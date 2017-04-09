@@ -11,6 +11,7 @@ namespace KewLox
         private string height = "0";
         private string depth = "0";
         private string width = "0";
+        private string color = "White";
 
         public string Height
         {
@@ -45,6 +46,17 @@ namespace KewLox
                 width = Convert.ToString(value);
             }
         }
+        public string Color
+        {
+            get
+            {
+                return Convert.ToString(color);
+            }
+            set
+            {
+                color = Convert.ToString(value);
+            }
+        }
 
         public string Name { get; set; }
         public string Cup { get; set; }
@@ -52,7 +64,7 @@ namespace KewLox
         {
             string qtty = Convert.ToString(amount);
             string id = Convert.ToString(Program.Id);
-            string[] result = new string[6] { Name, Height, Depth, Width, qtty, id};
+            string[] result = new string[7] { Name, Height, Depth, Width, qtty, id,Color};
             return result;
         }
         public string[] AddDoor()
@@ -61,7 +73,7 @@ namespace KewLox
             string id = Convert.ToString(Program.Id);
             string cup = Convert.ToString(Cup);
             
-            string[] result = new string[7] { Name, Height, Depth, Width, qtty, id ,cup};
+            string[] result = new string[8] { Name, Height, Depth, Width, qtty, id, Color, cup};
             return result;
         }
     }
