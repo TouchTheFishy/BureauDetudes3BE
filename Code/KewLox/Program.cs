@@ -18,16 +18,17 @@ namespace KewLox
             DBConnect database = new DBConnect();
             database.CreateTable(idclient);
             // Trouver un moyen de générer un id unique pour les clients.
-            /*closet1.CalculateHeightOptions();
+            Closet closet1 = new Closet();
+            List<int> values=closet1.CalculateHeightOptions();
             List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> Parts = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
-            Parts = closet1.AddBoxes();
+            Parts = closet1.AddBoxes( values);
             closet1.CalculateTotalParts(Parts);
             
 
 
 
             Console.ReadKey();
-            */
+            
         }
     }
 }

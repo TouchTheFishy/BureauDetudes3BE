@@ -16,7 +16,7 @@ namespace KewLox
             private string password;
 
             // Constructor
-            public void DBConnection()
+            public DBConnect()
             {
                 Initialize();
             }
