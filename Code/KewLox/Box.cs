@@ -11,7 +11,6 @@ namespace KewLox
     class Box
     {
         List<KeyValuePair<ConstructionParts,int>> Parts = new List<KeyValuePair<ConstructionParts, int>>();
-        List<Options> OptParts = new List<Options>();
 
         List<string> DbLink = new List<string>(6);
         String[] DbColumn;
