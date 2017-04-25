@@ -77,7 +77,17 @@ namespace KewLox
                 }
                 if (answer == "No" || answer == "no")
                 {
-                    check = true;
+                    foreach (ConstructionParts component in pannels)
+                    {
+                        check = false;
+                        while (check == false)
+                        {
+                            component.Color = "White";
+                            string[] request = component.AddPart(1);
+                            database.Insert("commandespieces", DbColumn, request);
+                            check = true;
+                        }
+                    }
                 }
                 else
                 {
@@ -88,10 +98,10 @@ namespace KewLox
                 }
             }
 
-            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Tasseau", Color=""};
-            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Tasseau", Color = "" };
-            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Tasseau", Color = "" };
-            ConstructionParts VertCB = new ConstructionParts { Height = Convert.ToString(Closet.Width), Name = "Tasseau", Color = "" };
+            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Traverse", Color=""};
+            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse", Color = "" };
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse", Color = "" };
+            ConstructionParts VertCB = new ConstructionParts() { Height = Convert.ToString(height), Name = "Tasseau", Color = "" };
 
             string[] request0 = VertCB.AddPart(4);
             string[] request1 = FrontCB.AddPart(2);
