@@ -11,11 +11,19 @@ namespace KewLox
 {
     class Program
     {
+        private static int id;
+        public static int Id
+        {
+            get { return id; }
+            set { id = value; }
+
+        }
         static void Main(string[] args)
         {
-            string idclient = "XXX";
+
             
             DBConnect database = new DBConnect();
+<<<<<<< HEAD
             database.CreateTable(idclient);
             // Trouver un moyen de générer un id unique pour les clients.
             Closet closet1 = new Closet();
@@ -25,8 +33,17 @@ namespace KewLox
             closet1.CalculateTotalParts(Parts);
             
 
+=======
+            string[] column = new string[1] { "FirstName" };
+            string[] name = new string[1] { "temp" };
+            Id = database.Insert("commandes", column, name);
+            Closet closet1 = new Closet();
+            closet1.CalculateHeightOptions();
+            closet1.AddBoxes();
+>>>>>>> 9c87ea15414078ab2f4f9922c6d74d2576c03ff8
 
 
+            Console.WriteLine("Press any key to exit");
             Console.ReadKey();
             
         }

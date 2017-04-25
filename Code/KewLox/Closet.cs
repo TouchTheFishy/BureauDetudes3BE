@@ -76,8 +76,8 @@ namespace KewLox
             Console.WriteLine("Wich height is available? (in cm)");
             totalHeight=Convert.ToInt32(Console.ReadLine());
             TotalHeight = totalHeight;
-            int MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
-            int MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
+            MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
+            MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
             if (MinNbBoxes > 7)
             {
                 MinNbBoxes = 7;
@@ -108,9 +108,9 @@ namespace KewLox
             ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Available depth: 32, 42, 52. Select one");
+                Console.WriteLine("Available depths: 32, 42, 52, 62. Select one");
                 depth = Convert.ToInt32(Console.ReadLine());
-                if (depth == 32 || depth == 42 || depth== 52)
+                if (depth == 32 || depth == 42 || depth== 52 || depth==62)
                 {
                     Depth = depth;
                     ok = true;
@@ -121,8 +121,7 @@ namespace KewLox
                 }
 
             }
-            Console.WriteLine("Min boxes amount = " + MinNbBoxes);
-            Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
+            
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             List<int> values = new List<int>();
             values.Add(MinNbBoxes);
@@ -132,7 +131,11 @@ namespace KewLox
             values.Add(TotalHeight);
             return values;
         }
+<<<<<<< HEAD
         public List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> AddBoxes(List<int> values)
+=======
+        public void AddBoxes()
+>>>>>>> 9c87ea15414078ab2f4f9922c6d74d2576c03ff8
         {
             MinNbBoxes = values[0];
             MaxNbBoxes = values[1];
@@ -140,10 +143,11 @@ namespace KewLox
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("How many boxes would you like?");
+                Console.WriteLine("How many boxes would you like? (Max "+MaxNbBoxes+" boxes)");
                 int boxamount = Convert.ToInt32(Console.ReadLine());
-                if (boxamount > MaxNbBoxes || boxamount < MinNbBoxes)
+                if (boxamount>=1 && boxamount<=MaxNbBoxes )
                 {
+<<<<<<< HEAD
                     Console.WriteLine("Select an available amount");
                 }
                 else
@@ -157,40 +161,75 @@ namespace KewLox
             while (i < Boxamount)
             {
                 Console.WriteLine("Which height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+=======
+                    Boxamount = boxamount;
+                    ok = true;
+                    
+
+                }
+                else
+                {
+                    Console.WriteLine("Select a available amount");
+
+                }
+            }
+            int i = 0;
+            while (i < Boxamount)
+            {
+
+                Console.WriteLine("Which height for box number "+i+"? (maximum " + ((Boxamount*56) - ActualHeight)+"cm and"+ (boxamount-i) +" boxes left)");
+>>>>>>> 9c87ea15414078ab2f4f9922c6d74d2576c03ff8
                 ok = false;
                 while (ok == false)
                 {
-                    Console.WriteLine("Available heights: 32, 42, 52. Select one");
+                    //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
+                    Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
+                    if (height == 36 || height == 46 || height == 56 && (ActualHeight+height)<=TotalHeight)
                     {
                         Box box = new Box();
+<<<<<<< HEAD
                         PartsPerBox.Add(new KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>(i,box.AddConstructionParts(height)));
                         ActualHeight += height;
+=======
+                        box.AddConstructionParts(height);
+                        ActualHeight = ActualHeight + height;
+                        
+>>>>>>> 9c87ea15414078ab2f4f9922c6d74d2576c03ff8
                         ok = true;
                         i++;
                     }
                     else
                     {
-                        Console.WriteLine("Select an available depth");
+                        Console.WriteLine("Select an available height");
                     }
 
                 }
+                i += 1;
                 
-
             }
-            return PartsPerBox;
-
-        }
-        public List<KeyValuePair<ConstructionParts, int>> CalculateTotalParts(List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> partsperbox)
-        {
-            List<KeyValuePair<ConstructionParts, int>> TotalParts = new List<KeyValuePair<ConstructionParts, int>>();
-            foreach (KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>> box in partsperbox)
+            //Ajout des cornières à la fin de la commande 
+            DBConnect database = new DBConnect();
+            ok = false;
+            while (ok == false)
             {
-                
+                Console.WriteLine("what Color would you like for your angles? Available: White, Black, Brown, Chromed");
+                string answer = Console.ReadLine();
+                if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
+                {
+                    ConstructionParts angles = new ConstructionParts() { Name = "Angles", Height = Convert.ToString(ActualHeight), Color = answer };
+                    string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
+                    string[] data = angles.AddPart(4);
+                    database.Insert("commandespieces", query, data);
+                    ok = true;
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input");
+                }
             }
-            List<KeyValuePair<ConstructionParts, int>> list = new List<KeyValuePair<ConstructionParts, int>>();
-            return list;
+
         }
+        
     }
 }
