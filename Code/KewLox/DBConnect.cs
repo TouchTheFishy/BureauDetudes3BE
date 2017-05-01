@@ -169,7 +169,7 @@ namespace KewLox
             }
         }
 
-        // Delate statement
+        // Delete statement
         public void Delete(string table, string namecolumn, string value)
             {
                 string query = "DELETE FROM " + table + " WHERE " + namecolumn + "='" + value + "'";
@@ -183,31 +183,37 @@ namespace KewLox
             }
 
             // Select statement
-            public List<string>[] Select(string what, string table, int nbvalues)
+        public string[,] Select(string columns, string table, string equal)
+        {
+            string query = "SELECT " +  columns + " FROM " + table + " WHERE " + equal;
+
+            //Divide columns string into an array with the different columns and compute the number of fields
+            string[] allcolumns = columns.Split(Convert.ToChar(","));
+            int nbfields = allcolumns.Length;
+            
+            // Create an array of arrays to store the result {{column1,value1},{column2,value2},...}
+            string[,] values = new string[nbfields,2]; 
+
+            if (this.OpenConnection() == true) //Try if the connection to the db worked
             {
-                string query = "SELECT" +  what + "FROM " + table;
 
-                // Create a list to store the result
-                List<string>[] list = new List<string>[3]; // A voir comment on le modifie pour que ça colle bien à ce qu'on veut (ici j'ai mis comme dans le site : https://www.codeproject.com/Articles/43438/Connect-C-to-MySQL )
-                list[0] = new List<string>();
-                list[1] = new List<string>();
-                list[2] = new List<string>();
+                // Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                // Open connection
-                if (this.OpenConnection() == true)
+                // Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //check that the part exists
+                if (dataReader.HasRows)
                 {
-                    // Create Command
-                    MySqlCommand cmd = new MySqlCommand(query, connection);
-
-                    // Create a data reader and Execute the command
-                    MySqlDataReader dataReader = cmd.ExecuteReader();
-
-                    // Read the data and store them in the list
+                    // Read the data and store in the array
                     while (dataReader.Read())
                     {
-                        list[0].Add(dataReader["id"] + ""); // Pareil ici il faut un peu voir ce qu'on veut mettre
-                        list[1].Add(dataReader["name"] + "");
-                        list[2].Add(dataReader["age"] + "");
+                        for (int i = 0; i < nbfields; i++)
+                        {
+                            values[i, 0] = allcolumns[i];
+                            values[i, 1] = dataReader[i].ToString();
+                        }
                     }
 
                     // Close Data Reader
@@ -217,13 +223,22 @@ namespace KewLox
                     this.CloseConnection();
 
                     // return list to be displayed
-                    return list;
+                    return values;
+
                 }
+                //if the part does not exist
                 else
                 {
-                    return list;
+                    return values = new string[,] { {"error","This part does not exist." } };
                 }
+                
             }
+            //if the connection failed
+            else
+            {
+                return values=new string[,] { { "error", "Connection failed." } };
+            }
+        }
 
 
             // A voir si c'est interessant à implanter.
