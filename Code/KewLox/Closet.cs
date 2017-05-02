@@ -160,7 +160,7 @@ namespace KewLox
                     //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
                     Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if (height == 36 || height == 46 || height == 56 && (ActualHeight+height+36*(boxamount-i-1))<=TotalHeight) 
+                    if ((height == 36 || height == 46 || height == 56) && (ActualHeight+height+36*(boxamount-i-1)<=TotalHeight)) 
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
