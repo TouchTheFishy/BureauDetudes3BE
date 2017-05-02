@@ -76,8 +76,8 @@ namespace KewLox
             Console.WriteLine("Wich height is available? (in cm)");
             totalHeight=Convert.ToInt32(Console.ReadLine());
             TotalHeight = totalHeight;
-            MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
-            MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
+            MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/36)));
+            MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 56)));
             if (MinNbBoxes > 7)
             {
                 MinNbBoxes = 7;
@@ -142,27 +142,31 @@ namespace KewLox
                 }
                 else
                 {
-                    Console.WriteLine("Select a available amount");
+                    Console.WriteLine("Select an available amount");
 
                 }
             }
             int i = 0;
+            //if boxamount*56 (max height of the closet) < total height: return boxamount*56
+            //else: return totalHeight
+            int maxheight = boxamount*56 < totalHeight ? boxamount*56 : totalHeight;
             while (i < Boxamount)
             {
 
-                Console.WriteLine("Which height for box number "+i+"? (maximum " + ((Boxamount*56) - ActualHeight)+"cm and"+ (boxamount-i) +" boxes left)");
+                Console.WriteLine("Which height for box number "+i+"? (maximum " + (maxheight - ActualHeight)+"cm and"+ (boxamount-i) +" boxes left)");
                 ok = false;
                 while (ok == false)
                 {
                     //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
                     Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if (height == 36 || height == 46 || height == 56 && (ActualHeight+height)<=TotalHeight)
+                    if (height == 36 || height == 46 || height == 56 && (ActualHeight+height+36*(boxamount-i-1))<=TotalHeight) 
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
                         ActualHeight = ActualHeight + height;
-                        
+                        Console.WriteLine(ActualHeight + 36 * (boxamount - i - 1) < totalHeight);
+                        Console.WriteLine(ActualHeight);
                         ok = true;
                     }
                     else

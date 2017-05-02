@@ -53,10 +53,10 @@ namespace KewLox
                 switch (ex.Number)
                 {
                     case 0:
-                        Console.WriteLine("Can not connect to server. Contact administrator"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                        Console.WriteLine("Can not connect to server. Contact administrator"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
                         break;
                     case 1045:
-                        Console.WriteLine("Invalid username/password, please try again"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                        Console.WriteLine("Invalid username/password, please try again"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
                         break;
                 }
                 return false;
@@ -73,7 +73,7 @@ namespace KewLox
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnut
+                Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
                 return false;
             }
         }
@@ -182,7 +182,7 @@ namespace KewLox
                 }
             }
 
-            // Select statement
+           // Select statement
         public string[,] Select(string columns, string table, string equal)
         {
             string query = "SELECT " +  columns + " FROM " + table + " WHERE " + equal;

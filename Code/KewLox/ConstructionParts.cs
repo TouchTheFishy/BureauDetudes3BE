@@ -60,6 +60,7 @@ namespace KewLox
 
         public string Name { get; set; }
         public string Cup { get; set; }
+
         public string[] AddPart(int amount)
         {
             string qtty = Convert.ToString(amount);

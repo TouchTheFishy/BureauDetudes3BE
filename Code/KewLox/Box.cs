@@ -14,7 +14,6 @@ namespace KewLox
 
         List<string> DbLink = new List<string>(6);
         String[] DbColumn;
-        String[] DbWColor;
         String[] DbWDoor;
 
         public void AddConstructionParts(int boxheight)
@@ -98,9 +97,9 @@ namespace KewLox
                 }
             }
 
-            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Traverse", Color=""};
-            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse", Color = "" };
-            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse", Color = "" };
+            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Traverse avant", Color=""};
+            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse arrière", Color = "" };
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse gauche droite", Color = "" };
             ConstructionParts VertCB = new ConstructionParts() { Height = Convert.ToString(height), Name = "Tasseau", Color = "" };
 
             string[] request0 = VertCB.AddPart(4);
@@ -133,7 +132,6 @@ namespace KewLox
                             {
                                 Console.WriteLine("Do you want cups on these doors? Yes/No");
                                 answer = Console.ReadLine();
-                                string color = "white";
 
                                 if (answer == "Yes" || answer == "yes")
                                 {
