@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace KewLox
 {
-    
-
     class Closet
     {
-        private static List<ConstructionParts> parts;
+        private static List<KeyValuePair<string,int>> parts = new List<KeyValuePair<string, int>>();
 
-        public static List<ConstructionParts> Parts
+        public List<KeyValuePair<string,int>> Parts
         {
             get { return parts; }
             set { parts = value; }
-
         }
 
         private static int width;
@@ -137,23 +134,24 @@ namespace KewLox
                 {
                     Boxamount = boxamount;
                     ok = true;
-                    
-
                 }
                 else
                 {
                     Console.WriteLine("Select an available amount");
-
                 }
             }
             int i = 0;
             //if boxamount*56 (max height of the closet) < total height: return boxamount*56
             //else: return totalHeight
             int maxheight = boxamount*56 < totalHeight ? boxamount*56 : totalHeight;
-            while (i < Boxamount)
+            while (i < boxamount)
             {
-
-                Console.WriteLine("Which height for box number "+i+"? (maximum " + (maxheight - ActualHeight)+"cm and"+ (boxamount-i) +" boxes left)");
+                int max = maxheight - actualHeight;
+                if (max > 56*(boxamount-i))
+                {
+                    max = 56 * (boxamount - i);
+                }
+                Console.WriteLine("Which height for box number "+i+"? (maximum " + max +"cm and"+ (boxamount-i) +" boxes left)");
                 ok = false;
                 while (ok == false)
                 {
@@ -164,9 +162,11 @@ namespace KewLox
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
+                        foreach(KeyValuePair<string,int> boxpart in box.Parts)
+                        {
+                            parts.Add(boxpart);
+                        }
                         ActualHeight = ActualHeight + height;
-                        Console.WriteLine(ActualHeight + 36 * (boxamount - i - 1) < totalHeight);
-                        Console.WriteLine(ActualHeight);
                         ok = true;
                     }
                     else
@@ -187,7 +187,10 @@ namespace KewLox
                 string answer = Console.ReadLine();
                 if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
                 {
-                    ConstructionParts angles = new ConstructionParts() { Name = "Angles", Height = Convert.ToString(ActualHeight), Color = answer };
+                    ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(ActualHeight), Color = answer };
+                    angles.Code = angles.MakeCode();
+                    KeyValuePair<string, int> anglesparts = new KeyValuePair<string, int>(angles.Code, 4);
+                    parts.Add(anglesparts);
                     string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
                     string[] data = angles.AddPart(4);
                     database.Insert("commandespieces", query, data);

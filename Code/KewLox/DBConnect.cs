@@ -100,9 +100,9 @@ namespace KewLox
         }
 
         // Insert statement. Take the name of the table and two list, non restriction in length.
-        public int Insert(string table, string[] namecolumns, string[] namevalues)
+        public Int64 Insert(string table, string[] namecolumns, string[] namevalues)
         {
-            int id;
+            Int64 id;
             int i = 0;
             string columns = namecolumns[i];
             string values = "'" + namevalues[i] + "'";
@@ -131,7 +131,7 @@ namespace KewLox
                 MySqlCommand cmd = new MySqlCommand(query, connection);
                 // Execute command and get the ID back
                 cmd.ExecuteNonQuery();
-                id = Convert.ToInt32(cmd.LastInsertedId);
+                id = Convert.ToInt64(cmd.LastInsertedId);
 
                 // Close connection
                 this.CloseConnection();
