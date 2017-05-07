@@ -26,11 +26,22 @@ namespace KewLox
         List<string> DbLink = new List<string>(6);
         String[] DbColumn;
         String[] DbWDoor;
+        DBConnect database = new DBConnect();
+
+        public bool checkStock(KeyValuePair<string, int> part)
+        {
+            string[,] stock = database.Select("`Enstock`", "stock", "`code`='" + part.Key + "'");
+            if (Convert.ToInt32(stock[0, 1]) > part.Value)
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         public void AddConstructionParts(int boxheight)
         {
             int height = boxheight - 4;
-            DBConnect database = new DBConnect();
             DbLink.Add("Name");
             DbLink.Add("Height");
             DbLink.Add("Depth");
@@ -49,7 +60,6 @@ namespace KewLox
                 ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(Closet.Width), Name = "Panneau Ar" };
-                //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 
                 
@@ -88,7 +98,6 @@ namespace KewLox
                         new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                         new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                         new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
@@ -114,7 +123,6 @@ namespace KewLox
                         new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                         new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                         new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
@@ -259,6 +267,27 @@ namespace KewLox
                     }
                 }
             }
+            bool instock = true;
+            foreach (KeyValuePair<string,int> part in parts)
+            {
+                if (checkStock(part)!= true)
+                {
+                    instock = false;
+                    break;
+                }
+                instock = true;
+            }
+            if (instock == true)
+            {
+                Console.WriteLine("All pieces for this box are in stock!");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Not all pieces are in stock, we have to command them. You can still order, and pay an advance, and we'll tell you when you can come grab everything.");
+                Console.ReadKey();
+            }
+            
 
         }
         

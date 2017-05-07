@@ -98,7 +98,7 @@ namespace KewLox
 
         }
 
-        // Insert statement. Take the name of the table and two list, non restriction in length.
+        // Insert statement. Takes the name of the table and two lists, no restriction in length.
         public Int64 Insert(string table, string[] namecolumns, string[] namevalues)
         {
             Int64 id;

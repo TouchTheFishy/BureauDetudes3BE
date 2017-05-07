@@ -67,6 +67,8 @@ namespace KewLox
             set { actualHeight = value; }
 
         }
+
+        
         public void CalculateHeightOptions()
 
         {

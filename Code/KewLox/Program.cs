@@ -26,8 +26,8 @@ namespace KewLox
             string totalstring;
             string[] values;
             DBConnect database = new DBConnect();
-            string[] column = new string[1] { "FirstName" };
-            string[] name = new string[1] { "temp" };
+            string[] column = new string[5] { "FirstName" ,"LastName","Email","Numero","Prix"};
+            string[] name = new string[5] { "temp","" ,"","0","0"};
             Id = database.Insert("commandes", column, name); //returns ID of command
             Closet closet1 = new Closet();
             closet1.CalculateHeightOptions();
@@ -47,8 +47,14 @@ namespace KewLox
             string firstname = Console.ReadLine();
             Console.WriteLine("What is your lastname?");
             string lastname = Console.ReadLine();
+            Console.WriteLine("What is your email address?");
+            string email = Console.ReadLine();
+            Console.WriteLine("What is your telephone number?");
+            string number = Console.ReadLine();
             database.Update("commandes", "`FirstName`", "`id`", firstname, Convert.ToInt32(Id));
             database.Update("commandes", "`LastName`", "`id`", lastname, Convert.ToInt32(Id));
+            database.Update("commandes", "`email`", "`id`", email, Convert.ToInt32(Id));
+            database.Update("commandes", "`Numero`", "`id`", number, Convert.ToInt32(Id));
             database.Update("commandes", "`Prix`", "`id`", totalstring, Convert.ToInt32(Id));
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
