@@ -124,13 +124,13 @@ namespace KewLox
         }
         public void AddBoxes()
         {
-            
+
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("How many boxes would you like? (Max "+MaxNbBoxes+" boxes)");
+                Console.WriteLine("How many boxes would you like? (Max " + MaxNbBoxes + " boxes)");
                 int boxamount = Convert.ToInt32(Console.ReadLine());
-                if (boxamount>=1 && boxamount<=MaxNbBoxes )
+                if (boxamount >= 1 && boxamount <= MaxNbBoxes)
                 {
                     Boxamount = boxamount;
                     ok = true;
@@ -143,26 +143,26 @@ namespace KewLox
             int i = 0;
             //if boxamount*56 (max height of the closet) < total height: return boxamount*56
             //else: return totalHeight
-            int maxheight = boxamount*56 < totalHeight ? boxamount*56 : totalHeight;
+            int maxheight = boxamount * 56 < totalHeight ? boxamount * 56 : totalHeight;
             while (i < boxamount)
             {
                 int max = maxheight - actualHeight;
-                if (max > 56*(boxamount-i))
+                if (max > 56 * (boxamount - i))
                 {
                     max = 56 * (boxamount - i);
                 }
-                Console.WriteLine("Which height for box number "+i+"? (maximum " + max +"cm and"+ (boxamount-i) +" boxes left)");
+                Console.WriteLine("Which height for box number " + i + "? (maximum " + max + "cm and" + (boxamount - i) + " boxes left)");
                 ok = false;
                 while (ok == false)
                 {
                     //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
                     Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if ((height == 36 || height == 46 || height == 56) && (ActualHeight+height+36*(boxamount-i-1)<=TotalHeight)) 
+                    if ((height == 36 || height == 46 || height == 56) && (ActualHeight + height + 36 * (boxamount - i - 1) <= TotalHeight))
                     {
                         Box box = new Box();
                         box.AddConstructionParts(height);
-                        foreach(KeyValuePair<string,int> boxpart in box.Parts)
+                        foreach (KeyValuePair<string, int> boxpart in box.Parts)
                         {
                             parts.Add(boxpart);
                         }
@@ -176,15 +176,18 @@ namespace KewLox
 
                 }
                 i += 1;
-                
+
             }
-            //Ajout des cornières à la fin de la commande 
+            // All boxes have been added
+            //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
             DBConnect database = new DBConnect();
             ok = false;
+            // add corners
+            string answer;
             while (ok == false)
             {
                 Console.WriteLine("what Color would you like for your angles? Available: White, Black, Brown, Chromed");
-                string answer = Console.ReadLine();
+                answer = Console.ReadLine();
                 if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
                 {
                     ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(ActualHeight), Color = answer };
@@ -201,8 +204,96 @@ namespace KewLox
                     Console.WriteLine("Wrong input");
                 }
             }
+            //Add the up panel in the end
+            ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
+            Console.WriteLine("Do you want to customize the up pannel color? Default color is White for every pannel. Yes/No");
+            answer = Console.ReadLine();
+            List<string> DbLink = new List<string>(6);
+            String[] DbColumn;
+            DbLink.Add("Name");
+            DbLink.Add("Height");
+            DbLink.Add("Depth");
+            DbLink.Add("Width");
+            DbLink.Add("Quantity");
+            DbLink.Add("OrderId");
+            DbLink.Add("Color");
+            DbColumn = DbLink.ToArray();
+            bool check = false;
+            if (answer == "Yes" || answer == "yes")
+            {
+                while (check == false)
+                {
+
+                    Console.WriteLine("Which color for the Up Pannel Brown or White?");
+                    string color = Console.ReadLine();
+                    if (color == "Brown" || color == "White")
+                    {
+                        UpP.Color = color;
+                        string[] request = UpP.AddPart(1);
+                        database.Insert("commandespieces", DbColumn, request);
+                        check = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please select an available color");
+                    }
+                }
+                //Add codes for pannels to parts
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
+                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                };
+                parts.AddRange(pannelcodes);
+
+            }
+            check = false;
+
+            if (answer == "No" || answer == "no")
+            {
+
+                UpP.Color = "White";
+                string[] request = UpP.AddPart(1);
+                database.Insert("commandespieces", DbColumn, request);
+                check = true;
+                //Add codes for pannels to parts
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
+                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                };
+                parts.AddRange(pannelcodes);
+
+            }
+            else
+            {
+                if (check == false)
+                {
+                    Console.WriteLine("Please answer Yes Or No");
+                }
+            }
+
+            //add the traverses for the last box (up pannel)
+            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AV", Color = "" };
+            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse GD", Color = "" };
+
+            //Build codes for tasseaux & traverses
+            List<KeyValuePair<string, int>> tasseauxTraverses = new List<KeyValuePair<string, int>>()
+            {
+                new KeyValuePair<string, int>(FrontCB.Code = FrontCB.MakeCode(),1),
+                new KeyValuePair<string, int>(BackCB.Code = BackCB.MakeCode(),1),
+                new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),2),
+            };
+            parts.AddRange(tasseauxTraverses);
+
+            string[] request1 = FrontCB.AddPart(1);
+            string[] request1bis = BackCB.AddPart(1);
+            string[] request2 = SideCB.AddPart(2);
+
+
+            database.Insert("commandespieces", DbColumn, request1);
+            database.Insert("commandespieces", DbColumn, request1bis);
+            database.Insert("commandespieces", DbColumn, request2);
+
 
         }
-        
+
     }
 }

@@ -45,17 +45,18 @@ namespace KewLox
             bool check = false;
             while (check == false)
             {
+                //each box has a down, a left, a right and a back pannel, only the last one has an up pannel! 
                 ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(Closet.Width), Name = "Panneau Ar" };
-                ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
+                //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 
                 
                 Console.WriteLine("Do you want to customize pannels color? Default color is White for every pannel. Yes/No");
                 string answer = Console.ReadLine();
-                List<ConstructionParts> pannels = new List<ConstructionParts>() {LeftP,RightP,BackP,UpP,DnP };
-                List<string> choices = new List<string>() { "Left Pannel", "Right Pannel", "Back Pannel", "Up Pannel", "Down Pannel" };
+                List<ConstructionParts> pannels = new List<ConstructionParts>() {LeftP,RightP,BackP,DnP };
+                List<string> choices = new List<string>() { "Left Pannel", "Right Pannel", "Back Pannel", "Down Pannel" };
                 if (answer == "Yes" || answer == "yes")
                 {
                     int i = 0;
@@ -87,7 +88,7 @@ namespace KewLox
                         new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                         new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                         new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
@@ -113,7 +114,7 @@ namespace KewLox
                         new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                         new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                         new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
@@ -127,7 +128,7 @@ namespace KewLox
                     }
                 }
             }
-
+            //each box has 1 front 1 back and 2 left/right traverses, only the last one has double so many
             ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Traverse AV", Color=""};
             ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
             ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse GD", Color = "" };
@@ -136,17 +137,17 @@ namespace KewLox
             //Build codes for tasseaux & traverses
             List<KeyValuePair<string, int>> tasseauxTraverses = new List<KeyValuePair<string, int>>()
             {
-                new KeyValuePair<string, int>(FrontCB.Code = FrontCB.MakeCode(),2),
-                new KeyValuePair<string, int>(BackCB.Code = BackCB.MakeCode(),2),
-                new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),4),
+                new KeyValuePair<string, int>(FrontCB.Code = FrontCB.MakeCode(),1),
+                new KeyValuePair<string, int>(BackCB.Code = BackCB.MakeCode(),1),
+                new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),2),
                 new KeyValuePair<string, int>(VertCB.Code = VertCB.MakeCode(),4)
             };
             parts.AddRange(tasseauxTraverses);
             
             string[] request0 = VertCB.AddPart(4);
-            string[] request1 = FrontCB.AddPart(2);
-            string[] request1bis = BackCB.AddPart(2);
-            string[] request2 = SideCB.AddPart(4);
+            string[] request1 = FrontCB.AddPart(1);
+            string[] request1bis = BackCB.AddPart(1);
+            string[] request2 = SideCB.AddPart(2);
             
 
             database.Insert("commandespieces", DbColumn, request0);
@@ -204,7 +205,9 @@ namespace KewLox
                                     Cup.Code = Cup.MakeCode();
                                     KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
                                     parts.Add(cups);
+                                    string[]cuprequest = Cup.AddPart(2);
                                     database.Insert("commandespieces", DbWDoor, request);
+                                    database.Insert("commandespieces", DbColumn, cuprequest);
                                     ok = true;
 
                                 }
