@@ -43,7 +43,12 @@ namespace KewLox
             }
             values = total.ToString().Split(Convert.ToChar(","));
             totalstring = values[0] + "." + values[1];
-            Console.WriteLine(totalstring);
+            Console.WriteLine("What is your firstname?");
+            string firstname = Console.ReadLine();
+            Console.WriteLine("What is your lastname?");
+            string lastname = Console.ReadLine();
+            database.Update("commandes", "`FirstName`", "`id`", firstname, Convert.ToInt32(Id));
+            database.Update("commandes", "`LastName`", "`id`", lastname, Convert.ToInt32(Id));
             database.Update("commandes", "`Prix`", "`id`", totalstring, Convert.ToInt32(Id));
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
