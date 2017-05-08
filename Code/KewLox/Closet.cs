@@ -288,7 +288,7 @@ namespace KewLox
             string[] request2 = SideCB.AddPart(2);
 
 
-            database.Insert("commandespieces", DbColumn, request1);
+             database.Insert("commandespieces", DbColumn, request1);
             database.Insert("commandespieces", DbColumn, request1bis);
             database.Insert("commandespieces", DbColumn, request2);
 
