@@ -9,30 +9,20 @@ namespace KewLox
 {
     public class ChooseProvider
     {
-        private string datasource;// = "localhost"
-        private string port;// = "3306"
-        private string username;// = "root";
-        private string password;// = "";
-        private string connectionInfo;
-
-        //Data of the database & server
-        public List<string> Fournisseur
+        private string provider;
+        public string Provider
         {
-            get { return new List<string> { datasource, port, username, password, connectionInfo }; }
+            get { return provider; }
+            set { provider = value; }
         }
 
-        //Constructor for the database
-        public ChooseProvider(string Datasource, string Port, string Username, string Password)
+        //choose provider for a part with code "code" in the database, calls method "ChooseProv"
+        public ChooseProvider(string code,DBConnect database)
         {
-            this.datasource = Datasource;
-            this.port = Port;
-            this.username = Username;
-            this.password = Password;
-            this.connectionInfo = String.Format("datasource={0}; port={1}; username={2}; password={3}", Datasource, Port, Username, Password);
+            this.Provider = ChooseProv(code,database);
         }
 
-        //Looks for part with code "code" in the database with connection info "connectionInfo"
-        public string ChooseProv(string code, string connectionInfo)
+        private string ChooseProv(string code, DBConnect database)
         {
             try
             {
@@ -40,44 +30,30 @@ namespace KewLox
                 double price1;
                 double price2;
 
-                //give infos to connect to the db, and open connection
-                MySqlConnection connect = new MySqlConnection(connectionInfo);
-                connect.Open();
-
                 //SQL Command based on the part needed, & executing the command
-                MySqlCommand cmd = new MySqlCommand("select `Prix-Fourn 1`,`Prix-Fourn2`,`Delai-Fourn 1`,`Delai-Fourn2` from csv_db.kewlox where `Code`='" + code + "';", connect);
-                MySqlDataReader reader = cmd.ExecuteReader();
+                string[,] values = database.Select("`Prix-Fourn 1`,`Prix-Fourn2`,`Delai-Fourn 1`,`Delai-Fourn2`", "stock", "`Code`='" + code + "'");
 
-                //Looking through results of the command
-                if (reader.HasRows)
+                //checks if there is an error (dbconnect failed or piece doesn't exist)
+                if (values[0, 0] == "error")
                 {
-                    while (reader.Read())
-                    {
-                        //Finding the prices for the different providers
-                        price1 = Convert.ToDouble(reader[0]);
-                        price2 = Convert.ToDouble(reader[1]);
-                        //First scenario: prices are equal => check delays
-                        if (price1 == price2)
-                        {
-                            int delay1 = Convert.ToInt32(reader[2]);
-                            int delay2 = Convert.ToInt32(reader[3]);
-                            reader.Close();
-                            connect.Close();
-                            //Returns the provider with better delay
-                            return (delay1 <= delay2 ? "fourn1" : "fourn2");
-                        }
-                        reader.Close();
-                        connect.Close();
-                        //Returns the chosen provider
-                        return (price1 < price2 ? "fourn1" : "fourn2");
-                    }
+                    return values[0,1];
                 }
-                //No row responds to request
-                return "This part does not exist";
+                price1 = Convert.ToDouble(values[0, 1]);
+                price2 = Convert.ToDouble(values[1, 1]);
+                //First scenario: prices are equal => check delays
+                if (price1 == price2)
+                {
+                    int delay1 = Convert.ToInt32(values[2,1]);
+                    int delay2 = Convert.ToInt32(values[3,1]);
+                    //Returns the provider with better delay
+                    return (delay1 <= delay2 ? "fourn1" : "fourn2");
+                }
+                //Returns the chosen provider
+                return (price1 < price2 ? "fourn1" : "fourn2");
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return(ex.Message);
             }
 
         }
