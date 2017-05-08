@@ -39,8 +39,6 @@ namespace KewLox
             DbLink.Add("OrderId");
             DbLink.Add("Color");
             DbColumn = DbLink.ToArray();
-            DbLink.Add("Cup");
-            DbWDoor = DbLink.ToArray();
 
             bool check = false;
             while (check == false)
@@ -196,7 +194,7 @@ namespace KewLox
                                 //still need to add the door to this.parts (first make keyvaluepair)
                                 if (answer == "Yes" || answer == "yes")
                                 {
-                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "Yes" };
+                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
                                     string[] request = Door.AddDoor();
                                     Door.Code = Door.MakeCode();
                                     KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
@@ -206,7 +204,7 @@ namespace KewLox
                                     KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
                                     parts.Add(cups);
                                     string[]cuprequest = Cup.AddPart(2);
-                                    database.Insert("commandespieces", DbWDoor, request);
+                                    database.Insert("commandespieces", DbColumn, request);
                                     database.Insert("commandespieces", DbColumn, cuprequest);
                                     ok = true;
 
@@ -214,12 +212,12 @@ namespace KewLox
 
                                 if (answer == "No" || answer == "no")
                                 {
-                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "No" };
+                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
                                     string[] request = Door.AddDoor();
                                     Door.Code = Door.MakeCode();
                                     KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
                                     parts.Add(doors);
-                                    database.Insert("commandespieces", DbWDoor, request);
+                                    database.Insert("commandespieces", DbColumn, request);
                                     ok = true;
                                 }
                                 else
@@ -238,7 +236,7 @@ namespace KewLox
                             Door.Code = Door.MakeCode();
                             KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
                             parts.Add(doors);
-                            database.Insert("commandespieces", DbWDoor, request);
+                            database.Insert("commandespieces", DbColumn, request);
                             ok = true;
                         }
                     }
