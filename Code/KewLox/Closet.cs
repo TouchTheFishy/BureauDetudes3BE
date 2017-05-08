@@ -124,7 +124,6 @@ namespace KewLox
         }
         public void AddBoxes()
         {
-
             bool ok = false;
             while (ok == false)
             {
@@ -132,6 +131,7 @@ namespace KewLox
                 int boxamount = Convert.ToInt32(Console.ReadLine());
                 if (boxamount >= 1 && boxamount <= MaxNbBoxes)
                 {
+
                     Boxamount = boxamount;
                     ok = true;
                 }
@@ -146,6 +146,7 @@ namespace KewLox
             int maxheight = boxamount * 56 < totalHeight ? boxamount * 56 : totalHeight;
             while (i < boxamount)
             {
+
                 int max = maxheight - actualHeight;
                 if (max > 56 * (boxamount - i))
                 {

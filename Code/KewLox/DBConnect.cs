@@ -9,7 +9,6 @@ namespace KewLox
 {
     public class DBConnect
     {
-
         private MySqlConnection connection;
         private string server;
         private string database;
