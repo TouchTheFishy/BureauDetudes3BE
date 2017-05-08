@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Box.cs" />
+    <Compile Include="ChooseProvider.cs" />
     <Compile Include="Closet.cs" />
     <Compile Include="ConstructionParts.cs" />
     <Compile Include="DBConnect.cs" />
