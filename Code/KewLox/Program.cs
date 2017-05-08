@@ -32,8 +32,7 @@ namespace KewLox
             Closet closet1 = new Closet();
             closet1.CalculateHeightOptions();
             closet1.AddBoxes();
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
+            
             foreach (KeyValuePair<string,int> part in closet1.Parts)
             {
                 string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='"+part.Key+"'");
@@ -52,6 +51,7 @@ namespace KewLox
             database.Update("commandes", "`Prix`", "`id`", totalstring, Convert.ToInt32(Id));
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
+            Console.WriteLine("Press any key to exit");
             Console.ReadKey();
             
         }

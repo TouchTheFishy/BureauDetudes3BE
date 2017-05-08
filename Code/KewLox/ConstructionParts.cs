@@ -196,9 +196,8 @@ namespace KewLox
         {
             string qtty = Convert.ToString(2);
             string id = Convert.ToString(Program.Id);
-            string cup = Convert.ToString(Cup);
             
-            string[] result = new string[8] { Name, Height, Depth, Width, qtty, id, Color, cup};
+            string[] result = new string[7] { Name, Height, Depth, Width, qtty, id, Color};
             return result;
         }
     }
