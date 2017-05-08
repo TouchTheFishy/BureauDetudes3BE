@@ -4,6 +4,11 @@ This is the repository for our project KitBox to work and practice our knowledge
 
 ## UML
 We are beginning with a reflexion about the project and making some UML.
+1. Use Case Diagram
+2. Activity Diagram
+3. Class Diagram
+4. Sequency Diagram
+5. Entity-relation Diagram
 
 ## Code
 Then we'll start our coding process.
