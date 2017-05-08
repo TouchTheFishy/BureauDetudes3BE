@@ -1,0 +1,9 @@
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\bin\Debug\KewLox_Forms_.exe.config
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\bin\Debug\KewLox_Forms_.exe
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\bin\Debug\KewLox_Forms_.pdb
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.csprojResolveAssemblyReference.cache
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.Form1.resources
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.Properties.Resources.resources
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.csproj.GenerateResource.Cache
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.exe
+E:\Documents & Co\Documents\Visual Studio 2015\Projects\KewLox_Forms_\KewLox_Forms_\obj\Debug\KewLox_Forms_.pdb
