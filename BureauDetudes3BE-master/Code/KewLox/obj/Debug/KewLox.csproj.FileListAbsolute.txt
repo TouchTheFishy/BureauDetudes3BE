@@ -1,7 +1,0 @@
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe.config
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.exe
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\bin\Debug\KewLox.pdb
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\bin\Debug\MySql.Data.dll
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.csprojResolveAssemblyReference.cache
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.exe
-C:\Users\william\Desktop\PG\BureauDetudes3BE-master\Code\KewLox\obj\Debug\KewLox.pdb
