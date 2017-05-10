@@ -170,6 +170,7 @@ namespace KewLox
 
         // Delete statement
         public void Delete(string table, string value)
+
             {
                 string query = "DELETE FROM " + table + " WHERE " + value;
 
@@ -230,7 +231,6 @@ namespace KewLox
                 {
                     return values = new string[,] { {"error","This part does not exist." } };
                 }
-                
             }
             //if the connection failed
             else

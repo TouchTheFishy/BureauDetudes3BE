@@ -97,6 +97,8 @@ namespace KewLox
                         database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
                     }
 
+
+
                 }
                 if (answer == "No" || answer == "no")
                 {
@@ -225,6 +227,7 @@ namespace KewLox
                                     //Remove the amount taken in db "stock" and update "sold"
                                     database.Sold("sold", doors.Key, doors.Value);
                                     database.Sold("sold", cups.Key, cups.Value);
+
                                 }
 
                                 if (answer == "No" || answer == "no")
@@ -239,6 +242,7 @@ namespace KewLox
 
                                     //Remove the amount taken in db "stock" and update "sold"
                                     database.Sold("sold", doors.Key, doors.Value);
+
                                 }
                                 else
                                 {
@@ -261,6 +265,7 @@ namespace KewLox
 
                             //Remove the amount taken in db "stock" and update "sold"
                             database.Sold("sold", doors.Key, doors.Value);
+
                         }
                     }
                     else

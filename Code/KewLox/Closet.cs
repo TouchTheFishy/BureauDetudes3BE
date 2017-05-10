@@ -310,5 +310,6 @@ namespace KewLox
             database.Insert("commandespieces", DbColumn, request1bis);
             database.Insert("commandespieces", DbColumn, request2);
         }
+
     }
 }
