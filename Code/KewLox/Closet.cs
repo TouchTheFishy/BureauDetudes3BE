@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace KewLox
 {
-    
-
     class Closet
     {
-        private static List<ConstructionParts> parts;
+        private static List<KeyValuePair<string,int>> parts = new List<KeyValuePair<string, int>>();
 
-        public static List<ConstructionParts> Parts
+        public List<KeyValuePair<string,int>> Parts
         {
             get { return parts; }
             set { parts = value; }
-
         }
 
         private static int width;
@@ -76,8 +73,8 @@ namespace KewLox
             Console.WriteLine("Wich height is available? (in cm)");
             totalHeight=Convert.ToInt32(Console.ReadLine());
             TotalHeight = totalHeight;
-            int MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/32)));
-            int MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 52)));
+            MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/36)));
+            MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 56)));
             if (MinNbBoxes > 7)
             {
                 MinNbBoxes = 7;
@@ -91,10 +88,10 @@ namespace KewLox
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Available width: 32, 42, 52. Select one");
+                Console.WriteLine("Available width: 32, 42, 52, 62, 80, 100, 120. Select one");
 
                 width = Convert.ToInt32(Console.ReadLine());
-                if (width == 32 || width ==42 || width == 52)
+                if (width == 32 || width ==42 || width == 52 || width == 62 || width == 80 || width == 100 || width == 120)
                 {
                     Width = width;
                     ok = true;
@@ -108,9 +105,9 @@ namespace KewLox
             ok = false;
             while (ok == false)
             {
-                Console.WriteLine("Available depth: 32, 42, 52. Select one");
+                Console.WriteLine("Available depths: 32, 42, 52, 62. Select one");
                 depth = Convert.ToInt32(Console.ReadLine());
-                if (depth == 32 || depth == 42 || depth== 52)
+                if (depth == 32 || depth == 42 || depth== 52 || depth==62)
                 {
                     Depth = depth;
                     ok = true;
@@ -121,69 +118,197 @@ namespace KewLox
                 }
 
             }
-            Console.WriteLine("Min boxes amount = " + MinNbBoxes);
-            Console.WriteLine("Max boxes amount = " + MaxNbBoxes);
+            
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
-        public List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> AddBoxes()
+        public void AddBoxes()
         {
-            
             bool ok = false;
             while (ok == false)
             {
-                Console.WriteLine("How many boxes would you like?");
+                Console.WriteLine("How many boxes would you like? (Max " + MaxNbBoxes + " boxes)");
                 int boxamount = Convert.ToInt32(Console.ReadLine());
-                if (boxamount > MaxNbBoxes || boxamount < MinNbBoxes)
+                if (boxamount >= 1 && boxamount <= MaxNbBoxes)
                 {
-                    Console.WriteLine("Select a available amount");
 
+                    Boxamount = boxamount;
+                    ok = true;
                 }
                 else
                 {
-                    Boxamount = boxamount;
-                    ok = true;
-
+                    Console.WriteLine("Select an available amount");
                 }
             }
-            int i = 1;
-            List<KeyValuePair<int,List<KeyValuePair<ConstructionParts, int>>>> PartsPerBox = new List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>>();
-            while (i < Boxamount)
+            int i = 0;
+            //if boxamount*56 (max height of the closet) < total height: return boxamount*56
+            //else: return totalHeight
+            int maxheight = boxamount * 56 < totalHeight ? boxamount * 56 : totalHeight;
+            while (i < boxamount)
             {
-                Console.WriteLine("Whcih height for this box? Height remaining : " + (TotalHeight - ActualHeight));
+
+                int max = maxheight - actualHeight;
+                if (max > 56 * (boxamount - i))
+                {
+                    max = 56 * (boxamount - i);
+                }
+                Console.WriteLine("Which height for box number " + i + "? (maximum " + max + "cm and" + (boxamount - i) + " boxes left)");
                 ok = false;
                 while (ok == false)
                 {
-                    Console.WriteLine("Available heights: 32, 42, 52. Select one");
+                    //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
+                    Console.WriteLine("Available heights: 36, 46, 56. Select one");
                     int height = Convert.ToInt32(Console.ReadLine());
-                    if (height == 32 || height == 42 || height == 52 && (ActualHeight+height)<=TotalHeight)
+                    if ((height == 36 || height == 46 || height == 56) && (ActualHeight + height + 36 * (boxamount - i - 1) <= TotalHeight))
                     {
                         Box box = new Box();
-                        PartsPerBox.Add(new KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>(i,box.AddConstructionParts(height)));
-                        
+                        box.AddConstructionParts(height);
+                        foreach (KeyValuePair<string, int> boxpart in box.Parts)
+                        {
+                            parts.Add(boxpart);
+                        }
+                        ActualHeight = ActualHeight + height;
                         ok = true;
                     }
                     else
                     {
-                        Console.WriteLine("Select an available depth");
+                        Console.WriteLine("Select an available height");
                     }
 
                 }
-                
+                i += 1;
 
             }
-            return PartsPerBox;
-
-        }
-        public List<KeyValuePair<ConstructionParts, int>> CalculateTotalParts(List<KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>>> partsperbox)
-        {
-            List<KeyValuePair<ConstructionParts, int>> TotalParts = new List<KeyValuePair<ConstructionParts, int>>();
-            foreach (KeyValuePair<int, List<KeyValuePair<ConstructionParts, int>>> box in partsperbox)
+            // All boxes have been added
+            //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
+            DBConnect database = new DBConnect();
+            ok = false;
+            // add corners
+            string answer;
+            while (ok == false)
             {
-                
+                Console.WriteLine("what Color would you like for your angles? Available: White, Black, Brown, Chromed");
+                answer = Console.ReadLine();
+                if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
+                {
+                    ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(ActualHeight), Color = answer };
+                    angles.Code = angles.MakeCode();
+                    KeyValuePair<string, int> anglesparts = new KeyValuePair<string, int>(angles.Code, 4);
+                    parts.Add(anglesparts);
+                    string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
+                    string[] data = angles.AddPart(4);
+                    database.Insert("commandespieces", query, data);
+                    ok = true;
+
+                    database.Sold("sold", anglesparts.Key, anglesparts.Value);
+                }
+                else
+                {
+                    Console.WriteLine("Wrong input");
+                }
             }
-            List<KeyValuePair<ConstructionParts, int>> list = new List<KeyValuePair<ConstructionParts, int>>();
-            return list;
+            //Add the up panel in the end
+            ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
+            Console.WriteLine("Do you want to customize the up pannel color? Default color is White for every pannel. Yes/No");
+            answer = Console.ReadLine();
+            List<string> DbLink = new List<string>(6);
+            String[] DbColumn;
+            DbLink.Add("Name");
+            DbLink.Add("Height");
+            DbLink.Add("Depth");
+            DbLink.Add("Width");
+            DbLink.Add("Quantity");
+            DbLink.Add("OrderId");
+            DbLink.Add("Color");
+            DbColumn = DbLink.ToArray();
+            bool check = false;
+            if (answer == "Yes" || answer == "yes")
+            {
+                while (check == false)
+                {
+
+                    Console.WriteLine("Which color for the Up Pannel Brown or White?");
+                    string color = Console.ReadLine();
+                    if (color == "Brown" || color == "White")
+                    {
+                        UpP.Color = color;
+                        string[] request = UpP.AddPart(1);
+                        database.Insert("commandespieces", DbColumn, request);
+                        check = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please select an available color");
+                    }
+                }
+                //Add codes for pannels to parts
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
+                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                };
+                parts.AddRange(pannelcodes);
+
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
+            }
+            check = false;
+
+            if (answer == "No" || answer == "no")
+            {
+
+                UpP.Color = "White";
+                string[] request = UpP.AddPart(1);
+                database.Insert("commandespieces", DbColumn, request);
+                check = true;
+                //Add codes for pannels to parts
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
+                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                };
+                parts.AddRange(pannelcodes);
+
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
+            }
+            else
+            {
+                if (check == false)
+                {
+                    Console.WriteLine("Please answer Yes Or No");
+                }
+            }
+
+            //add the traverses for the last box (up pannel)
+            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AV", Color = "" };
+            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse GD", Color = "" };
+
+            //Build codes for tasseaux & traverses
+            List<KeyValuePair<string, int>> tasseauxTraverses = new List<KeyValuePair<string, int>>()
+            {
+                new KeyValuePair<string, int>(FrontCB.Code = FrontCB.MakeCode(),1),
+                new KeyValuePair<string, int>(BackCB.Code = BackCB.MakeCode(),1),
+                new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),2),
+            };
+            parts.AddRange(tasseauxTraverses);
+
+            //Remove the amount taken in db "stock" and update "sold"
+            for (int j = 0; j < tasseauxTraverses.Count; j++)
+            {
+                database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
+            }
+
+            string[] request1 = FrontCB.AddPart(1);
+            string[] request1bis = BackCB.AddPart(1);
+            string[] request2 = SideCB.AddPart(2);
+
+            database.Insert("commandespieces", DbColumn, request1);
+            database.Insert("commandespieces", DbColumn, request1bis);
+            database.Insert("commandespieces", DbColumn, request2);
         }
     }
 }
