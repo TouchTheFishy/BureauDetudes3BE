@@ -91,6 +91,12 @@ namespace KewLox
                     };
                     parts.AddRange(pannelcodes);
 
+                    //Remove the amount taken in db "stock" and update "sold"
+                    for (int j = 0; j < pannelcodes.Count; j++)
+                    {
+                        database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                    }
+
 
 
                 }
@@ -116,6 +122,12 @@ namespace KewLox
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
+
+                    //Remove the amount taken in db "stock" and update "sold"
+                    for (int i = 0; i < pannelcodes.Count; i++)
+                    {
+                        database.Sold("sold", pannelcodes[i].Key, pannelcodes[i].Value);
+                    }
                 }
 
                 else
@@ -152,8 +164,12 @@ namespace KewLox
             database.Insert("commandespieces", DbColumn, request1);
             database.Insert("commandespieces", DbColumn, request1bis);
             database.Insert("commandespieces", DbColumn, request2);
-            
 
+            //Remove the amount taken in db "stock" and update "sold"
+            for (int i = 0; i < tasseauxTraverses.Count; i++)
+            {
+                database.Sold("sold", tasseauxTraverses[i].Key, tasseauxTraverses[i].Value);
+            }
 
             bool ok = false;
             while (ok == false && Closet.Width>60)
@@ -208,6 +224,10 @@ namespace KewLox
                                     database.Insert("commandespieces", DbColumn, cuprequest);
                                     ok = true;
 
+                                    //Remove the amount taken in db "stock" and update "sold"
+                                    database.Sold("sold", doors.Key, doors.Value);
+                                    database.Sold("sold", cups.Key, cups.Value);
+
                                 }
 
                                 if (answer == "No" || answer == "no")
@@ -219,6 +239,10 @@ namespace KewLox
                                     parts.Add(doors);
                                     database.Insert("commandespieces", DbColumn, request);
                                     ok = true;
+
+                                    //Remove the amount taken in db "stock" and update "sold"
+                                    database.Sold("sold", doors.Key, doors.Value);
+
                                 }
                                 else
                                 {
@@ -238,6 +262,10 @@ namespace KewLox
                             parts.Add(doors);
                             database.Insert("commandespieces", DbColumn, request);
                             ok = true;
+
+                            //Remove the amount taken in db "stock" and update "sold"
+                            database.Sold("sold", doors.Key, doors.Value);
+
                         }
                     }
                     else
@@ -257,12 +285,6 @@ namespace KewLox
                     }
                 }
             }
-
-        }
-        
-
-        
-
-        
+        } 
     }
 }

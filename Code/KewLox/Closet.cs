@@ -199,6 +199,8 @@ namespace KewLox
                     string[] data = angles.AddPart(4);
                     database.Insert("commandespieces", query, data);
                     ok = true;
+
+                    database.Sold("sold", anglesparts.Key, anglesparts.Value);
                 }
                 else
                 {
@@ -245,6 +247,11 @@ namespace KewLox
                 };
                 parts.AddRange(pannelcodes);
 
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
             }
             check = false;
 
@@ -261,6 +268,11 @@ namespace KewLox
                 };
                 parts.AddRange(pannelcodes);
 
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
             }
             else
             {
@@ -284,16 +296,19 @@ namespace KewLox
             };
             parts.AddRange(tasseauxTraverses);
 
+            //Remove the amount taken in db "stock" and update "sold"
+            for (int j = 0; j < tasseauxTraverses.Count; j++)
+            {
+                database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
+            }
+
             string[] request1 = FrontCB.AddPart(1);
             string[] request1bis = BackCB.AddPart(1);
             string[] request2 = SideCB.AddPart(2);
 
-
             database.Insert("commandespieces", DbColumn, request1);
             database.Insert("commandespieces", DbColumn, request1bis);
             database.Insert("commandespieces", DbColumn, request2);
-
-
         }
 
     }
