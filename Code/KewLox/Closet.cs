@@ -1,4 +1,4 @@
-﻿using System;
+﻿﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -247,7 +247,13 @@ namespace KewLox
                 };
                 parts.AddRange(pannelcodes);
 
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
             }
+            check = false;
 
             
             if (answer == "No" || answer == "no")
@@ -256,12 +262,17 @@ namespace KewLox
                 UpP.Color = "White";
                 string[] request = UpP.AddPart(1);
                 database.Insert("commandespieces", DbColumn, request);
+                check = true;
                 //Add codes for pannels to parts
                 List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
                 new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                 };
                 parts.AddRange(pannelcodes);
-                check = true;
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < pannelcodes.Count; j++)
+                {
+                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+                }
 
             }
             else
@@ -284,6 +295,12 @@ namespace KewLox
                 new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),2),
             };
             parts.AddRange(tasseauxTraverses);
+
+            //Remove the amount taken in db "stock" and update "sold"
+            for (int j = 0; j < tasseauxTraverses.Count; j++)
+            {
+                database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
+            }
 
             string[] request1 = FrontCB.AddPart(1);
             string[] request1bis = BackCB.AddPart(1);

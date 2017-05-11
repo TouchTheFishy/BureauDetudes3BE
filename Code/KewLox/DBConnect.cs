@@ -169,11 +169,12 @@ namespace KewLox
         }
 
         // Delete statement
-        public void Delete(string table, string namecolumn, string value)
-            {
-                string query = "DELETE FROM " + table + " WHERE " + namecolumn + "='" + value + "'";
+        public void Delete(string table, string value)
 
-                if (this.OpenConnection() == true)
+            {
+                string query = "DELETE FROM " + table + " WHERE " + value;
+
+            if (this.OpenConnection() == true)
                 {
                     MySqlCommand cmd = new MySqlCommand(query, connection);
                     cmd.ExecuteNonQuery();
@@ -230,7 +231,6 @@ namespace KewLox
                 {
                     return values = new string[,] { {"error","This part does not exist." } };
                 }
-                
             }
             //if the connection failed
             else
@@ -239,10 +239,156 @@ namespace KewLox
             }
         }
 
+        //Keep trace of how many pieces are sold. Each month the table can be print.
+        public void Sold(string table, string namepart, decimal numberpart, string table2 = "stock", string col11 = "Quantity", string col12 = "Namepart", string col21 = "Enstock", string col22 = "Code")
+        {
+            string[,] m = Select(col21, table2, col22 + " = '" + namepart + "'");
+            decimal stock = Convert.ToDecimal(m[0, 1].ToString());
+            stock = stock - numberpart;
 
-            // A voir si c'est interessant à implanter.
-            // Backup
-            public void Backup()
+            Console.WriteLine(namepart);
+
+            //Try the piece is already in the table
+            try
+            {
+                string[,] n = Select(col11, table, col12 + " ='" + namepart + "'");
+                decimal quantity = Convert.ToDecimal(n[0, 1].ToString());
+                numberpart = numberpart + quantity;
+            }
+
+            //Create the piece
+            catch (System.FormatException)
+            {
+                string num = numberpart.ToString();
+                string[] colonnes = { col12, col11 };
+                string[] values = { namepart, num };
+                CloseConnection();
+                Insert(table, colonnes, values);
+            }
+            finally
+            {
+                //Update the quantity
+                UpdateDecString(table, col11, col12, numberpart, namepart);
+                UpdateDecString(table2, col21, col22, stock, namepart);
+            }
+        }
+
+        public void Cancel(decimal Id)
+        {
+            while (true)
+            {
+                string columns = "Name, Height, Depth, Width, Quantity, Color";
+
+                string[,] result = Select(columns, "commandespieces", "OrderId = '" + Id + "'");
+                if (result[0, 0] == "error")
+                {
+                    CloseConnection();
+                    Console.WriteLine("Canceled");
+                    break;
+                }
+
+                decimal quantity = Convert.ToDecimal(result[4, 1]); //System.IndexOutOfRangeException
+
+                string color = Translate(result[5, 1]);
+                string reference = Translate(result[0, 1]);
+                string hauteur = Translate(result[1, 1]);
+
+                string colstock = "Ref = '" + reference + "' AND hauteur = '" + hauteur + "' AND profondeur = '" + result[2, 1] + "' AND largeur = '" + result[3, 1] + "' AND Couleur = '" + color + "'";
+                string[,] stock = Select("Enstock, Code", "stock", colstock);
+                string code = stock[1, 1];
+                string[,] sold = Select("Enstock", "stock", "Code = '" + code + "'");
+
+
+
+                decimal newsold = Convert.ToDecimal(sold[0, 1]);
+
+                Console.WriteLine(newsold);
+                Console.WriteLine(stock[0, 1]);
+                Console.WriteLine(quantity);
+
+                newsold -= quantity;
+                quantity += Convert.ToDecimal(stock[0, 1]);
+
+
+                UpdateDecString("stock", "Enstock", "Code", quantity, code);
+                UpdateDecString("sold", "Quantity", "NamePart", newsold, code);
+                Console.WriteLine(code);
+                Console.WriteLine(quantity);
+
+                Delete("commandespieces", "OrderId = '" + Id + "' AND Name = '" + result[0, 1] + "'");
+            }
+        }
+
+        // Update statement. The value1 is a decimal and value2 is a string.
+        public void UpdateDecString(string table, string namecolumn1, string namecolumn2, decimal value1, string value2)
+        {
+            string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+                // create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+
+                // Assign the query using CommandText
+                cmd.CommandText = query;
+
+                // Assign the connection using Connection
+                cmd.Connection = connection;
+
+                // Execute query
+                cmd.ExecuteNonQuery();
+
+                // Close connection
+                this.CloseConnection();
+            }
+        }
+
+        public string Translate(string s)
+        {
+            string m = s;
+            if (s == "White")
+            {
+                m = "Blanc";
+            }
+            else if (s == "Black")
+            {
+                m = "Noir";
+            }
+            else if (s == "Brown")
+            {
+                m = "Brun";
+            }
+            else if (s == "Glass")
+            {
+                m = "Verre";
+            }
+            else if (s == "Chromed")
+            {
+                m = "Galvanise";
+            }
+            else if (s == "Cornière")
+            {
+                m = "Cornieres";
+            }
+            else if (s == "37")
+            {
+                m = "42";
+            }
+            else if (s == "27")
+            {
+                m = "32";
+            }
+            else if (s == "47")
+            {
+                m = "52";
+            }
+            return m;
+        }
+
+        // A voir si c'est interessant à implanter.
+        // Backup
+        public void Backup()
             { }
             // Restor
             public void Restore()

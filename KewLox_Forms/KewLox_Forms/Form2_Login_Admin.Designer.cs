@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.Logo = new System.Windows.Forms.Label();
-            this.Confirm_btn = new System.Windows.Forms.Button();
+            this.Retrieve_btn = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.TextBox();
             this.Login_label = new System.Windows.Forms.Label();
             this.Password_label = new System.Windows.Forms.Label();
@@ -50,15 +50,15 @@
             this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Logo.Click += new System.EventHandler(this.Title_Click);
             // 
-            // Confirm_btn
+            // Retrieve_btn
             // 
-            this.Confirm_btn.Location = new System.Drawing.Point(889, 510);
-            this.Confirm_btn.Name = "Confirm_btn";
-            this.Confirm_btn.Size = new System.Drawing.Size(100, 30);
-            this.Confirm_btn.TabIndex = 8;
-            this.Confirm_btn.Text = "Confirm";
-            this.Confirm_btn.UseVisualStyleBackColor = true;
-            this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
+            this.Retrieve_btn.Location = new System.Drawing.Point(889, 510);
+            this.Retrieve_btn.Name = "Retrieve_btn";
+            this.Retrieve_btn.Size = new System.Drawing.Size(100, 30);
+            this.Retrieve_btn.TabIndex = 8;
+            this.Retrieve_btn.Text = "Confirm";
+            this.Retrieve_btn.UseVisualStyleBackColor = true;
+            this.Retrieve_btn.Click += new System.EventHandler(this.Retrieve_btn_Click);
             // 
             // Login
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.Password_label);
             this.Controls.Add(this.Login_label);
             this.Controls.Add(this.Login);
-            this.Controls.Add(this.Confirm_btn);
+            this.Controls.Add(this.Retrieve_btn);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form2_Login_Admin";
@@ -128,7 +128,7 @@
         #endregion
 
         private System.Windows.Forms.Label Logo;
-        private System.Windows.Forms.Button Confirm_btn;
+        private System.Windows.Forms.Button Retrieve_btn;
         private System.Windows.Forms.TextBox Login;
         private System.Windows.Forms.Label Login_label;
         private System.Windows.Forms.Label Password_label;
