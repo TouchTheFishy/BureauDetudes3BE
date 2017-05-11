@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -122,6 +123,7 @@ namespace KewLox
             Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
             
         }
+
         public void AddBoxes()
         {
             bool ok = false;
@@ -246,20 +248,20 @@ namespace KewLox
                 parts.AddRange(pannelcodes);
 
             }
-            check = false;
 
+            
             if (answer == "No" || answer == "no")
             {
 
                 UpP.Color = "White";
                 string[] request = UpP.AddPart(1);
                 database.Insert("commandespieces", DbColumn, request);
-                check = true;
                 //Add codes for pannels to parts
                 List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
                 new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                 };
                 parts.AddRange(pannelcodes);
+                check = true;
 
             }
             else
@@ -269,7 +271,6 @@ namespace KewLox
                     Console.WriteLine("Please answer Yes Or No");
                 }
             }
-
             //add the traverses for the last box (up pannel)
             ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AV", Color = "" };
             ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
@@ -294,6 +295,88 @@ namespace KewLox
             database.Insert("commandespieces", DbColumn, request2);
 
 
+        }
+
+        public decimal GetPrice()
+        {
+            DBConnect database = new DBConnect();
+            decimal total = 0;
+            foreach (KeyValuePair<string, int> part in this.Parts)
+            {
+                string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='" + part.Key + "'");
+                decimal priceperpart = Convert.ToDecimal(prix[0, 1]);
+                decimal nbparts = Convert.ToDecimal(part.Value);
+                total += (priceperpart * nbparts);
+            }
+            return total;
+        }
+
+        public void MakeBill(Closet closet, long CommandID)
+        {
+            string text="";
+            string header = "";
+            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
+            string companyaddress="<td>Client name <br> Client address & number <br> Post Code & town<br>Telephone<br>Email address <br>VAT number <br> Account number & BIC</td>";
+            string bodyheader;
+            string body = "";
+            string bodyfooter;
+            string footer = "\u00a9 Kewlox 2017"; //alt 0169 release alt 
+            DBConnect database = new DBConnect();
+            header = String.Format("<html>\n<head>\n<style>table, th, td {{{0}}},table, td.addresses{{{1}}}</style>\n</head>\n<body>\n<h1>Bill " +
+                "n°{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
+                "collapse;","border:no-border",Convert.ToString(Program.Id));
+            bodyheader = "<table>\n<tr>\n<th>Part Name</th>\n<th>Description</th>\n<th>Amount</th>\n<th>Price per part</th>\n<th>Total</th>\n</tr>";
+            bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closet.GetPrice());
+            string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
+            text = header +kewloxaddress+companyaddress+ bodyheader;
+            File.AppendAllText(path, text);
+            List<KeyValuePair<string, int>> nodup = RemoveDuplicates(closet.Parts);
+            foreach (KeyValuePair<string, int> part in nodup)
+            {
+                string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");
+                string description = String.Join(" ", price[1, 1], price[2, 1], price[3, 1]);
+                body = String.Format("<tr>\n<td>{0}</td>\n<td>{1}</td>\n<td>{2}</td>\n", part.Key, description, part.Value);
+                body += String.Format("<td>{0}</td>\n<td>{1}</td>\n</tr>\n", price[0, 1], (Convert.ToDecimal(price[0, 1]) * Convert.ToInt32(part.Value)).ToString());
+                File.AppendAllText(path, body);
+            }
+            //byte[] toBytes = Encoring.ASCII.GetBytes(somestring);
+            //System.IO.File.WriteAllBytes("hello.pdf", fileContent);
+            File.AppendAllText(path,bodyfooter+footer);
+        }
+
+        //Method to remove duplicate names from the list of parts, changes the number of parts from one pair and deletes the other one
+        private List<KeyValuePair<string,int>> RemoveDuplicates(List<KeyValuePair<string,int>> parts) //make private
+        {
+            List<string> keys = new List<string>();
+            List<int> values = new List<int>();
+            int duplicate = 0;
+            List<KeyValuePair<string, int>> nodupparts = new List<KeyValuePair<string,int>>();
+            foreach (KeyValuePair<string,int> pair in parts)
+            {
+                keys.Add(pair.Key);
+                values.Add(pair.Value);
+            }
+            int i = 0;
+            while (i<keys.Count-1)
+            {
+                while (keys.IndexOf(keys[i], i + 1) > i && keys.IndexOf(keys[i], i + 1) <= keys.Count)
+                {
+                    duplicate = keys.IndexOf(keys[i], i + 1);
+                    values[i] += values[duplicate];
+                    keys.RemoveAt(duplicate);
+                    values.RemoveAt(duplicate);
+                }
+                i++;
+            }
+            for (int j = 0; j< keys.Count;j++)
+            {
+                nodupparts.Add(new KeyValuePair<string, int>(keys[j],values[j]));
+            }
+            foreach (KeyValuePair<string,int> pair in nodupparts)
+            {
+                Console.WriteLine(pair.Key + " " + pair.Value);
+            }
+            return nodupparts;
         }
 
     }

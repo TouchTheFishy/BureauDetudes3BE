@@ -20,6 +20,7 @@ namespace KewLox
             set { id = value; }
 
         }
+        
         static void Main(string[] args)
         {
             decimal total = 0;
@@ -32,25 +33,19 @@ namespace KewLox
             Closet closet1 = new Closet();
             closet1.CalculateHeightOptions();
             closet1.AddBoxes();
-            
-            foreach (KeyValuePair<string,int> part in closet1.Parts)
-            {
-                string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='"+part.Key+"'");
-                decimal priceperpart = Convert.ToDecimal(prix[0, 1].ToString());
-                decimal nbparts = Convert.ToDecimal(part.Value);
-                total += (priceperpart*nbparts);
-            }
+            total = closet1.GetPrice();
             values = total.ToString().Split(Convert.ToChar(","));
             totalstring = values[0] + "." + values[1];
             Console.WriteLine("What is your firstname?");
             string firstname = Console.ReadLine();
             Console.WriteLine("What is your lastname?");
             string lastname = Console.ReadLine();
-            database.Update("commandes", "`FirstName`", "`id`", firstname, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", firstname, Convert.ToInt32(Id));
             database.Update("commandes", "`LastName`", "`id`", lastname, Convert.ToInt32(Id));
             database.Update("commandes", "`Prix`", "`id`", totalstring, Convert.ToInt32(Id));
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
+            closet1.MakeBill(closet1,Id);
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
             
