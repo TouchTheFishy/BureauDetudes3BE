@@ -47,9 +47,17 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form4_Catalog2 frm = new Form4_Catalog2();
-            frm.Show();
-            Hide();
+            if (choice == true)
+            {
+                Form4_Catalog2 frm = new Form4_Catalog2();
+                frm.Show();
+                Hide();
+            }
+            else
+            {
+                MessageBox.Show("You have to choose some closet to go furter");
+            }
+               
         }
 
 
@@ -77,16 +85,6 @@ namespace KewLox_Forms
 
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripSeparator2_Click(object sender, EventArgs e)
         {
 
@@ -105,6 +103,38 @@ namespace KewLox_Forms
         private void toolStripTextBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //To select one of the recommand closet
+        bool choice = false;
+        private void closet_multicolor_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void closet_glass_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void closet_orange_blue_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void closet_white_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void closet_wood_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void tiny_closet_Click(object sender, EventArgs e)
+        {
+            choice = true;
         }
     }
 }

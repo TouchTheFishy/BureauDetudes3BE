@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3_Catalog));
             this.Basket = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.Recommand = new System.Windows.Forms.ListBox();
+            this.Personnalise = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -43,7 +44,19 @@
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
+            this.tiny_closet = new System.Windows.Forms.PictureBox();
+            this.closet_wood = new System.Windows.Forms.PictureBox();
+            this.closet_white = new System.Windows.Forms.PictureBox();
+            this.closet_orange_blue = new System.Windows.Forms.PictureBox();
+            this.closet_glass = new System.Windows.Forms.PictureBox();
+            this.closet_multicolor = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tiny_closet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_wood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_white)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_orange_blue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_glass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
             this.SuspendLayout();
             // 
             // Basket
@@ -69,28 +82,26 @@
             this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Logo.Click += new System.EventHandler(this.Title_Click);
             // 
-            // listBox1
+            // Recommand
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(245, 120);
-            this.listBox1.MultiColumn = true;
-            this.listBox1.Name = "listBox1";
-            this.listBox1.ScrollAlwaysVisible = true;
-            this.listBox1.Size = new System.Drawing.Size(681, 134);
-            this.listBox1.TabIndex = 6;
-            this.listBox1.Click += new System.EventHandler(this.list);
-            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.Recommand.FormattingEnabled = true;
+            this.Recommand.Location = new System.Drawing.Point(245, 120);
+            this.Recommand.MultiColumn = true;
+            this.Recommand.Name = "Recommand";
+            this.Recommand.ScrollAlwaysVisible = true;
+            this.Recommand.Size = new System.Drawing.Size(681, 134);
+            this.Recommand.TabIndex = 6;
+            this.Recommand.Click += new System.EventHandler(this.list);
             // 
-            // listBox2
+            // Personnalise
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(245, 307);
-            this.listBox2.MultiColumn = true;
-            this.listBox2.Name = "listBox2";
-            this.listBox2.ScrollAlwaysVisible = true;
-            this.listBox2.Size = new System.Drawing.Size(681, 134);
-            this.listBox2.TabIndex = 7;
-            this.listBox2.SelectedIndexChanged += new System.EventHandler(this.listBox2_SelectedIndexChanged);
+            this.Personnalise.FormattingEnabled = true;
+            this.Personnalise.Location = new System.Drawing.Point(245, 307);
+            this.Personnalise.MultiColumn = true;
+            this.Personnalise.Name = "Personnalise";
+            this.Personnalise.ScrollAlwaysVisible = true;
+            this.Personnalise.Size = new System.Drawing.Size(681, 134);
+            this.Personnalise.TabIndex = 7;
             // 
             // label1
             // 
@@ -191,21 +202,93 @@
             this.Confirm_btn.UseVisualStyleBackColor = true;
             this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
             // 
+            // tiny_closet
+            // 
+            this.tiny_closet.Image = ((System.Drawing.Image)(resources.GetObject("tiny_closet.Image")));
+            this.tiny_closet.Location = new System.Drawing.Point(827, 138);
+            this.tiny_closet.Name = "tiny_closet";
+            this.tiny_closet.Size = new System.Drawing.Size(85, 92);
+            this.tiny_closet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.tiny_closet.TabIndex = 21;
+            this.tiny_closet.TabStop = false;
+            this.tiny_closet.Click += new System.EventHandler(this.tiny_closet_Click);
+            // 
+            // closet_wood
+            // 
+            this.closet_wood.Image = ((System.Drawing.Image)(resources.GetObject("closet_wood.Image")));
+            this.closet_wood.Location = new System.Drawing.Point(718, 138);
+            this.closet_wood.Name = "closet_wood";
+            this.closet_wood.Size = new System.Drawing.Size(85, 92);
+            this.closet_wood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_wood.TabIndex = 20;
+            this.closet_wood.TabStop = false;
+            this.closet_wood.Click += new System.EventHandler(this.closet_wood_Click);
+            // 
+            // closet_white
+            // 
+            this.closet_white.Image = ((System.Drawing.Image)(resources.GetObject("closet_white.Image")));
+            this.closet_white.Location = new System.Drawing.Point(603, 138);
+            this.closet_white.Name = "closet_white";
+            this.closet_white.Size = new System.Drawing.Size(85, 92);
+            this.closet_white.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_white.TabIndex = 19;
+            this.closet_white.TabStop = false;
+            this.closet_white.Click += new System.EventHandler(this.closet_white_Click);
+            // 
+            // closet_orange_blue
+            // 
+            this.closet_orange_blue.Image = ((System.Drawing.Image)(resources.GetObject("closet_orange_blue.Image")));
+            this.closet_orange_blue.Location = new System.Drawing.Point(492, 138);
+            this.closet_orange_blue.Name = "closet_orange_blue";
+            this.closet_orange_blue.Size = new System.Drawing.Size(85, 92);
+            this.closet_orange_blue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_orange_blue.TabIndex = 18;
+            this.closet_orange_blue.TabStop = false;
+            this.closet_orange_blue.Click += new System.EventHandler(this.closet_orange_blue_Click);
+            // 
+            // closet_glass
+            // 
+            this.closet_glass.Image = ((System.Drawing.Image)(resources.GetObject("closet_glass.Image")));
+            this.closet_glass.Location = new System.Drawing.Point(376, 138);
+            this.closet_glass.Name = "closet_glass";
+            this.closet_glass.Size = new System.Drawing.Size(85, 92);
+            this.closet_glass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_glass.TabIndex = 17;
+            this.closet_glass.TabStop = false;
+            this.closet_glass.Click += new System.EventHandler(this.closet_glass_Click);
+            // 
+            // closet_multicolor
+            // 
+            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
+            this.closet_multicolor.Location = new System.Drawing.Point(261, 138);
+            this.closet_multicolor.Name = "closet_multicolor";
+            this.closet_multicolor.Size = new System.Drawing.Size(85, 92);
+            this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_multicolor.TabIndex = 16;
+            this.closet_multicolor.TabStop = false;
+            this.closet_multicolor.Click += new System.EventHandler(this.closet_multicolor_Click);
+            // 
             // Form3_Catalog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.tiny_closet);
+            this.Controls.Add(this.closet_wood);
+            this.Controls.Add(this.closet_white);
+            this.Controls.Add(this.closet_orange_blue);
+            this.Controls.Add(this.closet_glass);
+            this.Controls.Add(this.closet_multicolor);
             this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.Personnalise);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.Basket);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.Recommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form3_Catalog";
@@ -213,6 +296,12 @@
             this.Load += new System.EventHandler(this.Form3_Catalog_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tiny_closet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_wood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_white)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_orange_blue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_glass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,8 +311,8 @@
 
         private System.Windows.Forms.Button Basket;
         private System.Windows.Forms.Label Logo;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox Recommand;
+        private System.Windows.Forms.ListBox Personnalise;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -235,5 +324,11 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
+        private System.Windows.Forms.PictureBox closet_multicolor;
+        private System.Windows.Forms.PictureBox closet_glass;
+        private System.Windows.Forms.PictureBox closet_orange_blue;
+        private System.Windows.Forms.PictureBox closet_white;
+        private System.Windows.Forms.PictureBox closet_wood;
+        private System.Windows.Forms.PictureBox tiny_closet;
     }
 }

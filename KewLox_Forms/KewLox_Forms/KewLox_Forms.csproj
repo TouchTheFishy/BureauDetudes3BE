@@ -144,7 +144,22 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\closet_orange_blue.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closet_white.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closet_wood.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tiny_closet.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closet_multicolor.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closet_glass.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

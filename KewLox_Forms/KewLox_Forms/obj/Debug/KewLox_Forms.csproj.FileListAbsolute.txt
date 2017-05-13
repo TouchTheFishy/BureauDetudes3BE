@@ -13,3 +13,4 @@ E:\Documents & Co\Documents\Ecam\3BE\3BE - P2\Projet génie logiciel\BureauDetud
 E:\Documents & Co\Documents\Ecam\3BE\3BE - P2\Projet génie logiciel\BureauDetudes3BE\KewLox_Forms\KewLox_Forms\bin\Debug\KewLox_Forms_.pdb
 E:\Documents & Co\Documents\Ecam\3BE\3BE - P2\Projet génie logiciel\BureauDetudes3BE\KewLox_Forms\KewLox_Forms\obj\Debug\KewLox_Forms_.exe
 E:\Documents & Co\Documents\Ecam\3BE\3BE - P2\Projet génie logiciel\BureauDetudes3BE\KewLox_Forms\KewLox_Forms\obj\Debug\KewLox_Forms_.pdb
+E:\Documents & Co\Documents\Ecam\3BE\3BE - P2\Projet génie logiciel\BureauDetudes3BE\KewLox_Forms\KewLox_Forms\obj\Debug\KewLox_Forms.csprojResolveAssemblyReference.cache
