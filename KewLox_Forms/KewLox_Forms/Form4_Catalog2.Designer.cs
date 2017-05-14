@@ -44,8 +44,6 @@
             this.cupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
-            this.closet_multicolor = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Glass = new System.Windows.Forms.Button();
             this.Cup = new System.Windows.Forms.Button();
             this.Blue = new System.Windows.Forms.Button();
@@ -56,9 +54,12 @@
             this.Yellow = new System.Windows.Forms.Button();
             this.Material = new System.Windows.Forms.Label();
             this.Color = new System.Windows.Forms.Label();
+            this.White = new System.Windows.Forms.Button();
+            this.Case = new System.Windows.Forms.PictureBox();
+            this.closet_multicolor = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Case)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -188,26 +189,6 @@
             this.Confirm_btn.UseVisualStyleBackColor = true;
             this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
             // 
-            // closet_multicolor
-            // 
-            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
-            this.closet_multicolor.Location = new System.Drawing.Point(243, 121);
-            this.closet_multicolor.Name = "closet_multicolor";
-            this.closet_multicolor.Size = new System.Drawing.Size(245, 379);
-            this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closet_multicolor.TabIndex = 25;
-            this.closet_multicolor.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(756, 103);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(203, 143);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
-            // 
             // Glass
             // 
             this.Glass.Location = new System.Drawing.Point(731, 290);
@@ -216,6 +197,7 @@
             this.Glass.TabIndex = 27;
             this.Glass.Text = "Glass";
             this.Glass.UseVisualStyleBackColor = true;
+            this.Glass.Click += new System.EventHandler(this.Glass_Click);
             // 
             // Cup
             // 
@@ -225,6 +207,7 @@
             this.Cup.TabIndex = 28;
             this.Cup.Text = "Cup";
             this.Cup.UseVisualStyleBackColor = true;
+            this.Cup.Click += new System.EventHandler(this.Cup_Click);
             // 
             // Blue
             // 
@@ -234,6 +217,7 @@
             this.Blue.TabIndex = 30;
             this.Blue.Text = "Blue";
             this.Blue.UseVisualStyleBackColor = true;
+            this.Blue.Click += new System.EventHandler(this.Blue_Click);
             // 
             // Red
             // 
@@ -243,6 +227,7 @@
             this.Red.TabIndex = 29;
             this.Red.Text = "Red";
             this.Red.UseVisualStyleBackColor = true;
+            this.Red.Click += new System.EventHandler(this.Red_Click);
             // 
             // Orange
             // 
@@ -252,6 +237,7 @@
             this.Orange.TabIndex = 32;
             this.Orange.Text = "Orange";
             this.Orange.UseVisualStyleBackColor = true;
+            this.Orange.Click += new System.EventHandler(this.Orange_Click);
             // 
             // Green
             // 
@@ -261,6 +247,7 @@
             this.Green.TabIndex = 31;
             this.Green.Text = "Green";
             this.Green.UseVisualStyleBackColor = true;
+            this.Green.Click += new System.EventHandler(this.Green_Click);
             // 
             // Pink
             // 
@@ -270,6 +257,7 @@
             this.Pink.TabIndex = 34;
             this.Pink.Text = "Pink";
             this.Pink.UseVisualStyleBackColor = true;
+            this.Pink.Click += new System.EventHandler(this.Pink_Click);
             // 
             // Yellow
             // 
@@ -279,6 +267,7 @@
             this.Yellow.TabIndex = 33;
             this.Yellow.Text = "Yellow";
             this.Yellow.UseVisualStyleBackColor = true;
+            this.Yellow.Click += new System.EventHandler(this.Yellow_Click);
             // 
             // Material
             // 
@@ -300,12 +289,43 @@
             this.Color.TabIndex = 36;
             this.Color.Text = "Color";
             // 
+            // White
+            // 
+            this.White.Location = new System.Drawing.Point(825, 348);
+            this.White.Name = "White";
+            this.White.Size = new System.Drawing.Size(114, 23);
+            this.White.TabIndex = 37;
+            this.White.Text = "Simple White";
+            this.White.UseVisualStyleBackColor = true;
+            this.White.Click += new System.EventHandler(this.White_Click);
+            // 
+            // Case
+            // 
+            this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
+            this.Case.Location = new System.Drawing.Point(756, 103);
+            this.Case.Name = "Case";
+            this.Case.Size = new System.Drawing.Size(203, 143);
+            this.Case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Case.TabIndex = 26;
+            this.Case.TabStop = false;
+            // 
+            // closet_multicolor
+            // 
+            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
+            this.closet_multicolor.Location = new System.Drawing.Point(243, 121);
+            this.closet_multicolor.Name = "closet_multicolor";
+            this.closet_multicolor.Size = new System.Drawing.Size(245, 379);
+            this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_multicolor.TabIndex = 25;
+            this.closet_multicolor.TabStop = false;
+            // 
             // Form4_Catalog2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.White);
             this.Controls.Add(this.Color);
             this.Controls.Add(this.Material);
             this.Controls.Add(this.Pink);
@@ -316,7 +336,7 @@
             this.Controls.Add(this.Red);
             this.Controls.Add(this.Cup);
             this.Controls.Add(this.Glass);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Case);
             this.Controls.Add(this.closet_multicolor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Logo);
@@ -329,8 +349,8 @@
             this.Text = "Form4_Catalog2";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Case)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +374,7 @@
         private System.Windows.Forms.ToolStripMenuItem glasWindowToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cupToolStripMenuItem;
         private System.Windows.Forms.PictureBox closet_multicolor;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Case;
         private System.Windows.Forms.Button Glass;
         private System.Windows.Forms.Button Cup;
         private System.Windows.Forms.Button Blue;
@@ -365,5 +385,6 @@
         private System.Windows.Forms.Button Yellow;
         private System.Windows.Forms.Label Material;
         private System.Windows.Forms.Label Color;
+        private System.Windows.Forms.Button White;
     }
 }

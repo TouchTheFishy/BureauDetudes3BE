@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KewLox_Forms_.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,6 +48,51 @@ namespace KewLox_Forms
             Form5_Signup frm = new Form5_Signup();
             frm.Show();
             Hide();
+        }
+
+        private void Blue_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_blue;
+        }
+
+        private void Red_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_red;
+        }
+
+        private void Green_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_green;
+        }
+
+        private void Yellow_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_yellow;
+        }
+
+        private void Orange_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_orange;
+        }
+
+        private void Pink_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_pink;
+        }
+
+        private void White_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources._case;
+        }
+
+        private void Cup_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources._case;
+        }
+
+        private void Glass_Click(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_glass;
         }
     }
 }

@@ -161,6 +161,30 @@
   <ItemGroup>
     <None Include="Resources\closet_glass.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_red.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_blue.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_orange.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_pink.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_yellow.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_green.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\case_glass.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

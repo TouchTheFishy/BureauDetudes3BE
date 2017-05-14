@@ -118,6 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="case_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_blue.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_glass.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_green.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_orange.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_pink.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_red.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="case_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case_yellow.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="closet_glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\closet_glass.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,5 +156,8 @@
   </data>
   <data name="tiny_closet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tiny_closet.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_case" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\case.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
