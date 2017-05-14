@@ -38,7 +38,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
             this.accessoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.glasWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +54,15 @@
             this.Material = new System.Windows.Forms.Label();
             this.Color = new System.Windows.Forms.Label();
             this.White = new System.Windows.Forms.Button();
+            this.Nbr_case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_1case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_2case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_3case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_4case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_5case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_6case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_7case = new System.Windows.Forms.ToolStripTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.Case = new System.Windows.Forms.PictureBox();
             this.closet_multicolor = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
@@ -115,7 +123,7 @@
             this.toolStripSeparator2,
             this.toolStripTextBox1,
             this.toolStripSeparator3,
-            this.toolStripTextBox2});
+            this.Nbr_case});
             this.Filter1.Name = "Filter1";
             this.Filter1.Size = new System.Drawing.Size(101, 19);
             this.Filter1.Text = "Dimension Filter";
@@ -142,12 +150,6 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(206, 6);
             // 
-            // toolStripTextBox2
-            // 
-            this.toolStripTextBox2.Name = "toolStripTextBox2";
-            this.toolStripTextBox2.Size = new System.Drawing.Size(100, 23);
-            this.toolStripTextBox2.Text = "Number of Case required";
-            // 
             // accessoriesToolStripMenuItem
             // 
             this.accessoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,13 +162,13 @@
             // glasWindowToolStripMenuItem
             // 
             this.glasWindowToolStripMenuItem.Name = "glasWindowToolStripMenuItem";
-            this.glasWindowToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.glasWindowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.glasWindowToolStripMenuItem.Text = "Glas Window";
             // 
             // cupToolStripMenuItem
             // 
             this.cupToolStripMenuItem.Name = "cupToolStripMenuItem";
-            this.cupToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.cupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cupToolStripMenuItem.Text = "Cup";
             // 
             // Return_btn
@@ -299,6 +301,79 @@
             this.White.UseVisualStyleBackColor = true;
             this.White.Click += new System.EventHandler(this.White_Click);
             // 
+            // Nbr_case
+            // 
+            this.Nbr_case.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closet_1case,
+            this.closet_2case,
+            this.closet_3case,
+            this.closet_4case,
+            this.closet_5case,
+            this.closet_6case,
+            this.closet_7case});
+            this.Nbr_case.Name = "Nbr_case";
+            this.Nbr_case.Size = new System.Drawing.Size(209, 22);
+            this.Nbr_case.Text = "Number of Case required";
+            // 
+            // closet_1case
+            // 
+            this.closet_1case.Name = "closet_1case";
+            this.closet_1case.Size = new System.Drawing.Size(100, 23);
+            this.closet_1case.Text = "1";
+            this.closet_1case.MouseHover += new System.EventHandler(this.closet_1case_MouseHover);
+            // 
+            // closet_2case
+            // 
+            this.closet_2case.Name = "closet_2case";
+            this.closet_2case.Size = new System.Drawing.Size(100, 23);
+            this.closet_2case.Text = "2";
+            this.closet_2case.MouseHover += new System.EventHandler(this.closet_2case_MouseHover);
+            // 
+            // closet_3case
+            // 
+            this.closet_3case.Name = "closet_3case";
+            this.closet_3case.Size = new System.Drawing.Size(100, 23);
+            this.closet_3case.Text = "3";
+            this.closet_3case.MouseHover += new System.EventHandler(this.closet_3case_MouseHover);
+            // 
+            // closet_4case
+            // 
+            this.closet_4case.Name = "closet_4case";
+            this.closet_4case.Size = new System.Drawing.Size(100, 23);
+            this.closet_4case.Text = "4";
+            this.closet_4case.MouseHover += new System.EventHandler(this.closet_4case_MouseHover);
+            // 
+            // closet_5case
+            // 
+            this.closet_5case.Name = "closet_5case";
+            this.closet_5case.Size = new System.Drawing.Size(100, 23);
+            this.closet_5case.Text = "5";
+            this.closet_5case.MouseHover += new System.EventHandler(this.closet_5case_MouseHover);
+            // 
+            // closet_6case
+            // 
+            this.closet_6case.Name = "closet_6case";
+            this.closet_6case.Size = new System.Drawing.Size(100, 23);
+            this.closet_6case.Text = "6";
+            this.closet_6case.MouseHover += new System.EventHandler(this.closet_6case_MouseHover);
+            // 
+            // closet_7case
+            // 
+            this.closet_7case.Name = "closet_7case";
+            this.closet_7case.Size = new System.Drawing.Size(100, 23);
+            this.closet_7case.Text = "7";
+            this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.label2.Location = new System.Drawing.Point(240, 103);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(433, 16);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Please go to the dimension filter and select the number of case desired";
+            // 
             // Case
             // 
             this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
@@ -312,9 +387,9 @@
             // closet_multicolor
             // 
             this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
-            this.closet_multicolor.Location = new System.Drawing.Point(243, 121);
+            this.closet_multicolor.Location = new System.Drawing.Point(243, 138);
             this.closet_multicolor.Name = "closet_multicolor";
-            this.closet_multicolor.Size = new System.Drawing.Size(245, 379);
+            this.closet_multicolor.Size = new System.Drawing.Size(245, 377);
             this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_multicolor.TabIndex = 25;
             this.closet_multicolor.TabStop = false;
@@ -325,6 +400,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.White);
             this.Controls.Add(this.Color);
             this.Controls.Add(this.Material);
@@ -367,7 +443,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox2;
         private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.ToolStripMenuItem accessoriesToolStripMenuItem;
@@ -386,5 +461,14 @@
         private System.Windows.Forms.Label Material;
         private System.Windows.Forms.Label Color;
         private System.Windows.Forms.Button White;
+        private System.Windows.Forms.ToolStripMenuItem Nbr_case;
+        private System.Windows.Forms.ToolStripTextBox closet_1case;
+        private System.Windows.Forms.ToolStripTextBox closet_2case;
+        private System.Windows.Forms.ToolStripTextBox closet_3case;
+        private System.Windows.Forms.ToolStripTextBox closet_4case;
+        private System.Windows.Forms.ToolStripTextBox closet_5case;
+        private System.Windows.Forms.ToolStripTextBox closet_6case;
+        private System.Windows.Forms.ToolStripTextBox closet_7case;
+        private System.Windows.Forms.Label label2;
     }
 }

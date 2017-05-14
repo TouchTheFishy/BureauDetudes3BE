@@ -50,6 +50,7 @@ namespace KewLox_Forms
             Hide();
         }
 
+        // To change the color of the case
         private void Blue_Click(object sender, EventArgs e)
         {
             Case.Image = Resources.case_blue;
@@ -93,6 +94,45 @@ namespace KewLox_Forms
         private void Glass_Click(object sender, EventArgs e)
         {
             Case.Image = Resources.case_glass;
+        }
+
+  
+
+
+        // To choose the number of cases in one closet
+        private void closet_1case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_1case;
+        }
+
+        private void closet_2case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_2case;
+        }
+
+        private void closet_3case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_3case;
+        }
+
+        private void closet_4case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_4case;
+        }
+
+        private void closet_5case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_5case;
+        }
+
+        private void closet_6case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_6case;
+        }
+
+        private void closet_7case_MouseHover(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = Resources.closet_7case;
         }
     }
 }
