@@ -136,5 +136,10 @@ namespace KewLox_Forms
         {
             choice = true;
         }
+
+        private void Personnalise_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

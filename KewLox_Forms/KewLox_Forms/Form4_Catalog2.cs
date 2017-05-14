@@ -50,7 +50,7 @@ namespace KewLox_Forms
             Hide();
         }
 
-        // To change the color of the case
+        // To change the color or the material of the door with button
         private void Blue_Click(object sender, EventArgs e)
         {
             Case.Image = Resources.case_blue;
@@ -96,8 +96,18 @@ namespace KewLox_Forms
             Case.Image = Resources.case_glass;
         }
 
-  
 
+
+        //To choose a material for the door with the filter
+        private void Cup_fltr_MouseHover(object sender, EventArgs e)
+        {
+            Case.Image = Resources._case;
+        }
+
+        private void Glass_fltr_MouseHover(object sender, EventArgs e)
+        {
+            Case.Image = Resources.case_glass;
+        }
 
         // To choose the number of cases in one closet
         private void closet_1case_MouseHover(object sender, EventArgs e)
@@ -134,5 +144,7 @@ namespace KewLox_Forms
         {
             closet_multicolor.Image = Resources.closet_7case;
         }
+
+
     }
 }

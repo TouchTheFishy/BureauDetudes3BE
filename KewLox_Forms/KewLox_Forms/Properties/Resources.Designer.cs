@@ -223,6 +223,16 @@ namespace KewLox_Forms_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closet_lac {
+            get {
+                object obj = ResourceManager.GetObject("closet_lac", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap closet_multicolor {
             get {
                 object obj = ResourceManager.GetObject("closet_multicolor", resourceCulture);

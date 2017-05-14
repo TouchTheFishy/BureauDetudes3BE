@@ -38,13 +38,21 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.Nbr_case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_1case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_2case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_3case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_4case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_5case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_6case = new System.Windows.Forms.ToolStripTextBox();
+            this.closet_7case = new System.Windows.Forms.ToolStripTextBox();
             this.accessoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.glasWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Glass_fltr = new System.Windows.Forms.ToolStripMenuItem();
+            this.Cup_fltr = new System.Windows.Forms.ToolStripMenuItem();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
-            this.Glass = new System.Windows.Forms.Button();
-            this.Cup = new System.Windows.Forms.Button();
+            this.Glass_btn = new System.Windows.Forms.Button();
+            this.Cup_btn = new System.Windows.Forms.Button();
             this.Blue = new System.Windows.Forms.Button();
             this.Red = new System.Windows.Forms.Button();
             this.Orange = new System.Windows.Forms.Button();
@@ -54,14 +62,6 @@
             this.Material = new System.Windows.Forms.Label();
             this.Color = new System.Windows.Forms.Label();
             this.White = new System.Windows.Forms.Button();
-            this.Nbr_case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_1case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_2case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_3case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_4case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_5case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_6case = new System.Windows.Forms.ToolStripTextBox();
-            this.closet_7case = new System.Windows.Forms.ToolStripTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Case = new System.Windows.Forms.PictureBox();
             this.closet_multicolor = new System.Windows.Forms.PictureBox();
@@ -150,26 +150,91 @@
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(206, 6);
             // 
+            // Nbr_case
+            // 
+            this.Nbr_case.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.closet_1case,
+            this.closet_2case,
+            this.closet_3case,
+            this.closet_4case,
+            this.closet_5case,
+            this.closet_6case,
+            this.closet_7case});
+            this.Nbr_case.Name = "Nbr_case";
+            this.Nbr_case.Size = new System.Drawing.Size(209, 22);
+            this.Nbr_case.Text = "Number of Case required";
+            // 
+            // closet_1case
+            // 
+            this.closet_1case.Name = "closet_1case";
+            this.closet_1case.Size = new System.Drawing.Size(100, 23);
+            this.closet_1case.Text = "1";
+            this.closet_1case.MouseHover += new System.EventHandler(this.closet_1case_MouseHover);
+            // 
+            // closet_2case
+            // 
+            this.closet_2case.Name = "closet_2case";
+            this.closet_2case.Size = new System.Drawing.Size(100, 23);
+            this.closet_2case.Text = "2";
+            this.closet_2case.MouseHover += new System.EventHandler(this.closet_2case_MouseHover);
+            // 
+            // closet_3case
+            // 
+            this.closet_3case.Name = "closet_3case";
+            this.closet_3case.Size = new System.Drawing.Size(100, 23);
+            this.closet_3case.Text = "3";
+            this.closet_3case.MouseHover += new System.EventHandler(this.closet_3case_MouseHover);
+            // 
+            // closet_4case
+            // 
+            this.closet_4case.Name = "closet_4case";
+            this.closet_4case.Size = new System.Drawing.Size(100, 23);
+            this.closet_4case.Text = "4";
+            this.closet_4case.MouseHover += new System.EventHandler(this.closet_4case_MouseHover);
+            // 
+            // closet_5case
+            // 
+            this.closet_5case.Name = "closet_5case";
+            this.closet_5case.Size = new System.Drawing.Size(100, 23);
+            this.closet_5case.Text = "5";
+            this.closet_5case.MouseHover += new System.EventHandler(this.closet_5case_MouseHover);
+            // 
+            // closet_6case
+            // 
+            this.closet_6case.Name = "closet_6case";
+            this.closet_6case.Size = new System.Drawing.Size(100, 23);
+            this.closet_6case.Text = "6";
+            this.closet_6case.MouseHover += new System.EventHandler(this.closet_6case_MouseHover);
+            // 
+            // closet_7case
+            // 
+            this.closet_7case.Name = "closet_7case";
+            this.closet_7case.Size = new System.Drawing.Size(100, 23);
+            this.closet_7case.Text = "7";
+            this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
+            // 
             // accessoriesToolStripMenuItem
             // 
             this.accessoriesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.glasWindowToolStripMenuItem,
-            this.cupToolStripMenuItem});
+            this.Glass_fltr,
+            this.Cup_fltr});
             this.accessoriesToolStripMenuItem.Name = "accessoriesToolStripMenuItem";
             this.accessoriesToolStripMenuItem.Size = new System.Drawing.Size(101, 19);
             this.accessoriesToolStripMenuItem.Text = "Accessories";
             // 
-            // glasWindowToolStripMenuItem
+            // Glass_fltr
             // 
-            this.glasWindowToolStripMenuItem.Name = "glasWindowToolStripMenuItem";
-            this.glasWindowToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.glasWindowToolStripMenuItem.Text = "Glas Window";
+            this.Glass_fltr.Name = "Glass_fltr";
+            this.Glass_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Glass_fltr.Text = "Glass";
+            this.Glass_fltr.MouseHover += new System.EventHandler(this.Glass_fltr_MouseHover);
             // 
-            // cupToolStripMenuItem
+            // Cup_fltr
             // 
-            this.cupToolStripMenuItem.Name = "cupToolStripMenuItem";
-            this.cupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.cupToolStripMenuItem.Text = "Cup";
+            this.Cup_fltr.Name = "Cup_fltr";
+            this.Cup_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Cup_fltr.Text = "Cup";
+            this.Cup_fltr.MouseHover += new System.EventHandler(this.Cup_fltr_MouseHover);
             // 
             // Return_btn
             // 
@@ -191,25 +256,25 @@
             this.Confirm_btn.UseVisualStyleBackColor = true;
             this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
             // 
-            // Glass
+            // Glass_btn
             // 
-            this.Glass.Location = new System.Drawing.Point(731, 290);
-            this.Glass.Name = "Glass";
-            this.Glass.Size = new System.Drawing.Size(48, 23);
-            this.Glass.TabIndex = 27;
-            this.Glass.Text = "Glass";
-            this.Glass.UseVisualStyleBackColor = true;
-            this.Glass.Click += new System.EventHandler(this.Glass_Click);
+            this.Glass_btn.Location = new System.Drawing.Point(731, 290);
+            this.Glass_btn.Name = "Glass_btn";
+            this.Glass_btn.Size = new System.Drawing.Size(48, 23);
+            this.Glass_btn.TabIndex = 27;
+            this.Glass_btn.Text = "Glass";
+            this.Glass_btn.UseVisualStyleBackColor = true;
+            this.Glass_btn.Click += new System.EventHandler(this.Glass_Click);
             // 
-            // Cup
+            // Cup_btn
             // 
-            this.Cup.Location = new System.Drawing.Point(731, 319);
-            this.Cup.Name = "Cup";
-            this.Cup.Size = new System.Drawing.Size(48, 23);
-            this.Cup.TabIndex = 28;
-            this.Cup.Text = "Cup";
-            this.Cup.UseVisualStyleBackColor = true;
-            this.Cup.Click += new System.EventHandler(this.Cup_Click);
+            this.Cup_btn.Location = new System.Drawing.Point(731, 319);
+            this.Cup_btn.Name = "Cup_btn";
+            this.Cup_btn.Size = new System.Drawing.Size(48, 23);
+            this.Cup_btn.TabIndex = 28;
+            this.Cup_btn.Text = "Cup";
+            this.Cup_btn.UseVisualStyleBackColor = true;
+            this.Cup_btn.Click += new System.EventHandler(this.Cup_Click);
             // 
             // Blue
             // 
@@ -301,69 +366,6 @@
             this.White.UseVisualStyleBackColor = true;
             this.White.Click += new System.EventHandler(this.White_Click);
             // 
-            // Nbr_case
-            // 
-            this.Nbr_case.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.closet_1case,
-            this.closet_2case,
-            this.closet_3case,
-            this.closet_4case,
-            this.closet_5case,
-            this.closet_6case,
-            this.closet_7case});
-            this.Nbr_case.Name = "Nbr_case";
-            this.Nbr_case.Size = new System.Drawing.Size(209, 22);
-            this.Nbr_case.Text = "Number of Case required";
-            // 
-            // closet_1case
-            // 
-            this.closet_1case.Name = "closet_1case";
-            this.closet_1case.Size = new System.Drawing.Size(100, 23);
-            this.closet_1case.Text = "1";
-            this.closet_1case.MouseHover += new System.EventHandler(this.closet_1case_MouseHover);
-            // 
-            // closet_2case
-            // 
-            this.closet_2case.Name = "closet_2case";
-            this.closet_2case.Size = new System.Drawing.Size(100, 23);
-            this.closet_2case.Text = "2";
-            this.closet_2case.MouseHover += new System.EventHandler(this.closet_2case_MouseHover);
-            // 
-            // closet_3case
-            // 
-            this.closet_3case.Name = "closet_3case";
-            this.closet_3case.Size = new System.Drawing.Size(100, 23);
-            this.closet_3case.Text = "3";
-            this.closet_3case.MouseHover += new System.EventHandler(this.closet_3case_MouseHover);
-            // 
-            // closet_4case
-            // 
-            this.closet_4case.Name = "closet_4case";
-            this.closet_4case.Size = new System.Drawing.Size(100, 23);
-            this.closet_4case.Text = "4";
-            this.closet_4case.MouseHover += new System.EventHandler(this.closet_4case_MouseHover);
-            // 
-            // closet_5case
-            // 
-            this.closet_5case.Name = "closet_5case";
-            this.closet_5case.Size = new System.Drawing.Size(100, 23);
-            this.closet_5case.Text = "5";
-            this.closet_5case.MouseHover += new System.EventHandler(this.closet_5case_MouseHover);
-            // 
-            // closet_6case
-            // 
-            this.closet_6case.Name = "closet_6case";
-            this.closet_6case.Size = new System.Drawing.Size(100, 23);
-            this.closet_6case.Text = "6";
-            this.closet_6case.MouseHover += new System.EventHandler(this.closet_6case_MouseHover);
-            // 
-            // closet_7case
-            // 
-            this.closet_7case.Name = "closet_7case";
-            this.closet_7case.Size = new System.Drawing.Size(100, 23);
-            this.closet_7case.Text = "7";
-            this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -410,8 +412,8 @@
             this.Controls.Add(this.Green);
             this.Controls.Add(this.Blue);
             this.Controls.Add(this.Red);
-            this.Controls.Add(this.Cup);
-            this.Controls.Add(this.Glass);
+            this.Controls.Add(this.Cup_btn);
+            this.Controls.Add(this.Glass_btn);
             this.Controls.Add(this.Case);
             this.Controls.Add(this.closet_multicolor);
             this.Controls.Add(this.label1);
@@ -446,12 +448,12 @@
         private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.ToolStripMenuItem accessoriesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem glasWindowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Glass_fltr;
+        private System.Windows.Forms.ToolStripMenuItem Cup_fltr;
         private System.Windows.Forms.PictureBox closet_multicolor;
         private System.Windows.Forms.PictureBox Case;
-        private System.Windows.Forms.Button Glass;
-        private System.Windows.Forms.Button Cup;
+        private System.Windows.Forms.Button Glass_btn;
+        private System.Windows.Forms.Button Cup_btn;
         private System.Windows.Forms.Button Blue;
         private System.Windows.Forms.Button Red;
         private System.Windows.Forms.Button Orange;
