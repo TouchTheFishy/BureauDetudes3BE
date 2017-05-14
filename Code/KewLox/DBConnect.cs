@@ -72,7 +72,7 @@ namespace KewLox
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -120,10 +120,8 @@ namespace KewLox
                 }
             }
             string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
-            //Console.WriteLine(query);
 
             // Open connection
-
             if (this.OpenConnection() == true)
             {
                 // Create command and assign the query and connection from the constructor
@@ -182,7 +180,7 @@ namespace KewLox
                 }
             }
 
-           // Select statement
+        // Select statement
         public string[,] Select(string columns, string table, string equal)
         {
             string query = "SELECT " +  columns + " FROM " + table + " WHERE " + equal;
@@ -243,10 +241,15 @@ namespace KewLox
         public void Sold(string table, string namepart, decimal numberpart, string table2 = "stock", string col11 = "Quantity", string col12 = "Namepart", string col21 = "Enstock", string col22 = "Code")
         {
             string[,] m = Select(col21, table2, col22 + " = '" + namepart + "'");
+            string[,] mini = Select("Stockminimum", table2, col22 + " = '" + namepart + "'");
             decimal stock = Convert.ToDecimal(m[0, 1].ToString());
-            stock = stock - numberpart;
+            decimal stockmini = Convert.ToDecimal(mini[0, 1].ToString());
+            if (stock <= stockmini)
+            {
+                Console.WriteLine("Warning: This is the last " + namepart + ", please contact management");
+            }
 
-            Console.WriteLine(namepart);
+            stock = stock - numberpart;
 
             //Try the piece is already in the table
             try
@@ -275,11 +278,14 @@ namespace KewLox
 
         public void Cancel(decimal Id)
         {
+            // Erase all the piece in sold and commandespieces until there is an error (no more right ID)
             while (true)
             {
                 string columns = "Name, Height, Depth, Width, Quantity, Color";
 
                 string[,] result = Select(columns, "commandespieces", "OrderId = '" + Id + "'");
+
+                // error = no more ID
                 if (result[0, 0] == "error")
                 {
                     CloseConnection();
@@ -289,31 +295,27 @@ namespace KewLox
 
                 decimal quantity = Convert.ToDecimal(result[4, 1]); //System.IndexOutOfRangeException
 
+                // Translate from english to french
                 string color = Translate(result[5, 1]);
                 string reference = Translate(result[0, 1]);
                 string hauteur = Translate(result[1, 1]);
 
+                // To be sure to get the right piece
                 string colstock = "Ref = '" + reference + "' AND hauteur = '" + hauteur + "' AND profondeur = '" + result[2, 1] + "' AND largeur = '" + result[3, 1] + "' AND Couleur = '" + color + "'";
+
                 string[,] stock = Select("Enstock, Code", "stock", colstock);
                 string code = stock[1, 1];
+
                 string[,] sold = Select("Enstock", "stock", "Code = '" + code + "'");
-
-
-
                 decimal newsold = Convert.ToDecimal(sold[0, 1]);
 
-                Console.WriteLine(newsold);
-                Console.WriteLine(stock[0, 1]);
-                Console.WriteLine(quantity);
-
+                // +quantity in stock and -quantity in sold 
                 newsold -= quantity;
                 quantity += Convert.ToDecimal(stock[0, 1]);
 
-
+                // Update stock and sold
                 UpdateDecString("stock", "Enstock", "Code", quantity, code);
                 UpdateDecString("sold", "Quantity", "NamePart", newsold, code);
-                Console.WriteLine(code);
-                Console.WriteLine(quantity);
 
                 Delete("commandespieces", "OrderId = '" + Id + "' AND Name = '" + result[0, 1] + "'");
             }
