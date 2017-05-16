@@ -213,11 +213,11 @@ namespace KewLox_Forms
         //The total height
         private void Total_height_Textbox_TextChanged(object sender, EventArgs e)
         {
-            if (Total_height_Textbox.Text <= 120)
+            if (Total_height_Textbox.Text += 120)
             {
-                closet_5case.HideS;
-                closet_6case.Hide();
-                closet_7case.Hide();
+                closet_5case.Enabled = false;
+                closet_6case.Enabled = false;
+                closet_7case.Enabled = false;
             }
 
         }
