@@ -144,6 +144,7 @@
             this.Filter1.Name = "Filter1";
             this.Filter1.Size = new System.Drawing.Size(101, 19);
             this.Filter1.Text = "Dimension Filter";
+            this.Filter1.Click += new System.EventHandler(this.Filter1_Click);
             // 
             // toolStripSeparator2
             // 
@@ -516,6 +517,8 @@
             // 
             // Total_height
             // 
+            this.Total_height.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Total_height.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Total_height.Name = "Total_height";
             this.Total_height.Size = new System.Drawing.Size(100, 23);
             this.Total_height.Click += new System.EventHandler(this.Total_height_Click);

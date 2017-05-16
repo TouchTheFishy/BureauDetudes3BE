@@ -1,4 +1,5 @@
 ﻿using KewLox_Forms_.Properties;
+using MySql.Data.MySqlClient.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -211,6 +212,11 @@ namespace KewLox_Forms
 
         //The total height
         private void Total_height_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Filter1_Click(object sender, EventArgs e)
         {
 
         }
