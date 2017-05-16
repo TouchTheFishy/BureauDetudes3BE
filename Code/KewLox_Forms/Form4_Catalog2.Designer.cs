@@ -225,14 +225,14 @@
             // Glass_fltr
             // 
             this.Glass_fltr.Name = "Glass_fltr";
-            this.Glass_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Glass_fltr.Size = new System.Drawing.Size(101, 22);
             this.Glass_fltr.Text = "Glass";
             this.Glass_fltr.MouseHover += new System.EventHandler(this.Glass_fltr_MouseHover);
             // 
             // Cup_fltr
             // 
             this.Cup_fltr.Name = "Cup_fltr";
-            this.Cup_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Cup_fltr.Size = new System.Drawing.Size(101, 22);
             this.Cup_fltr.Text = "Cup";
             this.Cup_fltr.MouseHover += new System.EventHandler(this.Cup_fltr_MouseHover);
             // 

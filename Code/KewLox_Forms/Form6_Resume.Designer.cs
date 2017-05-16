@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TVA = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
             this.Addres = new System.Windows.Forms.TextBox();
@@ -67,6 +68,7 @@
             this.NbrDoors = new System.Windows.Forms.TextBox();
             this.NbrPanelAR = new System.Windows.Forms.TextBox();
             this.NbrpanelGD = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // TVA
@@ -409,6 +411,11 @@
             this.NbrpanelGD.TabIndex = 96;
             this.NbrpanelGD.TextChanged += new System.EventHandler(this.NbrPanelGD_TextChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // Form6_Resume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,5 +510,6 @@
         private System.Windows.Forms.TextBox NbrDoors;
         private System.Windows.Forms.TextBox NbrPanelAR;
         private System.Windows.Forms.TextBox NbrpanelGD;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

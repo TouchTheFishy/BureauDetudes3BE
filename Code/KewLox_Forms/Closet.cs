@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KewLox_Forms
 {
-    class Closet
+    public class Closet
     {
         private static List<KeyValuePair<string,int>> parts = new List<KeyValuePair<string, int>>();
 
