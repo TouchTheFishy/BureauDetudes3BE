@@ -37,28 +37,28 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.closet_lac = new System.Windows.Forms.PictureBox();
+            this.case7 = new System.Windows.Forms.PictureBox();
+            this.case6 = new System.Windows.Forms.PictureBox();
+            this.case5 = new System.Windows.Forms.PictureBox();
+            this.case4 = new System.Windows.Forms.PictureBox();
+            this.case3 = new System.Windows.Forms.PictureBox();
+            this.case2 = new System.Windows.Forms.PictureBox();
+            this.case1 = new System.Windows.Forms.PictureBox();
             this.tiny_closet = new System.Windows.Forms.PictureBox();
             this.closet_wood = new System.Windows.Forms.PictureBox();
             this.closet_white = new System.Windows.Forms.PictureBox();
             this.closet_orange_blue = new System.Windows.Forms.PictureBox();
             this.closet_glass = new System.Windows.Forms.PictureBox();
             this.closet_multicolor = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_lac)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiny_closet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_wood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_white)).BeginInit();
@@ -334,85 +334,93 @@
             this.Confirm_btn.UseVisualStyleBackColor = true;
             this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
             // 
-            // pictureBox8
+            // closet_lac
             // 
-            this.pictureBox8.Image = global::KewLox_Forms_.Properties.Resources.closet_lac;
-            this.pictureBox8.Location = new System.Drawing.Point(832, 145);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 29;
-            this.pictureBox8.TabStop = false;
+            this.closet_lac.Image = global::KewLox_Forms_.Properties.Resources.closet_lac;
+            this.closet_lac.Location = new System.Drawing.Point(832, 145);
+            this.closet_lac.Name = "closet_lac";
+            this.closet_lac.Size = new System.Drawing.Size(85, 92);
+            this.closet_lac.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_lac.TabIndex = 29;
+            this.closet_lac.TabStop = false;
+            this.closet_lac.Click += new System.EventHandler(this.closet_lac_Click);
             // 
-            // pictureBox7
+            // case7
             // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(832, 335);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 28;
-            this.pictureBox7.TabStop = false;
+            this.case7.Image = ((System.Drawing.Image)(resources.GetObject("case7.Image")));
+            this.case7.Location = new System.Drawing.Point(832, 335);
+            this.case7.Name = "case7";
+            this.case7.Size = new System.Drawing.Size(85, 92);
+            this.case7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case7.TabIndex = 28;
+            this.case7.TabStop = false;
+            this.case7.Click += new System.EventHandler(this.case7_Click);
             // 
-            // pictureBox6
+            // case6
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(712, 335);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 27;
-            this.pictureBox6.TabStop = false;
+            this.case6.Image = ((System.Drawing.Image)(resources.GetObject("case6.Image")));
+            this.case6.Location = new System.Drawing.Point(712, 335);
+            this.case6.Name = "case6";
+            this.case6.Size = new System.Drawing.Size(85, 92);
+            this.case6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case6.TabIndex = 27;
+            this.case6.TabStop = false;
+            this.case6.Click += new System.EventHandler(this.case6_Click);
             // 
-            // pictureBox5
+            // case5
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(594, 335);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 26;
-            this.pictureBox5.TabStop = false;
+            this.case5.Image = ((System.Drawing.Image)(resources.GetObject("case5.Image")));
+            this.case5.Location = new System.Drawing.Point(594, 335);
+            this.case5.Name = "case5";
+            this.case5.Size = new System.Drawing.Size(85, 92);
+            this.case5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case5.TabIndex = 26;
+            this.case5.TabStop = false;
+            this.case5.Click += new System.EventHandler(this.case5_Click);
             // 
-            // pictureBox4
+            // case4
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(473, 335);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 25;
-            this.pictureBox4.TabStop = false;
+            this.case4.Image = ((System.Drawing.Image)(resources.GetObject("case4.Image")));
+            this.case4.Location = new System.Drawing.Point(473, 335);
+            this.case4.Name = "case4";
+            this.case4.Size = new System.Drawing.Size(85, 92);
+            this.case4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case4.TabIndex = 25;
+            this.case4.TabStop = false;
+            this.case4.Click += new System.EventHandler(this.case4_Click);
             // 
-            // pictureBox3
+            // case3
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(358, 335);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 24;
-            this.pictureBox3.TabStop = false;
+            this.case3.Image = ((System.Drawing.Image)(resources.GetObject("case3.Image")));
+            this.case3.Location = new System.Drawing.Point(358, 335);
+            this.case3.Name = "case3";
+            this.case3.Size = new System.Drawing.Size(85, 92);
+            this.case3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case3.TabIndex = 24;
+            this.case3.TabStop = false;
+            this.case3.Click += new System.EventHandler(this.case3_Click);
             // 
-            // pictureBox2
+            // case2
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(235, 335);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 23;
-            this.pictureBox2.TabStop = false;
+            this.case2.Image = ((System.Drawing.Image)(resources.GetObject("case2.Image")));
+            this.case2.Location = new System.Drawing.Point(235, 335);
+            this.case2.Name = "case2";
+            this.case2.Size = new System.Drawing.Size(85, 92);
+            this.case2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case2.TabIndex = 23;
+            this.case2.TabStop = false;
+            this.case2.Click += new System.EventHandler(this.case2_Click);
             // 
-            // pictureBox1
+            // case1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(107, 335);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(85, 92);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.case1.Image = ((System.Drawing.Image)(resources.GetObject("case1.Image")));
+            this.case1.Location = new System.Drawing.Point(107, 335);
+            this.case1.Name = "case1";
+            this.case1.Size = new System.Drawing.Size(85, 92);
+            this.case1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.case1.TabIndex = 22;
+            this.case1.TabStop = false;
+            this.case1.Click += new System.EventHandler(this.case1_Click);
             // 
             // tiny_closet
             // 
@@ -486,14 +494,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.closet_lac);
+            this.Controls.Add(this.case7);
+            this.Controls.Add(this.case6);
+            this.Controls.Add(this.case5);
+            this.Controls.Add(this.case4);
+            this.Controls.Add(this.case3);
+            this.Controls.Add(this.case2);
+            this.Controls.Add(this.case1);
             this.Controls.Add(this.tiny_closet);
             this.Controls.Add(this.closet_wood);
             this.Controls.Add(this.closet_white);
@@ -512,14 +520,14 @@
             this.Name = "Form3_Catalog";
             this.Text = "Form3_Catalog";
             this.Load += new System.EventHandler(this.Form3_Catalog_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closet_lac)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.case1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tiny_closet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_wood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_white)).EndInit();
@@ -547,13 +555,13 @@
         private System.Windows.Forms.PictureBox closet_white;
         private System.Windows.Forms.PictureBox closet_wood;
         private System.Windows.Forms.PictureBox tiny_closet;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox case1;
+        private System.Windows.Forms.PictureBox case2;
+        private System.Windows.Forms.PictureBox case3;
+        private System.Windows.Forms.PictureBox case4;
+        private System.Windows.Forms.PictureBox case5;
+        private System.Windows.Forms.PictureBox case6;
+        private System.Windows.Forms.PictureBox case7;
+        private System.Windows.Forms.PictureBox closet_lac;
     }
 }

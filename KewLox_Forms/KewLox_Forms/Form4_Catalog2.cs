@@ -145,6 +145,9 @@ namespace KewLox_Forms
             closet_multicolor.Image = Resources.closet_7case;
         }
 
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

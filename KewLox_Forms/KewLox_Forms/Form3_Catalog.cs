@@ -21,6 +21,7 @@ namespace KewLox_Forms
         {
 
         }
+
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
@@ -60,50 +61,11 @@ namespace KewLox_Forms
                
         }
 
-
-
-
-
-
         private void list(object sender, EventArgs e)
         {
 
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripSeparator3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripTextBox2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         //To select one of the recommand closet
         bool choice = false;
@@ -139,6 +101,48 @@ namespace KewLox_Forms
 
         private void Personnalise_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void closet_lac_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case7_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case6_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case5_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case4_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case3_Click(object sender, EventArgs e)
+        {
+            choice = true;
+        }
+
+        private void case2_Click(object sender, EventArgs e)
+        {
+            choice = true;
+
+        }
+
+        private void case1_Click(object sender, EventArgs e)
+        {
+            choice = true;
 
         }
     }
