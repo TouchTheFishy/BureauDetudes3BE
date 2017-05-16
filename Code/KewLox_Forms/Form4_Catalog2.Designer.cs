@@ -137,10 +137,10 @@
             this.toolStripSeparator2,
             this.width,
             this.toolStripSeparator3,
-            this.Nbr_case,
-            this.totalHeightToolStripMenuItem,
             this.totalToolStripMenuItem,
-            this.Total_height_Textbox});
+            this.Total_height_Textbox,
+            this.totalHeightToolStripMenuItem,
+            this.Nbr_case});
             this.Dimension_Filter.Name = "Dimension_Filter";
             this.Dimension_Filter.Size = new System.Drawing.Size(101, 19);
             this.Dimension_Filter.Text = "Dimension Filter";

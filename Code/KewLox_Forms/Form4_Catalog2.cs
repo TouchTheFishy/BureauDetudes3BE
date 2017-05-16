@@ -213,7 +213,8 @@ namespace KewLox_Forms
         //The total height
         private void Total_height_Textbox_TextChanged(object sender, EventArgs e)
         {
-            if (Total_height_Textbox.Text += 120)
+            int Total_height = Convert.ToInt32(Total_height_Textbox.Text);
+            if (Total_height <= 120)
             {
                 closet_5case.Enabled = false;
                 closet_6case.Enabled = false;
