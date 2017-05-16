@@ -75,6 +75,10 @@ namespace KewLox_Forms
             TotalHeight = totalHeight;
             Boxamount = boxamount;
         }
+        public int getDims()
+        {
+            return Width;
+        }
         public void CalculateHeightOptions()
 
         {

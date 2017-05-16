@@ -13,7 +13,7 @@ namespace KewLox_Forms
     public partial class Form5_Signup : Form
     {
         public static Closet closet1;
-        public static Closet Closet
+        public static Closet Armoire
         {
             get { return closet1; }
             set { closet1 = value; }
@@ -21,9 +21,10 @@ namespace KewLox_Forms
 
 
 
-        public Form5_Signup()
+        public Form5_Signup(Closet closet)
         {
-            
+            Armoire = closet;
+            Password.Text = Convert.ToString(Armoire.getDims());
             InitializeComponent();
         }
         
@@ -31,7 +32,7 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
-            Welcome_form frm = new Welcome_form(Closet);
+            Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
         }
@@ -72,8 +73,5 @@ namespace KewLox_Forms
         {
 
         }
-        
-
-
     }
 }

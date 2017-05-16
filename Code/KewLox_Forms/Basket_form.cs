@@ -13,7 +13,7 @@ namespace KewLox_Forms
     public partial class Basket_form : Form
     {
         public static Closet closet1;
-        public static Closet Closet
+        public static Closet Armoire
         {
             get { return closet1; }
             set { closet1 = value; }
@@ -30,7 +30,7 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
-            Welcome_form frm = new Welcome_form(Closet);
+            Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
         }
@@ -38,7 +38,7 @@ namespace KewLox_Forms
         //To go backward
         private void Return_btn_Click(object sender, EventArgs e)
         {
-            Form3_Catalog frm = new Form3_Catalog(Closet);
+            Form3_Catalog frm = new Form3_Catalog(Armoire);
             frm.Show();
             Hide();
         }
@@ -46,7 +46,7 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form5_Signup frm = new Form5_Signup();
+            Form5_Signup frm = new Form5_Signup(Armoire);
             frm.Show();
             Hide();
         }
