@@ -59,47 +59,47 @@ namespace KewLox_Forms
         // To change the color or the material of the door with button
         private void Blue_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_blue;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_blue;
         }
 
         private void Red_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_red;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_red;
         }
 
         private void Green_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_green;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_green;
         }
 
         private void Yellow_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_yellow;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_yellow;
         }
 
         private void Orange_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_orange;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_orange;
         }
 
         private void Pink_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_pink;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_pink;
         }
 
         private void White_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources._case;
+            Case.Image = KewLox_Forms_.Properties.Resources._case;
         }
 
         private void Cup_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources._case;
+            Case.Image = KewLox_Forms_.Properties.Resources._case;
         }
 
         private void Glass_Click(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_glass;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_glass;
         }
 
 
@@ -107,48 +107,48 @@ namespace KewLox_Forms
         //To choose a material for the door with the filter
         private void Cup_fltr_MouseHover(object sender, EventArgs e)
         {
-            Case.Image = Resources._case;
+            Case.Image = KewLox_Forms_.Properties.Resources._case;
         }
 
         private void Glass_fltr_MouseHover(object sender, EventArgs e)
         {
-            Case.Image = Resources.case_glass;
+            Case.Image = KewLox_Forms_.Properties.Resources.case_glass;
         }
 
         // To choose the number of cases in one closet
         private void closet_1case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_1case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_1case;
         }
 
         private void closet_2case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_2case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_2case;
         }
 
         private void closet_3case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_3case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_3case;
         }
 
         private void closet_4case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_4case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_4case;
         }
 
         private void closet_5case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_5case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_5case;
         }
 
         private void closet_6case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_6case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_6case;
         }
 
         private void closet_7case_MouseHover(object sender, EventArgs e)
         {
-            closet_multicolor.Image = Resources.closet_7case;
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_7case;
         }
 
         //The different values of Depth

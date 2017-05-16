@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case7.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfwAAAKcCAYAAAANTgjUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAA/7JJREFUeF7s/ffXdEWZNn6/f8j8Mmucx1ExZ1ExgIgKkiWJShIQExgQVAQlJ8lJ
@@ -1293,7 +1293,7 @@
         QvhBEARBMAGE8IMgCIJgAgjhB0EQBMEEEMIPgiAIgk2P2ez/AalzAQISK79oAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAYEAAAGwCAYAAABPf9ksAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAiyZJREFUeF7t3Yn3ZFV1Nv7fn/MmGhUQnBAFAUUERBmasUEaAQGZtBGCAso8iAKC
@@ -1893,7 +1893,7 @@
         Tf0RlAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAfsAAALRCAYAAABcVAofAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAA/7JJREFUeF7s3Ye3bVWVLfzvX3nBKnNGEQUEAyICkkEtI2VAEAEJZkARCRJEQMlJ
@@ -3107,7 +3107,7 @@
         R8g+CIIgCDpHyD4IgiAIusbKyv8BwQHVybiTIT4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAYMAAAG6CAYAAADqESp3AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAkJ5JREFUeF7t3YeXdFWVPv7ffzPra86JJFHJOWdBkpizAipBBSTnjCA5CIhIkiRJ
@@ -3730,7 +3730,7 @@
         BolEIpFIMkgkEolE0zT/P5J+F0shIq95AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAXwAAAFpCAYAAACf/JPiAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAcwhJREFUeF7t3YeXNFW1NvDvv7nrmjBgQBRFQEAykl8QECSJOSOiYgQERFCCJFFA
@@ -4227,7 +4227,7 @@
         /wGxicg1scW8JQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAYMAAAEPCAYAAACgFqixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAVcRJREFUeF7t3Ye3LGWVNvDvv5k1JlRyzlnkXtIFLkiOAgZMICJjmBlgSIoShiQI
@@ -4599,7 +4599,7 @@
         IskgkUgkEk3zf+mLxgVEBqaoAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="case1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAXMAAACzCAYAAAB7JfySAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAANklJREFUeF7t3Ye3LFW1NfDv7zHhkJwzl5zhkq7kKEGSKCKYUAEBUYmSEXiIZERy

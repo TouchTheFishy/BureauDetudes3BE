@@ -141,5 +141,41 @@ namespace KewLox_Forms
         {
 
         }
+
+        //The diferent size example
+        private void case1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void case7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
