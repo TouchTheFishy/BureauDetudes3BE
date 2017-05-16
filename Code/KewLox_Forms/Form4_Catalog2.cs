@@ -18,6 +18,11 @@ namespace KewLox_Forms
             InitializeComponent();
         }
 
+        private void Form4_Catalog2_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
@@ -145,6 +150,69 @@ namespace KewLox_Forms
             closet_multicolor.Image = Resources.closet_7case;
         }
 
+        //The different values of Depth
+        private void D_32_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void D_42_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void D_52_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void D_62_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //The different values of Width
+        private void W_32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_42_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_52_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_62_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_80_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_100_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void W_120_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        //The total height
+        private void Total_height_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
