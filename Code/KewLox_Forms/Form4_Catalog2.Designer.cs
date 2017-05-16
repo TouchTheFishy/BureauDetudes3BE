@@ -28,13 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4_Catalog2));
             this.label1 = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.Label();
             this.Basket = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Filter1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.depth = new System.Windows.Forms.ToolStripMenuItem();
+            this.D_32 = new System.Windows.Forms.ToolStripMenuItem();
+            this.D_42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.D_52 = new System.Windows.Forms.ToolStripMenuItem();
+            this.D_62 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.width = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_32 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_52 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_62 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_80 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_100 = new System.Windows.Forms.ToolStripMenuItem();
+            this.W_120 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.Nbr_case = new System.Windows.Forms.ToolStripMenuItem();
             this.closet_1case = new System.Windows.Forms.ToolStripTextBox();
@@ -44,6 +56,9 @@
             this.closet_5case = new System.Windows.Forms.ToolStripTextBox();
             this.closet_6case = new System.Windows.Forms.ToolStripTextBox();
             this.closet_7case = new System.Windows.Forms.ToolStripTextBox();
+            this.totalHeightToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.totalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Total_height = new System.Windows.Forms.ToolStripTextBox();
             this.accessoriesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Glass_fltr = new System.Windows.Forms.ToolStripMenuItem();
             this.Cup_fltr = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,22 +78,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.Case = new System.Windows.Forms.PictureBox();
             this.closet_multicolor = new System.Windows.Forms.PictureBox();
-            this.depth = new System.Windows.Forms.ToolStripMenuItem();
-            this.D_32 = new System.Windows.Forms.ToolStripMenuItem();
-            this.D_42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.D_52 = new System.Windows.Forms.ToolStripMenuItem();
-            this.D_62 = new System.Windows.Forms.ToolStripMenuItem();
-            this.width = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_32 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_52 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_62 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_80 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_100 = new System.Windows.Forms.ToolStripMenuItem();
-            this.W_120 = new System.Windows.Forms.ToolStripMenuItem();
-            this.totalHeightToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.totalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Total_height = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Case)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
@@ -145,10 +144,112 @@
             this.Filter1.Size = new System.Drawing.Size(101, 19);
             this.Filter1.Text = "Dimension Filter";
             // 
+            // depth
+            // 
+            this.depth.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.D_32,
+            this.D_42,
+            this.D_52,
+            this.D_62});
+            this.depth.Name = "depth";
+            this.depth.Size = new System.Drawing.Size(207, 22);
+            this.depth.Text = "Depth";
+            // 
+            // D_32
+            // 
+            this.D_32.Name = "D_32";
+            this.D_32.Size = new System.Drawing.Size(106, 22);
+            this.D_32.Text = "32 cm";
+            this.D_32.Click += new System.EventHandler(this.D_32_Click);
+            // 
+            // D_42
+            // 
+            this.D_42.Name = "D_42";
+            this.D_42.Size = new System.Drawing.Size(106, 22);
+            this.D_42.Text = "42 cm";
+            this.D_42.Click += new System.EventHandler(this.D_42_Click);
+            // 
+            // D_52
+            // 
+            this.D_52.Name = "D_52";
+            this.D_52.Size = new System.Drawing.Size(106, 22);
+            this.D_52.Text = "52 cm";
+            this.D_52.Click += new System.EventHandler(this.D_52_Click);
+            // 
+            // D_62
+            // 
+            this.D_62.Name = "D_62";
+            this.D_62.Size = new System.Drawing.Size(106, 22);
+            this.D_62.Text = "62 cm";
+            this.D_62.Click += new System.EventHandler(this.D_62_Click);
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(204, 6);
+            // 
+            // width
+            // 
+            this.width.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.W_32,
+            this.W_42,
+            this.W_52,
+            this.W_62,
+            this.W_80,
+            this.W_100,
+            this.W_120});
+            this.width.Name = "width";
+            this.width.Size = new System.Drawing.Size(207, 22);
+            this.width.Text = "Width";
+            // 
+            // W_32
+            // 
+            this.W_32.Name = "W_32";
+            this.W_32.Size = new System.Drawing.Size(112, 22);
+            this.W_32.Text = "32 cm";
+            this.W_32.Click += new System.EventHandler(this.W_32_Click);
+            // 
+            // W_42
+            // 
+            this.W_42.Name = "W_42";
+            this.W_42.Size = new System.Drawing.Size(112, 22);
+            this.W_42.Text = "42 cm";
+            this.W_42.Click += new System.EventHandler(this.W_42_Click);
+            // 
+            // W_52
+            // 
+            this.W_52.Name = "W_52";
+            this.W_52.Size = new System.Drawing.Size(112, 22);
+            this.W_52.Text = "52 cm";
+            this.W_52.Click += new System.EventHandler(this.W_52_Click);
+            // 
+            // W_62
+            // 
+            this.W_62.Name = "W_62";
+            this.W_62.Size = new System.Drawing.Size(112, 22);
+            this.W_62.Text = "62 cm";
+            this.W_62.Click += new System.EventHandler(this.W_62_Click);
+            // 
+            // W_80
+            // 
+            this.W_80.Name = "W_80";
+            this.W_80.Size = new System.Drawing.Size(112, 22);
+            this.W_80.Text = "80 cm";
+            this.W_80.Click += new System.EventHandler(this.W_80_Click);
+            // 
+            // W_100
+            // 
+            this.W_100.Name = "W_100";
+            this.W_100.Size = new System.Drawing.Size(112, 22);
+            this.W_100.Text = "100 cm";
+            this.W_100.Click += new System.EventHandler(this.W_100_Click);
+            // 
+            // W_120
+            // 
+            this.W_120.Name = "W_120";
+            this.W_120.Size = new System.Drawing.Size(112, 22);
+            this.W_120.Text = "120 cm";
+            this.W_120.Click += new System.EventHandler(this.W_120_Click);
             // 
             // toolStripSeparator3
             // 
@@ -217,6 +318,23 @@
             this.closet_7case.Size = new System.Drawing.Size(100, 23);
             this.closet_7case.Text = "7";
             this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
+            // 
+            // totalHeightToolStripMenuItem
+            // 
+            this.totalHeightToolStripMenuItem.Name = "totalHeightToolStripMenuItem";
+            this.totalHeightToolStripMenuItem.Size = new System.Drawing.Size(204, 6);
+            // 
+            // totalToolStripMenuItem
+            // 
+            this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
+            this.totalToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.totalToolStripMenuItem.Text = "Total height:";
+            // 
+            // Total_height
+            // 
+            this.Total_height.Name = "Total_height";
+            this.Total_height.Size = new System.Drawing.Size(100, 23);
+            this.Total_height.Click += new System.EventHandler(this.Total_height_Click);
             // 
             // accessoriesToolStripMenuItem
             // 
@@ -383,7 +501,6 @@
             // 
             // Case
             // 
-            this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
             this.Case.Location = new System.Drawing.Point(756, 103);
             this.Case.Name = "Case";
             this.Case.Size = new System.Drawing.Size(203, 143);
@@ -393,132 +510,12 @@
             // 
             // closet_multicolor
             // 
-            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
             this.closet_multicolor.Location = new System.Drawing.Point(243, 138);
             this.closet_multicolor.Name = "closet_multicolor";
             this.closet_multicolor.Size = new System.Drawing.Size(245, 377);
             this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_multicolor.TabIndex = 25;
             this.closet_multicolor.TabStop = false;
-            // 
-            // depth
-            // 
-            this.depth.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.D_32,
-            this.D_42,
-            this.D_52,
-            this.D_62});
-            this.depth.Name = "depth";
-            this.depth.Size = new System.Drawing.Size(207, 22);
-            this.depth.Text = "Depth";
-            // 
-            // D_32
-            // 
-            this.D_32.Name = "D_32";
-            this.D_32.Size = new System.Drawing.Size(152, 22);
-            this.D_32.Text = "32 cm";
-            this.D_32.Click += new System.EventHandler(this.D_32_Click);
-            // 
-            // D_42
-            // 
-            this.D_42.Name = "D_42";
-            this.D_42.Size = new System.Drawing.Size(152, 22);
-            this.D_42.Text = "42 cm";
-            this.D_42.Click += new System.EventHandler(this.D_42_Click);
-            // 
-            // D_52
-            // 
-            this.D_52.Name = "D_52";
-            this.D_52.Size = new System.Drawing.Size(152, 22);
-            this.D_52.Text = "52 cm";
-            this.D_52.Click += new System.EventHandler(this.D_52_Click);
-            // 
-            // D_62
-            // 
-            this.D_62.Name = "D_62";
-            this.D_62.Size = new System.Drawing.Size(152, 22);
-            this.D_62.Text = "62 cm";
-            this.D_62.Click += new System.EventHandler(this.D_62_Click);
-            // 
-            // width
-            // 
-            this.width.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.W_32,
-            this.W_42,
-            this.W_52,
-            this.W_62,
-            this.W_80,
-            this.W_100,
-            this.W_120});
-            this.width.Name = "width";
-            this.width.Size = new System.Drawing.Size(207, 22);
-            this.width.Text = "Width";
-            // 
-            // W_32
-            // 
-            this.W_32.Name = "W_32";
-            this.W_32.Size = new System.Drawing.Size(152, 22);
-            this.W_32.Text = "32 cm";
-            this.W_32.Click += new System.EventHandler(this.W_32_Click);
-            // 
-            // W_42
-            // 
-            this.W_42.Name = "W_42";
-            this.W_42.Size = new System.Drawing.Size(152, 22);
-            this.W_42.Text = "42 cm";
-            this.W_42.Click += new System.EventHandler(this.W_42_Click);
-            // 
-            // W_52
-            // 
-            this.W_52.Name = "W_52";
-            this.W_52.Size = new System.Drawing.Size(152, 22);
-            this.W_52.Text = "52 cm";
-            this.W_52.Click += new System.EventHandler(this.W_52_Click);
-            // 
-            // W_62
-            // 
-            this.W_62.Name = "W_62";
-            this.W_62.Size = new System.Drawing.Size(152, 22);
-            this.W_62.Text = "62 cm";
-            this.W_62.Click += new System.EventHandler(this.W_62_Click);
-            // 
-            // W_80
-            // 
-            this.W_80.Name = "W_80";
-            this.W_80.Size = new System.Drawing.Size(152, 22);
-            this.W_80.Text = "80 cm";
-            this.W_80.Click += new System.EventHandler(this.W_80_Click);
-            // 
-            // W_100
-            // 
-            this.W_100.Name = "W_100";
-            this.W_100.Size = new System.Drawing.Size(152, 22);
-            this.W_100.Text = "100 cm";
-            this.W_100.Click += new System.EventHandler(this.W_100_Click);
-            // 
-            // W_120
-            // 
-            this.W_120.Name = "W_120";
-            this.W_120.Size = new System.Drawing.Size(152, 22);
-            this.W_120.Text = "120 cm";
-            this.W_120.Click += new System.EventHandler(this.W_120_Click);
-            // 
-            // totalHeightToolStripMenuItem
-            // 
-            this.totalHeightToolStripMenuItem.Name = "totalHeightToolStripMenuItem";
-            this.totalHeightToolStripMenuItem.Size = new System.Drawing.Size(204, 6);
-            // 
-            // totalToolStripMenuItem
-            // 
-            this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
-            this.totalToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.totalToolStripMenuItem.Text = "Total height:";
-            // 
-            // Total_height
-            // 
-            this.Total_height.Name = "Total_height";
-            this.Total_height.Size = new System.Drawing.Size(100, 23);
-            this.Total_height.Click += new System.EventHandler(this.Total_height_Click);
             // 
             // Form4_Catalog2
             // 

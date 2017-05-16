@@ -68,6 +68,13 @@ namespace KewLox_Forms
             set { actualHeight = value; }
 
         }
+        public void setDims(int width, int depth, int totalHeight, int boxamount)
+        {
+            Width = width;
+            Depth = depth;
+            TotalHeight = totalHeight;
+            Boxamount = boxamount;
+        }
         public void CalculateHeightOptions()
 
         {
