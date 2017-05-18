@@ -50,32 +50,26 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
+            DBConnect database = new DBConnect();
+
+            database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", lastname.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", address.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", phone.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", mail.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", enterprise.Text, Convert.ToInt32(Id));
+            database.Update("commandes", "FirstName", "`id`", tva.Text, Convert.ToInt32(Id));
+
+
             Form6_Resume frm = new Form6_Resume();
             frm.Show();
             this.Close();
 
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string Name = Convert.ToString(sender);
-        }
-
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
-
     }
 }
