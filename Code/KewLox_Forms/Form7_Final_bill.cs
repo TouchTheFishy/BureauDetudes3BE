@@ -23,7 +23,7 @@ namespace KewLox_Forms
             InitializeComponent();
 
             DBConnect database = new DBConnect();
-            ///Price.Text= database.Select(" ", " ", "`id`", price.Text, Convert.ToInt32(Id));
+            Price.Text= database.Select("commandes ", "Prix ", "`id`", totalstring, Convert.ToInt32(Id));
             lastname.Text = database.Select("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
 
         }

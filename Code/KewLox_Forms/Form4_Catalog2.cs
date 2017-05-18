@@ -124,7 +124,7 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form4_Catalog3 frm = new Form4_Catalog3();
+            Form5_Signup frm = new Form5_Signup(Armoire);
             frm.Show();
             Hide();
         }
@@ -449,7 +449,15 @@ namespace KewLox_Forms
             Doormat = "Nocup";
             Case.Image = KewLox_Forms_.Properties.Resources.case_no_cup;
         }
-        
+
+
+        private void nodoor_Click(object sender, EventArgs e)
+        {
+            Doormat = "None";
+        }
+
+
+
 
         private void NextBox_Click(object sender, EventArgs e)
         {
@@ -472,9 +480,36 @@ namespace KewLox_Forms
             Boxheight = 56;
         }
 
-        private void nodoor_Click(object sender, EventArgs e)
+
+
+        // To define the color of the top panel
+        private void T_Brown_Click(object sender, EventArgs e)
         {
-            Doormat = "None";
+            Case.Image = KewLox_Forms_.Properties.Resources.top_brown;
         }
+
+        private void T_white_Click(object sender, EventArgs e)
+        {
+            Case.Image = KewLox_Forms_.Properties.Resources.top_white;
+        }
+
+
+        // To define the color or the materials of the angles
+        private void A_Black_Click(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_black;
+        }
+
+        private void A_White_Click(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_white;
+        }
+
+        private void A_chrom_Click(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_chrom;
+        }
+
+
     }
 }

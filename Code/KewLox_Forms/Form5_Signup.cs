@@ -42,7 +42,7 @@ namespace KewLox_Forms
         //To go backward
         private void Return_btn_Click(object sender, EventArgs e)
         {
-            Form4_Catalog3 frm = new Form4_Catalog3();
+            Form4_Catalog2 frm = new Form4_Catalog2();
             frm.Show();
             Hide();
         }
