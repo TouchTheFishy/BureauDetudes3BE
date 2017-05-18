@@ -26,7 +26,7 @@ namespace KewLox_Forms
         List<string> DbLink = new List<string>(6);
         String[] DbColumn;
 
-        public void AddConstructionParts(int boxheight)
+        public void AddConstructionParts(int boxheight, string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int width, int depth)
         {
             int height = boxheight - 4;
             DBConnect database = new DBConnect();
@@ -39,108 +39,44 @@ namespace KewLox_Forms
             DbLink.Add("Color");
             DbColumn = DbLink.ToArray();
 
-            bool check = false;
-            while (check == false)
+            
+            //each box has a down, a left, a right and a back pannel, only the last one has an up pannel! 
+            ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(depth), Name = "Panneau GD",Color = rcol };
+            ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(depth), Name = "Panneau GD", Color = lcol };
+            ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(width), Name = "Panneau Ar", Color = bcol };
+            //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
+            ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(depth), Width = Convert.ToString(width), Name = "Panneau HB", Color=dcol};
+            
+            
+            List<ConstructionParts> pannels = new List<ConstructionParts>() {LeftP,RightP,BackP,DnP };
+            List<string> choices = new List<string>() { "Left Pannel", "Right Pannel", "Back Pannel", "Down Pannel" };
+                
+                foreach (ConstructionParts component in pannels)
+                {
+                    string[] request = component.AddPart(1);
+                    database.Insert("commandespieces", DbColumn, request);
+                }
+                //Add codes for pannels to parts
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
+                    new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
+                    new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
+                    new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
+                    //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
+                    new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
+                };
+                parts.AddRange(pannelcodes);
+
+            //Remove the amount taken in db "stock" and update "sold"
+            for (int j = 0; j < pannelcodes.Count; j++)
             {
-                //each box has a down, a left, a right and a back pannel, only the last one has an up pannel! 
-                ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
-                ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
-                ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(Closet.Width), Name = "Panneau Ar" };
-                //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
-                ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
-                
-                
-                Console.WriteLine("Do you want to customize pannels color? Default color is White for every pannel. Yes/No");
-                string answer = Console.ReadLine();
-                List<ConstructionParts> pannels = new List<ConstructionParts>() {LeftP,RightP,BackP,DnP };
-                List<string> choices = new List<string>() { "Left Pannel", "Right Pannel", "Back Pannel", "Down Pannel" };
-                if (answer == "Yes" || answer == "yes")
-                {
-                    int i = 0;
-                    foreach (ConstructionParts component in pannels)
-                    {
-                        check = false;
-                        while (check == false)
-                        {
-                            
-                            Console.WriteLine("Which color for the " + choices[i]+" Brown or White?");
-                            string color = Console.ReadLine();
-                            if (color == "Brown" || color == "White")
-                            {
-                                component.Color = color;
-                                string[] request = component.AddPart(1);
-                                database.Insert("commandespieces", DbColumn, request);
-                                check = true;
-                            }
-                            else
-                            {
-                                Console.WriteLine("Please select an available color");
-                            }
-                        }
-                        i += 1;
-
-                    }
-                    //Add codes for pannels to parts
-                    List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
-                        new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
-                    };
-                    parts.AddRange(pannelcodes);
-
-                    //Remove the amount taken in db "stock" and update "sold"
-                    for (int j = 0; j < pannelcodes.Count; j++)
-                    {
-                        database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
-                    }
-
-
-
-                }
-                if (answer == "No" || answer == "no")
-                {
-                    foreach (ConstructionParts component in pannels)
-                    {
-                        check = false;
-                        while (check == false)
-                        {
-                            component.Color = "White";
-                            string[] request = component.AddPart(1);
-                            database.Insert("commandespieces", DbColumn, request);
-                            check = true;
-                        }
-                    }
-                    //Add codes for pannels to parts
-                    List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
-                        new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
-                        new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
-                    };
-                    parts.AddRange(pannelcodes);
-
-                    //Remove the amount taken in db "stock" and update "sold"
-                    for (int i = 0; i < pannelcodes.Count; i++)
-                    {
-                        database.Sold("sold", pannelcodes[i].Key, pannelcodes[i].Value);
-                    }
-                }
-
-                else
-                {
-                    if (check == false)
-                    {
-                        Console.WriteLine("Please answer Yes Or No");
-                    }
-                }
+                database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
             }
+            
+            
             //each box has 1 front 1 back and 2 left/right traverses, only the last one has double so many
-            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width) , Name="Traverse AV", Color=""};
-            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
-            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse GD", Color = "" };
+            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(width) , Name="Traverse AV", Color=""};
+            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(width), Name = "Traverse AR", Color = "" };
+            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(depth), Name = "Traverse GD", Color = "" };
             ConstructionParts VertCB = new ConstructionParts() { Height = Convert.ToString(height-5), Name = "Tasseau", Color = "" };
 
             //Build codes for tasseaux & traverses
@@ -170,12 +106,11 @@ namespace KewLox_Forms
                 database.Sold("sold", tasseauxTraverses[i].Key, tasseauxTraverses[i].Value);
             }
 
-            bool ok = false;
-            while (ok == false && Closet.Width>60)
+            
+            if (width>60)
             {
-                Console.WriteLine("Do you want doors? Yes/No");
-                string answer = Console.ReadLine();
-                if (answer == "Yes" || answer == "yes")
+                
+                if (doormat !="None")
                 {
                     //Black does not exist!!
                     Console.WriteLine("what Color would you like for your doors? Available: White, Brown, Glass");
@@ -193,74 +128,63 @@ namespace KewLox_Forms
                         int doorwidth = 0;
                         foreach (KeyValuePair<int, int> pair in doorwidths)
                         {
-                            if (pair.Key == Closet.Width)
+                            if (pair.Key == width)
                             {
                                 doorwidth = pair.Value;
                                 break;
                             }
                         }
 
-                        if (colordoor != "Glass")
+                        if (doormat != "Glass")
                         {
-                            while (ok == false)
+                            
+                            
+                            
+                            //still need to add the door to this.parts (first make keyvaluepair)
+                            if (doormat == "Cup")
                             {
-                                Console.WriteLine("Do you want cups on these doors? Yes/No");
-                                answer = Console.ReadLine();
-                                //still need to add the door to this.parts (first make keyvaluepair)
-                                if (answer == "Yes" || answer == "yes")
-                                {
-                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
-                                    string[] request = Door.AddDoor();
-                                    Door.Code = Door.MakeCode();
-                                    KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
-                                    parts.Add(doors);
-                                    ConstructionParts Cup = new ConstructionParts { Name = "Coupelle", Color = "" };
-                                    Cup.Code = Cup.MakeCode();
-                                    KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
-                                    parts.Add(cups);
-                                    string[]cuprequest = Cup.AddPart(2);
-                                    database.Insert("commandespieces", DbColumn, request);
-                                    database.Insert("commandespieces", DbColumn, cuprequest);
-                                    ok = true;
+                                ConstructionParts Door = new ConstructionParts { Color = doorcol, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
+                                string[] request = Door.AddDoor();
+                                Door.Code = Door.MakeCode();
+                                KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
+                                parts.Add(doors);
+                                ConstructionParts Cup = new ConstructionParts { Name = "Coupelle", Color = "" };
+                                Cup.Code = Cup.MakeCode();
+                                KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
+                                parts.Add(cups);
+                                string[]cuprequest = Cup.AddPart(2);
+                                database.Insert("commandespieces", DbColumn, request);
+                                database.Insert("commandespieces", DbColumn, cuprequest);
 
-                                    //Remove the amount taken in db "stock" and update "sold"
-                                    database.Sold("sold", doors.Key, doors.Value);
-                                    database.Sold("sold", cups.Key, cups.Value);
+                                //Remove the amount taken in db "stock" and update "sold"
+                                database.Sold("sold", doors.Key, doors.Value);
+                                database.Sold("sold", cups.Key, cups.Value);
 
-                                }
-
-                                if (answer == "No" || answer == "no")
-                                {
-                                    ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
-                                    string[] request = Door.AddDoor();
-                                    Door.Code = Door.MakeCode();
-                                    KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
-                                    parts.Add(doors);
-                                    database.Insert("commandespieces", DbColumn, request);
-                                    ok = true;
-
-                                    //Remove the amount taken in db "stock" and update "sold"
-                                    database.Sold("sold", doors.Key, doors.Value);
-
-                                }
-                                else
-                                {
-                                    if (ok == false)
-                                    {
-                                        Console.WriteLine("Please answer Yes or No");
-                                    }
-                                }
                             }
+
+                            if (doormat=="Nocup")
+                            {
+                                ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
+                                string[] request = Door.AddDoor();
+                                Door.Code = Door.MakeCode();
+                                KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
+                                parts.Add(doors);
+                                database.Insert("commandespieces", DbColumn, request);
+                            
+                                //Remove the amount taken in db "stock" and update "sold"
+                                database.Sold("sold", doors.Key, doors.Value);
+
+                            }
+                            
                         }
                         else
                         {
-                            ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "No" };
+                            ConstructionParts Door = new ConstructionParts { Color = doormat, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "No" };
                             string[] request = Door.AddDoor();
                             Door.Code = Door.MakeCode();
                             KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
                             parts.Add(doors);
                             database.Insert("commandespieces", DbColumn, request);
-                            ok = true;
 
                             //Remove the amount taken in db "stock" and update "sold"
                             database.Sold("sold", doors.Key, doors.Value);
@@ -272,17 +196,7 @@ namespace KewLox_Forms
                         Console.WriteLine("Wrong input");
                     }
                 }
-                if (answer == "No" || answer == "no")
-                {
-                    ok = true;
-                }
-                else
-                {
-                    if (ok == false)
-                    {
-                        Console.WriteLine("Please answer Yes Or No");
-                    }
-                }
+                
             }
         } 
     }
