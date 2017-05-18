@@ -10,10 +10,18 @@ using System.Windows.Forms;
 
 namespace KewLox_Forms
 {
+    
     public partial class Welcome_form: Form
     {
-        public Welcome_form()
+        public static Closet closet1;
+        public static Closet Closet
         {
+            get { return closet1;}
+            set { closet1 = value; }
+        }
+        public Welcome_form(Closet closet)
+        {
+            Closet = closet;
             InitializeComponent();
         }
 
@@ -24,7 +32,7 @@ namespace KewLox_Forms
 
         private void button_Customer_Click(object sender, EventArgs e)
         {
-            Form3_Catalog frm = new Form3_Catalog();
+            Form3_Catalog frm = new Form3_Catalog(Closet);
             frm.Show();
             Hide();
         }

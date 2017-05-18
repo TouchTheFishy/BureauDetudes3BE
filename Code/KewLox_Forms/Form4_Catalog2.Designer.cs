@@ -53,6 +53,13 @@
             this.Total_height_Textbox = new System.Windows.Forms.ToolStripTextBox();
             this.totalHeightToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.Nbr_case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_1case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_2case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_3case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_4case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_5case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_6case = new System.Windows.Forms.ToolStripMenuItem();
+            this.closet_7case = new System.Windows.Forms.ToolStripMenuItem();
             this.Accessories_Menu = new System.Windows.Forms.ToolStripMenuItem();
             this.Glass_fltr = new System.Windows.Forms.ToolStripMenuItem();
             this.Cup_fltr = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,24 +68,36 @@
             this.Glass_btn = new System.Windows.Forms.Button();
             this.Cup_btn = new System.Windows.Forms.Button();
             this.Blue = new System.Windows.Forms.Button();
-            this.Red = new System.Windows.Forms.Button();
+            this.B_Brown = new System.Windows.Forms.Button();
             this.Orange = new System.Windows.Forms.Button();
             this.Green = new System.Windows.Forms.Button();
             this.Pink = new System.Windows.Forms.Button();
             this.Yellow = new System.Windows.Forms.Button();
-            this.Material = new System.Windows.Forms.Label();
-            this.Color = new System.Windows.Forms.Label();
-            this.White = new System.Windows.Forms.Button();
+            this.Door = new System.Windows.Forms.Label();
+            this.B_panel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Case = new System.Windows.Forms.PictureBox();
             this.closet_multicolor = new System.Windows.Forms.PictureBox();
-            this.closet_1case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_2case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_3case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_4case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_5case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_7case = new System.Windows.Forms.ToolStripMenuItem();
-            this.closet_6case = new System.Windows.Forms.ToolStripMenuItem();
+            this.B_white = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.L_white = new System.Windows.Forms.Button();
+            this.L_Brown = new System.Windows.Forms.Button();
+            this.Right_panel = new System.Windows.Forms.Label();
+            this.R_white = new System.Windows.Forms.Button();
+            this.R_Brown = new System.Windows.Forms.Button();
+            this.No_cup = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Door_white = new System.Windows.Forms.Button();
+            this.Door_Brown = new System.Windows.Forms.Button();
+            this.Futur_choices = new System.Windows.Forms.Label();
+            this.Red = new System.Windows.Forms.Button();
+            this.White = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.D_white = new System.Windows.Forms.Button();
+            this.D_Brown = new System.Windows.Forms.Button();
+            this.Down_panel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Case)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
@@ -262,7 +281,6 @@
             this.totalToolStripMenuItem.Name = "totalToolStripMenuItem";
             this.totalToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
             this.totalToolStripMenuItem.Text = "Total height:";
-            this.totalToolStripMenuItem.Click += new System.EventHandler(this.totalToolStripMenuItem_Click);
             // 
             // Total_height_Textbox
             // 
@@ -291,6 +309,55 @@
             this.Nbr_case.Size = new System.Drawing.Size(207, 22);
             this.Nbr_case.Text = "Number of Case required";
             // 
+            // closet_1case
+            // 
+            this.closet_1case.Name = "closet_1case";
+            this.closet_1case.Size = new System.Drawing.Size(80, 22);
+            this.closet_1case.Text = "1";
+            this.closet_1case.MouseHover += new System.EventHandler(this.closet_1case_MouseHover);
+            // 
+            // closet_2case
+            // 
+            this.closet_2case.Name = "closet_2case";
+            this.closet_2case.Size = new System.Drawing.Size(80, 22);
+            this.closet_2case.Text = "2";
+            this.closet_2case.MouseHover += new System.EventHandler(this.closet_2case_MouseHover);
+            // 
+            // closet_3case
+            // 
+            this.closet_3case.Name = "closet_3case";
+            this.closet_3case.Size = new System.Drawing.Size(80, 22);
+            this.closet_3case.Text = "3";
+            this.closet_3case.MouseHover += new System.EventHandler(this.closet_3case_MouseHover);
+            // 
+            // closet_4case
+            // 
+            this.closet_4case.Name = "closet_4case";
+            this.closet_4case.Size = new System.Drawing.Size(80, 22);
+            this.closet_4case.Text = "4";
+            this.closet_4case.MouseHover += new System.EventHandler(this.closet_4case_MouseHover);
+            // 
+            // closet_5case
+            // 
+            this.closet_5case.Name = "closet_5case";
+            this.closet_5case.Size = new System.Drawing.Size(80, 22);
+            this.closet_5case.Text = "5";
+            this.closet_5case.MouseHover += new System.EventHandler(this.closet_5case_MouseHover);
+            // 
+            // closet_6case
+            // 
+            this.closet_6case.Name = "closet_6case";
+            this.closet_6case.Size = new System.Drawing.Size(80, 22);
+            this.closet_6case.Text = "6";
+            this.closet_6case.MouseHover += new System.EventHandler(this.closet_6case_MouseHover);
+            // 
+            // closet_7case
+            // 
+            this.closet_7case.Name = "closet_7case";
+            this.closet_7case.Size = new System.Drawing.Size(80, 22);
+            this.closet_7case.Text = "7";
+            this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
+            // 
             // Accessories_Menu
             // 
             this.Accessories_Menu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -303,14 +370,14 @@
             // Glass_fltr
             // 
             this.Glass_fltr.Name = "Glass_fltr";
-            this.Glass_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Glass_fltr.Size = new System.Drawing.Size(101, 22);
             this.Glass_fltr.Text = "Glass";
             this.Glass_fltr.MouseHover += new System.EventHandler(this.Glass_fltr_MouseHover);
             // 
             // Cup_fltr
             // 
             this.Cup_fltr.Name = "Cup_fltr";
-            this.Cup_fltr.Size = new System.Drawing.Size(152, 22);
+            this.Cup_fltr.Size = new System.Drawing.Size(101, 22);
             this.Cup_fltr.Text = "Cup";
             this.Cup_fltr.MouseHover += new System.EventHandler(this.Cup_fltr_MouseHover);
             // 
@@ -336,9 +403,9 @@
             // 
             // Glass_btn
             // 
-            this.Glass_btn.Location = new System.Drawing.Point(731, 290);
+            this.Glass_btn.Location = new System.Drawing.Point(608, 157);
             this.Glass_btn.Name = "Glass_btn";
-            this.Glass_btn.Size = new System.Drawing.Size(48, 23);
+            this.Glass_btn.Size = new System.Drawing.Size(81, 23);
             this.Glass_btn.TabIndex = 27;
             this.Glass_btn.Text = "Glass";
             this.Glass_btn.UseVisualStyleBackColor = true;
@@ -346,9 +413,9 @@
             // 
             // Cup_btn
             // 
-            this.Cup_btn.Location = new System.Drawing.Point(731, 319);
+            this.Cup_btn.Location = new System.Drawing.Point(608, 186);
             this.Cup_btn.Name = "Cup_btn";
-            this.Cup_btn.Size = new System.Drawing.Size(48, 23);
+            this.Cup_btn.Size = new System.Drawing.Size(81, 23);
             this.Cup_btn.TabIndex = 28;
             this.Cup_btn.Text = "Cup";
             this.Cup_btn.UseVisualStyleBackColor = true;
@@ -356,7 +423,7 @@
             // 
             // Blue
             // 
-            this.Blue.Location = new System.Drawing.Point(825, 319);
+            this.Blue.Location = new System.Drawing.Point(813, 319);
             this.Blue.Name = "Blue";
             this.Blue.Size = new System.Drawing.Size(55, 23);
             this.Blue.TabIndex = 30;
@@ -364,19 +431,19 @@
             this.Blue.UseVisualStyleBackColor = true;
             this.Blue.Click += new System.EventHandler(this.Blue_Click);
             // 
-            // Red
+            // B_Brown
             // 
-            this.Red.Location = new System.Drawing.Point(825, 290);
-            this.Red.Name = "Red";
-            this.Red.Size = new System.Drawing.Size(55, 23);
-            this.Red.TabIndex = 29;
-            this.Red.Text = "Red";
-            this.Red.UseVisualStyleBackColor = true;
-            this.Red.Click += new System.EventHandler(this.Red_Click);
+            this.B_Brown.Location = new System.Drawing.Point(506, 157);
+            this.B_Brown.Name = "B_Brown";
+            this.B_Brown.Size = new System.Drawing.Size(55, 23);
+            this.B_Brown.TabIndex = 29;
+            this.B_Brown.Text = "Brown";
+            this.B_Brown.UseVisualStyleBackColor = true;
+            this.B_Brown.Click += new System.EventHandler(this.B_Brown_Click);
             // 
             // Orange
             // 
-            this.Orange.Location = new System.Drawing.Point(883, 319);
+            this.Orange.Location = new System.Drawing.Point(871, 319);
             this.Orange.Name = "Orange";
             this.Orange.Size = new System.Drawing.Size(56, 23);
             this.Orange.TabIndex = 32;
@@ -386,7 +453,7 @@
             // 
             // Green
             // 
-            this.Green.Location = new System.Drawing.Point(883, 290);
+            this.Green.Location = new System.Drawing.Point(871, 290);
             this.Green.Name = "Green";
             this.Green.Size = new System.Drawing.Size(56, 23);
             this.Green.TabIndex = 31;
@@ -396,7 +463,7 @@
             // 
             // Pink
             // 
-            this.Pink.Location = new System.Drawing.Point(945, 319);
+            this.Pink.Location = new System.Drawing.Point(933, 319);
             this.Pink.Name = "Pink";
             this.Pink.Size = new System.Drawing.Size(48, 23);
             this.Pink.TabIndex = 34;
@@ -406,7 +473,7 @@
             // 
             // Yellow
             // 
-            this.Yellow.Location = new System.Drawing.Point(945, 290);
+            this.Yellow.Location = new System.Drawing.Point(933, 290);
             this.Yellow.Name = "Yellow";
             this.Yellow.Size = new System.Drawing.Size(48, 23);
             this.Yellow.TabIndex = 33;
@@ -414,35 +481,25 @@
             this.Yellow.UseVisualStyleBackColor = true;
             this.Yellow.Click += new System.EventHandler(this.Yellow_Click);
             // 
-            // Material
+            // Door
             // 
-            this.Material.AutoSize = true;
-            this.Material.Font = new System.Drawing.Font("Cambria", 10.25F);
-            this.Material.Location = new System.Drawing.Point(728, 271);
-            this.Material.Name = "Material";
-            this.Material.Size = new System.Drawing.Size(59, 16);
-            this.Material.TabIndex = 35;
-            this.Material.Text = "Material";
+            this.Door.AutoSize = true;
+            this.Door.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.Door.Location = new System.Drawing.Point(605, 138);
+            this.Door.Name = "Door";
+            this.Door.Size = new System.Drawing.Size(97, 16);
+            this.Door.TabIndex = 35;
+            this.Door.Text = "Door Materials";
             // 
-            // Color
+            // B_panel
             // 
-            this.Color.AutoSize = true;
-            this.Color.Font = new System.Drawing.Font("Cambria", 10.25F);
-            this.Color.Location = new System.Drawing.Point(822, 271);
-            this.Color.Name = "Color";
-            this.Color.Size = new System.Drawing.Size(40, 16);
-            this.Color.TabIndex = 36;
-            this.Color.Text = "Color";
-            // 
-            // White
-            // 
-            this.White.Location = new System.Drawing.Point(825, 348);
-            this.White.Name = "White";
-            this.White.Size = new System.Drawing.Size(114, 23);
-            this.White.TabIndex = 37;
-            this.White.Text = "Simple White";
-            this.White.UseVisualStyleBackColor = true;
-            this.White.Click += new System.EventHandler(this.White_Click);
+            this.B_panel.AutoSize = true;
+            this.B_panel.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.B_panel.Location = new System.Drawing.Point(494, 138);
+            this.B_panel.Name = "B_panel";
+            this.B_panel.Size = new System.Drawing.Size(74, 16);
+            this.B_panel.TabIndex = 36;
+            this.B_panel.Text = "Back Panel";
             // 
             // label2
             // 
@@ -457,7 +514,7 @@
             // Case
             // 
             this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
-            this.Case.Location = new System.Drawing.Point(756, 103);
+            this.Case.Location = new System.Drawing.Point(752, 103);
             this.Case.Name = "Case";
             this.Case.Size = new System.Drawing.Size(203, 143);
             this.Case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -474,54 +531,202 @@
             this.closet_multicolor.TabIndex = 25;
             this.closet_multicolor.TabStop = false;
             // 
-            // closet_1case
+            // B_white
             // 
-            this.closet_1case.Name = "closet_1case";
-            this.closet_1case.Size = new System.Drawing.Size(152, 22);
-            this.closet_1case.Text = "1";
-            this.closet_1case.MouseHover += new System.EventHandler(this.closet_1case_MouseHover);
+            this.B_white.Location = new System.Drawing.Point(506, 186);
+            this.B_white.Name = "B_white";
+            this.B_white.Size = new System.Drawing.Size(55, 23);
+            this.B_white.TabIndex = 39;
+            this.B_white.Text = "White";
+            this.B_white.UseVisualStyleBackColor = true;
+            this.B_white.Click += new System.EventHandler(this.B_white_Click);
             // 
-            // closet_2case
+            // label3
             // 
-            this.closet_2case.Name = "closet_2case";
-            this.closet_2case.Size = new System.Drawing.Size(152, 22);
-            this.closet_2case.Text = "2";
-            this.closet_2case.MouseHover += new System.EventHandler(this.closet_2case_MouseHover);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.label3.Location = new System.Drawing.Point(494, 230);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(72, 16);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Left Panel ";
             // 
-            // closet_3case
+            // L_white
             // 
-            this.closet_3case.Name = "closet_3case";
-            this.closet_3case.Size = new System.Drawing.Size(152, 22);
-            this.closet_3case.Text = "3";
-            this.closet_3case.MouseHover += new System.EventHandler(this.closet_3case_MouseHover);
+            this.L_white.Location = new System.Drawing.Point(506, 278);
+            this.L_white.Name = "L_white";
+            this.L_white.Size = new System.Drawing.Size(55, 23);
+            this.L_white.TabIndex = 42;
+            this.L_white.Text = "White";
+            this.L_white.UseVisualStyleBackColor = true;
+            this.L_white.Click += new System.EventHandler(this.L_white_Click);
             // 
-            // closet_4case
+            // L_Brown
             // 
-            this.closet_4case.Name = "closet_4case";
-            this.closet_4case.Size = new System.Drawing.Size(152, 22);
-            this.closet_4case.Text = "4";
-            this.closet_4case.MouseHover += new System.EventHandler(this.closet_4case_MouseHover);
+            this.L_Brown.Location = new System.Drawing.Point(506, 249);
+            this.L_Brown.Name = "L_Brown";
+            this.L_Brown.Size = new System.Drawing.Size(55, 23);
+            this.L_Brown.TabIndex = 41;
+            this.L_Brown.Text = "Brown";
+            this.L_Brown.UseVisualStyleBackColor = true;
+            this.L_Brown.Click += new System.EventHandler(this.L_Brown_Click);
             // 
-            // closet_5case
+            // Right_panel
             // 
-            this.closet_5case.Name = "closet_5case";
-            this.closet_5case.Size = new System.Drawing.Size(152, 22);
-            this.closet_5case.Text = "5";
-            this.closet_5case.MouseHover += new System.EventHandler(this.closet_5case_MouseHover);
+            this.Right_panel.AutoSize = true;
+            this.Right_panel.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.Right_panel.Location = new System.Drawing.Point(495, 319);
+            this.Right_panel.Name = "Right_panel";
+            this.Right_panel.Size = new System.Drawing.Size(78, 16);
+            this.Right_panel.TabIndex = 43;
+            this.Right_panel.Text = "Right panel";
             // 
-            // closet_7case
+            // R_white
             // 
-            this.closet_7case.Name = "closet_7case";
-            this.closet_7case.Size = new System.Drawing.Size(152, 22);
-            this.closet_7case.Text = "7";
-            this.closet_7case.MouseHover += new System.EventHandler(this.closet_7case_MouseHover);
+            this.R_white.Location = new System.Drawing.Point(507, 370);
+            this.R_white.Name = "R_white";
+            this.R_white.Size = new System.Drawing.Size(55, 23);
+            this.R_white.TabIndex = 45;
+            this.R_white.Text = "White";
+            this.R_white.UseVisualStyleBackColor = true;
+            this.R_white.Click += new System.EventHandler(this.R_white_Click);
             // 
-            // closet_6case
+            // R_Brown
             // 
-            this.closet_6case.Name = "closet_6case";
-            this.closet_6case.Size = new System.Drawing.Size(152, 22);
-            this.closet_6case.Text = "6";
-            this.closet_6case.MouseHover += new System.EventHandler(this.closet_6case_MouseHover);
+            this.R_Brown.Location = new System.Drawing.Point(507, 341);
+            this.R_Brown.Name = "R_Brown";
+            this.R_Brown.Size = new System.Drawing.Size(55, 23);
+            this.R_Brown.TabIndex = 44;
+            this.R_Brown.Text = "Brown";
+            this.R_Brown.UseVisualStyleBackColor = true;
+            this.R_Brown.Click += new System.EventHandler(this.R_Brown_Click);
+            // 
+            // No_cup
+            // 
+            this.No_cup.Location = new System.Drawing.Point(608, 215);
+            this.No_cup.Name = "No_cup";
+            this.No_cup.Size = new System.Drawing.Size(81, 23);
+            this.No_cup.TabIndex = 46;
+            this.No_cup.Text = "Without Cup";
+            this.No_cup.UseVisualStyleBackColor = true;
+            this.No_cup.Click += new System.EventHandler(this.No_cup_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.label4.Location = new System.Drawing.Point(605, 252);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 16);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Door Colors";
+            // 
+            // Door_white
+            // 
+            this.Door_white.Location = new System.Drawing.Point(618, 307);
+            this.Door_white.Name = "Door_white";
+            this.Door_white.Size = new System.Drawing.Size(55, 23);
+            this.Door_white.TabIndex = 49;
+            this.Door_white.Text = "White";
+            this.Door_white.UseVisualStyleBackColor = true;
+            this.Door_white.Click += new System.EventHandler(this.Door_white_Click);
+            // 
+            // Door_Brown
+            // 
+            this.Door_Brown.Location = new System.Drawing.Point(618, 278);
+            this.Door_Brown.Name = "Door_Brown";
+            this.Door_Brown.Size = new System.Drawing.Size(55, 23);
+            this.Door_Brown.TabIndex = 48;
+            this.Door_Brown.Text = "Brown";
+            this.Door_Brown.UseVisualStyleBackColor = true;
+            this.Door_Brown.Click += new System.EventHandler(this.Door_Brown_Click);
+            // 
+            // Futur_choices
+            // 
+            this.Futur_choices.AutoSize = true;
+            this.Futur_choices.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.Futur_choices.Location = new System.Drawing.Point(810, 256);
+            this.Futur_choices.Name = "Futur_choices";
+            this.Futur_choices.Size = new System.Drawing.Size(97, 16);
+            this.Futur_choices.TabIndex = 50;
+            this.Futur_choices.Text = "Future choices";
+            // 
+            // Red
+            // 
+            this.Red.Location = new System.Drawing.Point(813, 290);
+            this.Red.Name = "Red";
+            this.Red.Size = new System.Drawing.Size(56, 23);
+            this.Red.TabIndex = 51;
+            this.Red.Text = "Red";
+            this.Red.UseVisualStyleBackColor = true;
+            this.Red.Click += new System.EventHandler(this.Red_Click);
+            // 
+            // White
+            // 
+            this.White.Location = new System.Drawing.Point(813, 348);
+            this.White.Name = "White";
+            this.White.Size = new System.Drawing.Size(114, 23);
+            this.White.TabIndex = 37;
+            this.White.Text = "Simple White";
+            this.White.UseVisualStyleBackColor = true;
+            this.White.Click += new System.EventHandler(this.White_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(597, 399);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 38);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "NEXT BOX";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(847, 68);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(33, 20);
+            this.textBox1.TabIndex = 53;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.label6.Location = new System.Drawing.Point(749, 69);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(92, 16);
+            this.label6.TabIndex = 54;
+            this.label6.Tag = "";
+            this.label6.Text = "Box Number: ";
+            // 
+            // D_white
+            // 
+            this.D_white.Location = new System.Drawing.Point(506, 463);
+            this.D_white.Name = "D_white";
+            this.D_white.Size = new System.Drawing.Size(55, 23);
+            this.D_white.TabIndex = 57;
+            this.D_white.Text = "White";
+            this.D_white.UseVisualStyleBackColor = true;
+            this.D_white.Click += new System.EventHandler(this.D_white_Click);
+            // 
+            // D_Brown
+            // 
+            this.D_Brown.Location = new System.Drawing.Point(506, 434);
+            this.D_Brown.Name = "D_Brown";
+            this.D_Brown.Size = new System.Drawing.Size(55, 23);
+            this.D_Brown.TabIndex = 56;
+            this.D_Brown.Text = "Brown";
+            this.D_Brown.UseVisualStyleBackColor = true;
+            this.D_Brown.Click += new System.EventHandler(this.D_Brown_Click);
+            // 
+            // Down_panel
+            // 
+            this.Down_panel.AutoSize = true;
+            this.Down_panel.Font = new System.Drawing.Font("Cambria", 10.25F);
+            this.Down_panel.Location = new System.Drawing.Point(494, 412);
+            this.Down_panel.Name = "Down_panel";
+            this.Down_panel.Size = new System.Drawing.Size(80, 16);
+            this.Down_panel.TabIndex = 55;
+            this.Down_panel.Text = "Down panel";
             // 
             // Form4_Catalog2
             // 
@@ -529,16 +734,35 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.D_white);
+            this.Controls.Add(this.D_Brown);
+            this.Controls.Add(this.Down_panel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Red);
+            this.Controls.Add(this.Futur_choices);
+            this.Controls.Add(this.Door_white);
+            this.Controls.Add(this.Door_Brown);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.No_cup);
+            this.Controls.Add(this.R_white);
+            this.Controls.Add(this.R_Brown);
+            this.Controls.Add(this.Right_panel);
+            this.Controls.Add(this.L_white);
+            this.Controls.Add(this.L_Brown);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.B_white);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.White);
-            this.Controls.Add(this.Color);
-            this.Controls.Add(this.Material);
+            this.Controls.Add(this.B_panel);
+            this.Controls.Add(this.Door);
             this.Controls.Add(this.Pink);
             this.Controls.Add(this.Yellow);
             this.Controls.Add(this.Orange);
             this.Controls.Add(this.Green);
             this.Controls.Add(this.Blue);
-            this.Controls.Add(this.Red);
+            this.Controls.Add(this.B_Brown);
             this.Controls.Add(this.Cup_btn);
             this.Controls.Add(this.Glass_btn);
             this.Controls.Add(this.Case);
@@ -581,14 +805,13 @@
         private System.Windows.Forms.Button Glass_btn;
         private System.Windows.Forms.Button Cup_btn;
         private System.Windows.Forms.Button Blue;
-        private System.Windows.Forms.Button Red;
+        private System.Windows.Forms.Button B_Brown;
         private System.Windows.Forms.Button Orange;
         private System.Windows.Forms.Button Green;
         private System.Windows.Forms.Button Pink;
         private System.Windows.Forms.Button Yellow;
-        private System.Windows.Forms.Label Material;
-        private System.Windows.Forms.Label Color;
-        private System.Windows.Forms.Button White;
+        private System.Windows.Forms.Label Door;
+        private System.Windows.Forms.Label B_panel;
         private System.Windows.Forms.ToolStripMenuItem Nbr_case;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem depth;
@@ -614,5 +837,25 @@
         private System.Windows.Forms.ToolStripMenuItem closet_5case;
         private System.Windows.Forms.ToolStripMenuItem closet_6case;
         private System.Windows.Forms.ToolStripMenuItem closet_7case;
+        private System.Windows.Forms.Button B_white;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button L_white;
+        private System.Windows.Forms.Button L_Brown;
+        private System.Windows.Forms.Label Right_panel;
+        private System.Windows.Forms.Button R_white;
+        private System.Windows.Forms.Button R_Brown;
+        private System.Windows.Forms.Button No_cup;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Door_white;
+        private System.Windows.Forms.Button Door_Brown;
+        private System.Windows.Forms.Label Futur_choices;
+        private System.Windows.Forms.Button Red;
+        private System.Windows.Forms.Button White;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button D_white;
+        private System.Windows.Forms.Button D_Brown;
+        private System.Windows.Forms.Label Down_panel;
     }
 }

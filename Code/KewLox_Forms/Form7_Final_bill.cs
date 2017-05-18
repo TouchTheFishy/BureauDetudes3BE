@@ -12,6 +12,12 @@ namespace KewLox_Forms
 {
     public partial class Form7_Final_bill : Form
     {
+        public static Closet closet1;
+        public static Closet Closet
+        {
+            get { return closet1; }
+            set { closet1 = value; }
+        }
         public Form7_Final_bill()
         {
             InitializeComponent();
@@ -30,7 +36,7 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
-            Welcome_form frm = new Welcome_form();
+            Welcome_form frm = new Welcome_form(Closet);
             frm.Show();
             Hide();
         }

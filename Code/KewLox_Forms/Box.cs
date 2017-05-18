@@ -25,7 +25,6 @@ namespace KewLox_Forms
 
         List<string> DbLink = new List<string>(6);
         String[] DbColumn;
-        String[] DbWDoor;
 
         public void AddConstructionParts(int boxheight)
         {

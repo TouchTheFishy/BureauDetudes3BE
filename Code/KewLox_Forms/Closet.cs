@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KewLox_Forms
 {
-    class Closet
+    public class Closet
     {
         private static List<KeyValuePair<string,int>> parts = new List<KeyValuePair<string, int>>();
 
@@ -67,6 +67,17 @@ namespace KewLox_Forms
             get { return actualHeight; }
             set { actualHeight = value; }
 
+        }
+        public void setDims(int width, int depth, int totalHeight, int boxamount)
+        {
+            Width = width;
+            Depth = depth;
+            TotalHeight = totalHeight;
+            Boxamount = boxamount;
+        }
+        public int getDims()
+        {
+            return Width;
         }
         public void CalculateHeightOptions()
 

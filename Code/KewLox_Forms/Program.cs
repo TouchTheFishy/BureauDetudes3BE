@@ -23,9 +23,7 @@ namespace KewLox_Forms
 
         static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Welcome_form());
+            
             decimal total = 0;
             string totalstring;
             string[] values;
@@ -34,6 +32,9 @@ namespace KewLox_Forms
             string[] name = new string[1] { "temp" };
             Id = database.Insert("commandes", column, name); //returns ID of command
             Closet closet1 = new Closet();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Welcome_form(closet1));
             closet1.CalculateHeightOptions();
             closet1.AddBoxes();
             total = closet1.GetPrice();
@@ -49,6 +50,7 @@ namespace KewLox_Forms
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
             closet1.MakeBill(closet1, Id);
+            
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();
 
