@@ -23,8 +23,7 @@ namespace KewLox_Forms
 
         public Form5_Signup(Closet closet)
         {
-            Armoire = closet;
-            Password.Text = Convert.ToString(Armoire.getDims());
+            Armoire = closet;       
             InitializeComponent();
         }
         private void Form5_Signup_Load(object sender, EventArgs e)

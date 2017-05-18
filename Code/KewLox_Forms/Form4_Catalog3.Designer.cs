@@ -33,13 +33,16 @@
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.Basket = new System.Windows.Forms.Button();
-            this.Corniere = new System.Windows.Forms.PictureBox();
             this.T_white = new System.Windows.Forms.Button();
             this.T_panel = new System.Windows.Forms.Label();
             this.T_Brown = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.A_White = new System.Windows.Forms.Button();
             this.Angles = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.A_Black = new System.Windows.Forms.Button();
+            this.A_chrom = new System.Windows.Forms.Button();
+            this.Top = new System.Windows.Forms.PictureBox();
+            this.Corniere = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.Top)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corniere)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,25 +89,15 @@
             this.Basket.UseVisualStyleBackColor = true;
             this.Basket.Click += new System.EventHandler(this.Basket_Click);
             // 
-            // Corniere
-            // 
-            this.Corniere.Image = ((System.Drawing.Image)(resources.GetObject("Corniere.Image")));
-            this.Corniere.Location = new System.Drawing.Point(38, 107);
-            this.Corniere.Name = "Corniere";
-            this.Corniere.Size = new System.Drawing.Size(203, 359);
-            this.Corniere.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Corniere.TabIndex = 58;
-            this.Corniere.TabStop = false;
-            // 
             // T_white
             // 
             this.T_white.Location = new System.Drawing.Point(299, 155);
             this.T_white.Name = "T_white";
-            this.T_white.Size = new System.Drawing.Size(55, 23);
+            this.T_white.Size = new System.Drawing.Size(64, 23);
             this.T_white.TabIndex = 61;
             this.T_white.Text = "White";
             this.T_white.UseVisualStyleBackColor = true;
-            this.T_white.Click += new System.EventHandler(this.B_white_Click);
+            this.T_white.Click += new System.EventHandler(this.T_white_Click);
             // 
             // T_panel
             // 
@@ -115,48 +108,76 @@
             this.T_panel.Size = new System.Drawing.Size(67, 16);
             this.T_panel.TabIndex = 60;
             this.T_panel.Text = "Top Panel";
-            this.T_panel.Click += new System.EventHandler(this.B_panel_Click);
             // 
             // T_Brown
             // 
             this.T_Brown.Location = new System.Drawing.Point(299, 126);
             this.T_Brown.Name = "T_Brown";
-            this.T_Brown.Size = new System.Drawing.Size(55, 23);
+            this.T_Brown.Size = new System.Drawing.Size(64, 23);
             this.T_Brown.TabIndex = 59;
             this.T_Brown.Text = "Brown";
             this.T_Brown.UseVisualStyleBackColor = true;
-            this.T_Brown.Click += new System.EventHandler(this.B_Brown_Click);
+            this.T_Brown.Click += new System.EventHandler(this.T_Brown_Click);
             // 
-            // button1
+            // A_White
             // 
-            this.button1.Location = new System.Drawing.Point(299, 269);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 23);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "White";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.A_White.Location = new System.Drawing.Point(299, 368);
+            this.A_White.Name = "A_White";
+            this.A_White.Size = new System.Drawing.Size(64, 23);
+            this.A_White.TabIndex = 64;
+            this.A_White.Text = "White";
+            this.A_White.UseVisualStyleBackColor = true;
+            this.A_White.Click += new System.EventHandler(this.A_White_Click);
             // 
             // Angles
             // 
             this.Angles.AutoSize = true;
             this.Angles.Font = new System.Drawing.Font("Cambria", 10.25F);
-            this.Angles.Location = new System.Drawing.Point(287, 221);
+            this.Angles.Location = new System.Drawing.Point(287, 320);
             this.Angles.Name = "Angles";
             this.Angles.Size = new System.Drawing.Size(49, 16);
             this.Angles.TabIndex = 63;
             this.Angles.Text = "Angles";
-            this.Angles.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
+            // A_Black
             // 
-            this.button2.Location = new System.Drawing.Point(299, 240);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 23);
-            this.button2.TabIndex = 62;
-            this.button2.Text = "Brown";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.A_Black.Location = new System.Drawing.Point(299, 339);
+            this.A_Black.Name = "A_Black";
+            this.A_Black.Size = new System.Drawing.Size(64, 23);
+            this.A_Black.TabIndex = 62;
+            this.A_Black.Text = "Black";
+            this.A_Black.UseVisualStyleBackColor = true;
+            this.A_Black.Click += new System.EventHandler(this.A_Black_Click);
+            // 
+            // A_chrom
+            // 
+            this.A_chrom.Location = new System.Drawing.Point(299, 397);
+            this.A_chrom.Name = "A_chrom";
+            this.A_chrom.Size = new System.Drawing.Size(64, 23);
+            this.A_chrom.TabIndex = 65;
+            this.A_chrom.Text = "Chromed";
+            this.A_chrom.UseVisualStyleBackColor = true;
+            this.A_chrom.Click += new System.EventHandler(this.A_chrom_Click);
+            // 
+            // Top
+            // 
+            this.Top.Image = ((System.Drawing.Image)(resources.GetObject("Top.Image")));
+            this.Top.Location = new System.Drawing.Point(473, 107);
+            this.Top.Name = "Top";
+            this.Top.Size = new System.Drawing.Size(193, 167);
+            this.Top.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Top.TabIndex = 66;
+            this.Top.TabStop = false;
+            // 
+            // Corniere
+            // 
+            this.Corniere.Image = ((System.Drawing.Image)(resources.GetObject("Corniere.Image")));
+            this.Corniere.Location = new System.Drawing.Point(38, 107);
+            this.Corniere.Name = "Corniere";
+            this.Corniere.Size = new System.Drawing.Size(203, 359);
+            this.Corniere.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Corniere.TabIndex = 58;
+            this.Corniere.TabStop = false;
             // 
             // Form4_Catalog3
             // 
@@ -164,9 +185,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Top);
+            this.Controls.Add(this.A_chrom);
+            this.Controls.Add(this.A_White);
             this.Controls.Add(this.Angles);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.A_Black);
             this.Controls.Add(this.T_white);
             this.Controls.Add(this.T_panel);
             this.Controls.Add(this.T_Brown);
@@ -176,8 +199,10 @@
             this.Controls.Add(this.Confirm_btn);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4_Catalog3";
             this.Text = "Form4_Catalog3";
+            ((System.ComponentModel.ISupportInitialize)(this.Top)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Corniere)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,8 +219,10 @@
         private System.Windows.Forms.Button T_white;
         private System.Windows.Forms.Label T_panel;
         private System.Windows.Forms.Button T_Brown;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button A_White;
         private System.Windows.Forms.Label Angles;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button A_Black;
+        private System.Windows.Forms.Button A_chrom;
+        private System.Windows.Forms.PictureBox Top;
     }
 }

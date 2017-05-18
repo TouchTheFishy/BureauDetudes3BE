@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form7_Final_bill));
             this.Logo = new System.Windows.Forms.Label();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
@@ -128,6 +129,7 @@
             this.Controls.Add(this.Confirm_btn);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form7_Final_bill";
             this.Text = "Form7_Final_bill";
             this.Load += new System.EventHandler(this.Form7_Final_bill_Load);

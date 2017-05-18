@@ -327,12 +327,12 @@ namespace KewLox_Forms
         // To define the color of the Back panel
         private void B_Brown_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.B_brown;
         }
 
         private void B_white_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.B_white;
         }
 
 
@@ -351,24 +351,24 @@ namespace KewLox_Forms
         // To define the color of the Right panel
         private void R_Brown_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.R_brown;
         }
 
         private void R_white_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.R_white;
         }
 
 
         // To define the color of the Down panel
         private void D_Brown_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.D_brown;
         }
 
         private void D_white_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.D_white;
         }
 
  

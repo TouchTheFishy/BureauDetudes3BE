@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5_Signup));
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.Label();
@@ -297,6 +298,7 @@
             this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form5_Signup";
             this.Text = "Form5_Signup";
             this.Load += new System.EventHandler(this.Form5_Signup_Load);

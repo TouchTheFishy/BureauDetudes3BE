@@ -190,7 +190,7 @@
   <data name="case_no_cup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\case_no_cup.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="corniere" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="corniere_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\corniere.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="L_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -198,5 +198,32 @@
   </data>
   <data name="L_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\L-white.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="top_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\top_brown.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="top_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\top_white.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="B_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B_brown.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="B_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\B_white.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="corniere_chrom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\corniere_chrom.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="D_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\D_brown.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="D_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\D_white.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="R_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\R_brown.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="R_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\R_white.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
