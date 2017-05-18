@@ -44,9 +44,52 @@ namespace KewLox_Forms
             get { return boxamount; }
             set { boxamount = value; }
         }
+        public static string lcolor;
+        public static string Lcolor
+        {
+            get { return lcolor; }
+            set { lcolor = value; }
+        }
+        public static string rcolor;
+        public static string Rcolor
+        {
+            get { return rcolor; }
+            set { rcolor = value; }
+        }
+        public static string backcolor;
+        public static string Backcolor
+        {
+            get { return backcolor; }
+            set { backcolor = value; }
+        }
+        public static string dcolor;
+        public static string Dcolor
+        {
+            get { return dcolor; }
+            set { dcolor = value; }
+        }
+        public static string botcolor;
+        public static string Botcolor
+        {
+            get { return botcolor; }
+            set { botcolor = value; }
+        }
+        public static string doormat;
+        public static string Doormat
+        {
+            get { return doormat; }
+            set { doormat = value; }
+        }
+        public static int boxheight;
+        public static int Boxheight
+        {
+            get { return boxheight; }
+            set { boxheight = value; }
+        }
         public Form4_Catalog2()
         {
             InitializeComponent();
+            Closet Armoire = new Closet();
         }
 
         private void Form4_Catalog2_Load(object sender, EventArgs e)
@@ -327,12 +370,12 @@ namespace KewLox_Forms
         // To define the color of the Back panel
         private void B_Brown_Click(object sender, EventArgs e)
         {
-
+            Backcolor = "Brown";
         }
 
         private void B_white_Click(object sender, EventArgs e)
         {
-
+            Backcolor = "White";
         }
 
 
@@ -340,35 +383,38 @@ namespace KewLox_Forms
         private void L_Brown_Click(object sender, EventArgs e)
         {
             Case.Image = KewLox_Forms_.Properties.Resources.L_brown;
+            Lcolor = "Brown";
         }
 
         private void L_white_Click(object sender, EventArgs e)
         {
             Case.Image = KewLox_Forms_.Properties.Resources.L_white;
+            Lcolor = "White";
         }
+
 
 
         // To define the color of the Right panel
         private void R_Brown_Click(object sender, EventArgs e)
         {
-
+            Rcolor = "Brown";
         }
 
         private void R_white_Click(object sender, EventArgs e)
         {
-
+            Rcolor = "White";
         }
 
 
         // To define the color of the Down panel
         private void D_Brown_Click(object sender, EventArgs e)
         {
-
+            Botcolor = "Brown";
         }
 
         private void D_white_Click(object sender, EventArgs e)
         {
-
+            Botcolor = "White";
         }
 
  
@@ -376,28 +422,59 @@ namespace KewLox_Forms
         // To define the color or the materials of the doors
         private void Door_Brown_Click(object sender, EventArgs e)
         {
+            Dcolor = "Brown";
             Case.Image = KewLox_Forms_.Properties.Resources.case_brown;
         }
 
         private void Door_white_Click(object sender, EventArgs e)
         {
+            Dcolor = "White";
             Case.Image = KewLox_Forms_.Properties.Resources._case;
         }
 
         private void Glass_Click(object sender, EventArgs e)
         {
+            Doormat = "Glass";
             Case.Image = KewLox_Forms_.Properties.Resources.case_glass;
         }
 
         private void Cup_Click(object sender, EventArgs e)
         {
+            Doormat = "Cup";
             Case.Image = KewLox_Forms_.Properties.Resources._case;
         }
 
         private void No_cup_Click(object sender, EventArgs e)
         {
+            Doormat = "Nocup";
             Case.Image = KewLox_Forms_.Properties.Resources.case_no_cup;
         }
+        
 
+        private void NextBox_Click(object sender, EventArgs e)
+        {
+            Armoire.AddBoxes();
+        }
+
+        private void height36_Click(object sender, EventArgs e)
+        {
+            Boxheight = 36;
+
+        }
+
+        private void height46_Click(object sender, EventArgs e)
+        {
+            Boxheight = 46;
+        }
+
+        private void height56_Click(object sender, EventArgs e)
+        {
+            Boxheight = 56;
+        }
+
+        private void nodoor_Click(object sender, EventArgs e)
+        {
+            Doormat="None"
+        }
     }
 }
