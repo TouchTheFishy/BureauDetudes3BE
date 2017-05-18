@@ -222,5 +222,10 @@ namespace KewLox_Forms
             }
 
         }
+
+        private void totalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

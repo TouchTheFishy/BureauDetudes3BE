@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome_form));
             this.Customuer = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.Label();
             this.Admin = new System.Windows.Forms.Button();
@@ -70,7 +71,7 @@
             this.Admin.UseVisualStyleBackColor = true;
             this.Admin.Click += new System.EventHandler(this.button_Admin_Click);
             // 
-            // Form1
+            // Welcome_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +83,8 @@
             this.Controls.Add(this.Customuer);
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "Welcome_form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
             this.Load += new System.EventHandler(this.Form1_Load);
