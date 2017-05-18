@@ -21,7 +21,11 @@ namespace KewLox_Forms
         public Form7_Final_bill()
         {
             InitializeComponent();
-            
+
+            DBConnect database = new DBConnect();
+            ///Price.Text= database.Select(" ", " ", "`id`", price.Text, Convert.ToInt32(Id));
+            lastname.Text = database.Select("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
+
         }
 
         //Pour afficher des variables stocker dans dans des cases d'une page precedente faire appel à la variable et partager celle-ci au sein de tout la class mere Form

@@ -52,7 +52,7 @@
             this.lastname = new System.Windows.Forms.TextBox();
             this.tva = new System.Windows.Forms.TextBox();
             this.checkBox_Newsletter = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkbox_Condition = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Confirm_btn
@@ -255,15 +255,15 @@
             this.checkBox_Newsletter.UseVisualStyleBackColor = true;
             this.checkBox_Newsletter.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // checkBox2
+            // checkbox_Condition
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(248, 432);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(123, 17);
-            this.checkBox2.TabIndex = 51;
-            this.checkBox2.Text = "Utilisation Conditions";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkbox_Condition.AutoSize = true;
+            this.checkbox_Condition.Location = new System.Drawing.Point(248, 432);
+            this.checkbox_Condition.Name = "checkbox_Condition";
+            this.checkbox_Condition.Size = new System.Drawing.Size(130, 17);
+            this.checkbox_Condition.TabIndex = 51;
+            this.checkbox_Condition.Text = "Utilisation\'s Conditions";
+            this.checkbox_Condition.UseVisualStyleBackColor = true;
             // 
             // Form5_Signup
             // 
@@ -271,7 +271,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.checkbox_Condition);
             this.Controls.Add(this.checkBox_Newsletter);
             this.Controls.Add(this.tva);
             this.Controls.Add(this.lastname);
@@ -330,6 +330,6 @@
         private System.Windows.Forms.TextBox lastname;
         private System.Windows.Forms.TextBox tva;
         private System.Windows.Forms.CheckBox checkBox_Newsletter;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkbox_Condition;
     }
 }

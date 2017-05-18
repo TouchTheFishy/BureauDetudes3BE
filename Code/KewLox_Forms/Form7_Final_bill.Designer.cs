@@ -35,7 +35,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.Price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LastName = new System.Windows.Forms.TextBox();
+            this.lastname = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -97,13 +97,13 @@
             this.label2.TabIndex = 59;
             this.label2.Text = "Thank you for your choice, Mister :";
             // 
-            // LastName
+            // lastname
             // 
-            this.LastName.Location = new System.Drawing.Point(300, 110);
-            this.LastName.Name = "LastName";
-            this.LastName.Size = new System.Drawing.Size(100, 20);
-            this.LastName.TabIndex = 60;
-            this.LastName.TextChanged += new System.EventHandler(this.LastName_TextChanged);
+            this.lastname.Location = new System.Drawing.Point(300, 110);
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(100, 20);
+            this.lastname.TabIndex = 60;
+            this.lastname.TextChanged += new System.EventHandler(this.LastName_TextChanged);
             // 
             // label32
             // 
@@ -121,7 +121,7 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.LastName);
+            this.Controls.Add(this.lastname);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Price);
             this.Controls.Add(this.label25);
@@ -146,7 +146,7 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox Price;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox LastName;
+        private System.Windows.Forms.TextBox lastname;
         private System.Windows.Forms.Label label32;
     }
 }
