@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace KewLox_Forms
 {
-    public partial class Form5_Signup : Form
+    public partial class Form4_Catalog3 : Form
     {
         public static Closet closet1;
         public static Closet Armoire
@@ -18,18 +18,9 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
-
-
-
-        public Form5_Signup(Closet closet)
+        public Form4_Catalog3()
         {
-            Armoire = closet;
-            Password.Text = Convert.ToString(Armoire.getDims());
             InitializeComponent();
-        }
-        private void Form5_Signup_Load(object sender, EventArgs e)
-        {
-
         }
 
         //To return to Main Menu
@@ -40,10 +31,18 @@ namespace KewLox_Forms
             Hide();
         }
 
+        //To show the Basket of the Client
+        private void Basket_Click(object sender, EventArgs e)
+        {
+            Basket_form frm = new Basket_form();
+            frm.Show();
+            Hide();
+        }
+
         //To go backward
         private void Return_btn_Click(object sender, EventArgs e)
         {
-            Form4_Catalog3 frm = new Form4_Catalog3();
+            Form4_Catalog2 frm = new Form4_Catalog2();
             frm.Show();
             Hide();
         }
@@ -51,32 +50,39 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form6_Resume frm = new Form6_Resume();
+            Form5_Signup frm = new Form5_Signup(Armoire);
             frm.Show();
-            this.Close();
-
+            Hide();
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        private void B_panel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void B_white_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            string Name = Convert.ToString(sender);
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void B_Brown_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

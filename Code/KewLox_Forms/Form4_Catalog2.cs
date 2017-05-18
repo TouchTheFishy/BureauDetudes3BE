@@ -81,7 +81,7 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form5_Signup frm = new Form5_Signup(Armoire);
+            Form4_Catalog3 frm = new Form4_Catalog3();
             frm.Show();
             Hide();
         }
@@ -339,12 +339,12 @@ namespace KewLox_Forms
         // To define the color of the Left panel
         private void L_Brown_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.L_brown;
         }
 
         private void L_white_Click(object sender, EventArgs e)
         {
-
+            Case.Image = KewLox_Forms_.Properties.Resources.L_white;
         }
 
 

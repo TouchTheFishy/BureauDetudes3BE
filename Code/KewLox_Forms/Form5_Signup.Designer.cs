@@ -299,6 +299,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form5_Signup";
             this.Text = "Form5_Signup";
+            this.Load += new System.EventHandler(this.Form5_Signup_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
