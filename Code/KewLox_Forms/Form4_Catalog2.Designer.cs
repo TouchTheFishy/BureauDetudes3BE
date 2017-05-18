@@ -534,28 +534,6 @@
             this.label2.TabIndex = 38;
             this.label2.Text = "Please go to the dimension filter and select the number of case desired";
             // 
-            // Case
-            // 
-            this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
-            this.Case.Location = new System.Drawing.Point(1003, 127);
-            this.Case.Margin = new System.Windows.Forms.Padding(4);
-            this.Case.Name = "Case";
-            this.Case.Size = new System.Drawing.Size(271, 176);
-            this.Case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Case.TabIndex = 26;
-            this.Case.TabStop = false;
-            // 
-            // closet_multicolor
-            // 
-            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
-            this.closet_multicolor.Location = new System.Drawing.Point(324, 170);
-            this.closet_multicolor.Margin = new System.Windows.Forms.Padding(4);
-            this.closet_multicolor.Name = "closet_multicolor";
-            this.closet_multicolor.Size = new System.Drawing.Size(327, 464);
-            this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closet_multicolor.TabIndex = 25;
-            this.closet_multicolor.TabStop = false;
-            // 
             // B_white
             // 
             this.B_white.Location = new System.Drawing.Point(675, 229);
@@ -828,10 +806,12 @@
             this.nodoor.Text = "No Door";
             this.nodoor.UseVisualStyleBackColor = true;
             this.nodoor.Click += new System.EventHandler(this.nodoor_Click);
+            // 
             // Case
             // 
             this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
-            this.Case.Location = new System.Drawing.Point(752, 103);
+            this.Case.Location = new System.Drawing.Point(1003, 127);
+            this.Case.Margin = new System.Windows.Forms.Padding(4);
             this.Case.Name = "Case";
             this.Case.Size = new System.Drawing.Size(203, 143);
             this.Case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -841,7 +821,8 @@
             // closet_multicolor
             // 
             this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
-            this.closet_multicolor.Location = new System.Drawing.Point(243, 138);
+            this.closet_multicolor.Location = new System.Drawing.Point(243, 170);
+            this.closet_multicolor.Margin = new System.Windows.Forms.Padding(4);
             this.closet_multicolor.Name = "closet_multicolor";
             this.closet_multicolor.Size = new System.Drawing.Size(245, 377);
             this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -899,8 +880,8 @@
             this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form4_Catalog2";
             this.Text = ":";
             this.Load += new System.EventHandler(this.Form4_Catalog2_Load);

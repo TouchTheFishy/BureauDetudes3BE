@@ -61,117 +61,26 @@ namespace KewLox_Forms
             set { depth = value; }
 
         }
-        private static int actualHeight=0;
-        public static int ActualHeight
-        {
-            get { return actualHeight; }
-            set { actualHeight = value; }
-
-        }
-        //public void CalculateHeightOptions()
-
-        //{
-        //    Console.WriteLine("Wich height is available? (in cm)");
-        //    totalHeight=Convert.ToInt32(Console.ReadLine());
-        //    TotalHeight = totalHeight;
-        //    MaxNbBoxes=Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight-4)/36)));
-        //    MinNbBoxes = Convert.ToInt32(Math.Floor(Convert.ToDouble((totalHeight - 4) / 56)));
-        //    if (MinNbBoxes > 7)
-        //    {
-        //        MinNbBoxes = 7;
-        //    }
-        //    if (MaxNbBoxes > 7)
-        //    {
-        //        MaxNbBoxes = 7;
-        //    }
 
 
-        //    bool ok = false;
-        //    while (ok == false)
-        //    {
-        //        Console.WriteLine("Available width: 32, 42, 52, 62, 80, 100, 120. Select one");
-
-        //        width = Convert.ToInt32(Console.ReadLine());
-        //        if (width == 32 || width ==42 || width == 52 || width == 62 || width == 80 || width == 100 || width == 120)
-        //        {
-        //            Width = width;
-        //            ok = true;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Select an available width");
-        //        }
-
-        //    }
-        //    ok = false;
-        //    while (ok == false)
-        //    {
-        //        Console.WriteLine("Available depths: 32, 42, 52, 62. Select one");
-        //        depth = Convert.ToInt32(Console.ReadLine());
-        //        if (depth == 32 || depth == 42 || depth== 52 || depth==62)
-        //        {
-        //            Depth = depth;
-        //            ok = true;
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("Select an available depth");
-        //        }
-
-        //    }
-
-        //    Console.WriteLine("Ground dimensions: " + Width + 'x' + Depth);
-
-        //}
 
         public void AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight)
         {
 
-            bool ok = false;
-            
-            int i = 0;
-            //if boxamount*56 (max height of the closet) < total height: return boxamount*56
-            //else: return totalHeight
-            int maxheight = boxamount * 56 < totalHeight ? boxamount * 56 : totalHeight;
-            while (i < boxamount)
+
+            Box box = new Box();
+            box.AddConstructionParts(boxheight, lcol, rcol, bcol, dcol, doorcol, doormat, width, depth);
+            foreach (KeyValuePair<string, int> boxpart in box.Parts)
             {
-
-                int max = maxheight - actualHeight;
-                if (max > 56 * (boxamount - i))
-                {
-                    max = 56 * (boxamount - i);
-                }
-                Console.WriteLine("Which height for box number " + i + "? (maximum " + max + "cm and" + (boxamount - i) + " boxes left)");
-                ok = false;
-                while (ok == false)
-                {
-                    //les boites font en fait 32/42/52 de haut + 2 pour chaque traverse horizontale
-                    Console.WriteLine("Available heights: 36, 46, 56. Select one");
-                    int height = Convert.ToInt32(Console.ReadLine());
-                    if ((height == 36 || height == 46 || height == 56) && (ActualHeight + height + 36 * (boxamount - i - 1) <= TotalHeight))
-                    {
-                        Box box = new Box();
-                        box.AddConstructionParts(boxheight,lcol,rcol,bcol,dcol,doorcol,doormat,width,depth);
-                        foreach (KeyValuePair<string, int> boxpart in box.Parts)
-                        {
-                            parts.Add(boxpart);
-                        }
-                        ActualHeight = ActualHeight + height;
-                        ok = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Select an available height");
-                    }
-
-                }
-                i += 1;
-
+                parts.Add(boxpart);
             }
+        }
+        public void FinishCloset() { 
+            
             // All boxes have been added
             //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
             DBConnect database = new DBConnect();
-            ok = false;
+            bool ok = false;
             // add corners
             string answer;
             while (ok == false)

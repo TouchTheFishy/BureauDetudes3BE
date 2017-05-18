@@ -35,8 +35,6 @@ namespace KewLox_Forms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Welcome_form(closet1));
-            closet1.CalculateHeightOptions();
-            closet1.AddBoxes();
             total = closet1.GetPrice();
             values = total.ToString().Split(Convert.ToChar(","));
             totalstring = values[0] + "." + values[1];
