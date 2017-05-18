@@ -55,34 +55,35 @@ namespace KewLox_Forms
             Hide();
         }
 
-        private void B_panel_Click(object sender, EventArgs e)
-        {
 
+
+
+        // To define the color of the top panel
+        private void T_Brown_Click(object sender, EventArgs e)
+        {
+            Top.Image = KewLox_Forms_.Properties.Resources.top_brown;
         }
 
-        private void B_white_Click(object sender, EventArgs e)
+        private void T_white_Click(object sender, EventArgs e)
         {
-
+            Top.Image = KewLox_Forms_.Properties.Resources.top_white;
         }
 
-        private void B_Brown_Click(object sender, EventArgs e)
-        {
 
+        // To define the color or the materials of the angles
+        private void A_Black_Click(object sender, EventArgs e)
+        {
+            Corniere.Image = KewLox_Forms_.Properties.Resources.corniere_black;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void A_White_Click(object sender, EventArgs e)
         {
-
+            Corniere.Image = KewLox_Forms_.Properties.Resources.closet_white;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void A_chrom_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            Corniere.Image = KewLox_Forms_.Properties.Resources.corniere_chrom;
         }
     }
 }

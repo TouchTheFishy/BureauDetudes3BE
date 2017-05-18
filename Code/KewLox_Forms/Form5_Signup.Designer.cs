@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5_Signup));
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Logo = new System.Windows.Forms.Label();
@@ -37,19 +38,19 @@
             this.Login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.firstname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.enterprise = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
+            this.lastname = new System.Windows.Forms.TextBox();
+            this.tva = new System.Windows.Forms.TextBox();
             this.checkBox_Newsletter = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -137,15 +138,13 @@
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 37;
             this.label2.Text = "First Name";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // firstname
             // 
-            this.textBox1.Location = new System.Drawing.Point(316, 162);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 36;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.firstname.Location = new System.Drawing.Point(316, 162);
+            this.firstname.Name = "firstname";
+            this.firstname.Size = new System.Drawing.Size(100, 20);
+            this.firstname.TabIndex = 36;
             // 
             // label3
             // 
@@ -179,9 +178,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(245, 225);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 41;
-            this.label6.Text = "Adress";
+            this.label6.Text = "Address";
             // 
             // label7
             // 
@@ -201,47 +200,47 @@
             this.label8.TabIndex = 43;
             this.label8.Text = "Enterprise";
             // 
-            // textBox2
+            // enterprise
             // 
-            this.textBox2.Location = new System.Drawing.Point(317, 336);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 44;
+            this.enterprise.Location = new System.Drawing.Point(317, 336);
+            this.enterprise.Name = "enterprise";
+            this.enterprise.Size = new System.Drawing.Size(100, 20);
+            this.enterprise.TabIndex = 44;
             // 
-            // textBox3
+            // mail
             // 
-            this.textBox3.Location = new System.Drawing.Point(316, 279);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 45;
+            this.mail.Location = new System.Drawing.Point(316, 279);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(100, 20);
+            this.mail.TabIndex = 45;
             // 
-            // textBox4
+            // phone
             // 
-            this.textBox4.Location = new System.Drawing.Point(316, 247);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 46;
+            this.phone.Location = new System.Drawing.Point(316, 247);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(100, 20);
+            this.phone.TabIndex = 46;
             // 
-            // textBox5
+            // address
             // 
-            this.textBox5.Location = new System.Drawing.Point(317, 222);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 47;
+            this.address.Location = new System.Drawing.Point(317, 222);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(100, 20);
+            this.address.TabIndex = 47;
             // 
-            // textBox6
+            // lastname
             // 
-            this.textBox6.Location = new System.Drawing.Point(317, 193);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 48;
+            this.lastname.Location = new System.Drawing.Point(317, 193);
+            this.lastname.Name = "lastname";
+            this.lastname.Size = new System.Drawing.Size(100, 20);
+            this.lastname.TabIndex = 48;
             // 
-            // textBox7
+            // tva
             // 
-            this.textBox7.Location = new System.Drawing.Point(316, 367);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 49;
+            this.tva.Location = new System.Drawing.Point(316, 367);
+            this.tva.Name = "tva";
+            this.tva.Size = new System.Drawing.Size(100, 20);
+            this.tva.TabIndex = 49;
             // 
             // checkBox_Newsletter
             // 
@@ -274,12 +273,12 @@
             this.ClientSize = new System.Drawing.Size(1000, 550);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox_Newsletter);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.tva);
+            this.Controls.Add(this.lastname);
+            this.Controls.Add(this.address);
+            this.Controls.Add(this.phone);
+            this.Controls.Add(this.mail);
+            this.Controls.Add(this.enterprise);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -287,7 +286,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.firstname);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.Password_label);
@@ -297,6 +296,7 @@
             this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form5_Signup";
             this.Text = "Form5_Signup";
             this.Load += new System.EventHandler(this.Form5_Signup_Load);
@@ -316,19 +316,19 @@
         private System.Windows.Forms.TextBox Login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox firstname;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox enterprise;
+        private System.Windows.Forms.TextBox mail;
+        private System.Windows.Forms.TextBox phone;
+        private System.Windows.Forms.TextBox address;
+        private System.Windows.Forms.TextBox lastname;
+        private System.Windows.Forms.TextBox tva;
         private System.Windows.Forms.CheckBox checkBox_Newsletter;
         private System.Windows.Forms.CheckBox checkBox2;
     }

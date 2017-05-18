@@ -453,7 +453,7 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
-            Armoire.AddBoxes();
+            Armoire.AddBoxes(Lcolor,Rcolor,Backcolor,Botcolor,Dcolor,Doormat,TotalHeight,ClosetWidth,Depth,Boxheight);
         }
 
         private void height36_Click(object sender, EventArgs e)
@@ -474,7 +474,7 @@ namespace KewLox_Forms
 
         private void nodoor_Click(object sender, EventArgs e)
         {
-            Doormat="None"
+            Doormat = "None";
         }
     }
 }

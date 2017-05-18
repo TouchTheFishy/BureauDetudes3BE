@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6_Resume));
             this.TVA = new System.Windows.Forms.TextBox();
             this.LastName = new System.Windows.Forms.TextBox();
             this.Addres = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Logo = new System.Windows.Forms.Label();
+            this.Title = new System.Windows.Forms.Label();
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.NbrTasseau = new System.Windows.Forms.TextBox();
@@ -68,7 +68,6 @@
             this.NbrDoors = new System.Windows.Forms.TextBox();
             this.NbrPanelAR = new System.Windows.Forms.TextBox();
             this.NbrpanelGD = new System.Windows.Forms.TextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SuspendLayout();
             // 
             // TVA
@@ -199,18 +198,18 @@
             this.label1.TabIndex = 59;
             this.label1.Text = "Please confirm your command";
             // 
-            // Logo
+            // Title
             // 
-            this.Logo.AutoSize = true;
-            this.Logo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.Logo.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logo.Location = new System.Drawing.Point(10, 16);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(199, 59);
-            this.Logo.TabIndex = 52;
-            this.Logo.Text = "KewLox";
-            this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Logo.Click += new System.EventHandler(this.Title_Click);
+            this.Title.AutoSize = true;
+            this.Title.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Title.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Title.Location = new System.Drawing.Point(10, 16);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(199, 59);
+            this.Title.TabIndex = 52;
+            this.Title.Text = "KewLox";
+            this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Title.Click += new System.EventHandler(this.Title_Click);
             // 
             // Return_btn
             // 
@@ -411,11 +410,6 @@
             this.NbrpanelGD.TabIndex = 96;
             this.NbrpanelGD.TextChanged += new System.EventHandler(this.NbrPanelGD_TextChanged);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
             // Form6_Resume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,10 +452,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FirstName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Logo);
+            this.Controls.Add(this.Title);
             this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form6_Resume";
             this.Text = "Form6_Resume";
             this.Load += new System.EventHandler(this.Form6_Resume_Load);
@@ -486,7 +481,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox FirstName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label Logo;
+        private System.Windows.Forms.Label Title;
         private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.TextBox NbrTasseau;
@@ -510,6 +505,5 @@
         private System.Windows.Forms.TextBox NbrDoors;
         private System.Windows.Forms.TextBox NbrPanelAR;
         private System.Windows.Forms.TextBox NbrpanelGD;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

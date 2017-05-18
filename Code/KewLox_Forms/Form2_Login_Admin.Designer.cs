@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2_Login_Admin));
             this.Logo = new System.Windows.Forms.Label();
             this.Retrieve_btn = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.TextBox();
@@ -117,6 +118,7 @@
             this.Controls.Add(this.Retrieve_btn);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2_Login_Admin";
             this.Text = "Form2_Login_Admin";
             this.Load += new System.EventHandler(this.Form2_Login_Admin_Load);

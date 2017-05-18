@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Basket_form));
             this.Logo = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Return_btn = new System.Windows.Forms.Button();
@@ -89,6 +90,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Basket_form";
             this.Text = "Basket_form";
             this.Load += new System.EventHandler(this.Basket_form_Load);

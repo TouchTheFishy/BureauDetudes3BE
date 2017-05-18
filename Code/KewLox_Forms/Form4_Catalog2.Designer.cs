@@ -76,8 +76,6 @@
             this.Door = new System.Windows.Forms.Label();
             this.B_panel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.Case = new System.Windows.Forms.PictureBox();
-            this.closet_multicolor = new System.Windows.Forms.PictureBox();
             this.B_white = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.L_white = new System.Windows.Forms.Button();
@@ -103,6 +101,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.height56 = new System.Windows.Forms.Button();
             this.nodoor = new System.Windows.Forms.Button();
+            this.Case = new System.Windows.Forms.PictureBox();
+            this.closet_multicolor = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Case)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
@@ -828,6 +828,25 @@
             this.nodoor.Text = "No Door";
             this.nodoor.UseVisualStyleBackColor = true;
             this.nodoor.Click += new System.EventHandler(this.nodoor_Click);
+            // Case
+            // 
+            this.Case.Image = ((System.Drawing.Image)(resources.GetObject("Case.Image")));
+            this.Case.Location = new System.Drawing.Point(752, 103);
+            this.Case.Name = "Case";
+            this.Case.Size = new System.Drawing.Size(203, 143);
+            this.Case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Case.TabIndex = 26;
+            this.Case.TabStop = false;
+            // 
+            // closet_multicolor
+            // 
+            this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
+            this.closet_multicolor.Location = new System.Drawing.Point(243, 138);
+            this.closet_multicolor.Name = "closet_multicolor";
+            this.closet_multicolor.Size = new System.Drawing.Size(245, 377);
+            this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closet_multicolor.TabIndex = 25;
+            this.closet_multicolor.TabStop = false;
             // 
             // Form4_Catalog2
             // 
@@ -881,6 +900,7 @@
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form4_Catalog2";
             this.Text = ":";
             this.Load += new System.EventHandler(this.Form4_Catalog2_Load);
