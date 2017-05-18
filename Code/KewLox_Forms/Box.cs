@@ -112,11 +112,9 @@ namespace KewLox_Forms
                 
                 if (doormat !="None")
                 {
-                    //Black does not exist!!
-                    Console.WriteLine("what Color would you like for your doors? Available: White, Brown, Glass");
-                    string colordoor = Console.ReadLine();
-                    if (colordoor == "White" || colordoor == "Brown" || colordoor == "Glass")
-                    {
+                        
+                        if (doormat != "Glass")
+                        {
                         List<KeyValuePair<int, int>> doorwidths = new List<KeyValuePair<int, int>>()
                         {
                             new KeyValuePair<int, int>(62,32),
@@ -135,13 +133,10 @@ namespace KewLox_Forms
                             }
                         }
 
-                        if (doormat != "Glass")
-                        {
-                            
-                            
-                            
-                            //still need to add the door to this.parts (first make keyvaluepair)
-                            if (doormat == "Cup")
+
+
+                        //still need to add the door to this.parts (first make keyvaluepair)
+                        if (doormat == "Cup")
                             {
                                 ConstructionParts Door = new ConstructionParts { Color = doorcol, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
                                 string[] request = Door.AddDoor();
@@ -190,10 +185,6 @@ namespace KewLox_Forms
                             database.Sold("sold", doors.Key, doors.Value);
 
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong input");
                     }
                 }
                 

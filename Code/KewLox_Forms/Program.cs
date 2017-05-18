@@ -34,7 +34,11 @@ namespace KewLox_Forms
             Closet closet1 = new Closet();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new Welcome_form(closet1));            
+=======
+            Application.Run(new Welcome_form(closet1));
+>>>>>>> 5a939c9783466baf12aa69fe01ef20e126a5328e
             total = closet1.GetPrice();
             values = total.ToString().Split(Convert.ToChar(","));
             totalstring = values[0] + "." + values[1];
