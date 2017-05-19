@@ -20,13 +20,24 @@ namespace KewLox_Forms
         }
         public Form6_Resume()
         {
-            DBConnect db = new DBConnect();
-            string[,] missing = db.Select("Code", "missingcomponents", "'CODE IS NOT NULL'");
-            foreach (string part in missing)
-            {
-                MissingParts.Items.Add(part);
-            }
             InitializeComponent();
+            DBConnect db = new DBConnect();
+            int i = 1;
+
+            while (true)
+            {
+                string[,] missing = db.Select("Code", "missingcomponents", "Id = " + i);
+               
+                if (missing[0, 0] == "error")
+                {
+                    db.CloseConnection();
+                    break;
+                }
+                MissingParts.Items.Add(missing[0,1]);
+
+                i += 1;
+            }
+            
         }
 
         private void Form6_Resume_Load(object sender, EventArgs e)
@@ -55,7 +66,7 @@ namespace KewLox_Forms
         //To go forward
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
-            Form7_Final_bill frm = new Form7_Final_bill();
+            Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
 
@@ -65,9 +76,5 @@ namespace KewLox_Forms
         {
             //Has to stay there
         }
-
-        
-
-        
     }
 }

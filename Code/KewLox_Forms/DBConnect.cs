@@ -63,7 +63,7 @@ namespace KewLox_Forms
         }
 
         // Close connection
-        private bool CloseConnection()
+        public bool CloseConnection()
         {
             try
             {
@@ -226,6 +226,9 @@ namespace KewLox_Forms
                 //if the part does not exist
                 else
                 {
+                    // Close Connection
+                    this.CloseConnection();
+
                     return values = new string[,] { {"error","This part does not exist." } };
                 }
             }

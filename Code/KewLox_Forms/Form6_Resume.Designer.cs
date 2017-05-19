@@ -33,6 +33,7 @@
             this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.MissingParts = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Title
@@ -76,12 +77,22 @@
             this.MissingParts.Size = new System.Drawing.Size(170, 225);
             this.MissingParts.TabIndex = 55;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(379, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 13);
+            this.label1.TabIndex = 56;
+            this.label1.Text = "Missing parts";
+            // 
             // Form6_Resume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.MissingParts);
             this.Controls.Add(this.Title);
             this.Controls.Add(this.Return_btn);
@@ -101,5 +112,6 @@
         private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.ListBox MissingParts;
+        private System.Windows.Forms.Label label1;
     }
 }
