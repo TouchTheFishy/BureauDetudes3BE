@@ -18,12 +18,24 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
-
-
-
-        public Form5_Signup(Closet closet)
+        public static List<KeyValuePair<string, int>> nodup;
+        public static List<KeyValuePair<string, int>> Nodup
         {
-            Armoire = closet;       
+            get { return nodup; }
+            set { nodup = value; }
+        }
+        public static decimal price;
+        public static decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+
+
+        public Form5_Signup(List<KeyValuePair<string, int>> nodup,decimal price)
+        {
+                  
             InitializeComponent();
         }
         private void Form5_Signup_Load(object sender, EventArgs e)
@@ -59,6 +71,7 @@ namespace KewLox_Forms
             //database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Id));
             //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Id));
             //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Id));
+            closet1.MakeBill(Price,Nodup);
 
 
             Form6_Resume frm = new Form6_Resume();
