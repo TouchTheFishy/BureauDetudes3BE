@@ -297,17 +297,17 @@ namespace KewLox
             parts.AddRange(tasseauxTraverses);
 
             //Remove the amount taken in db "stock" and update "sold"
-            for (int j = 0; j < tasseauxTraverses.Count; j++)
+            /*for (int j = 0; j < tasseauxTraverses.Count; j++)
             {
                 database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
-            }
+            }*/
 
             string[] request1 = FrontCB.AddPart(1);
             string[] request1bis = BackCB.AddPart(1);
             string[] request2 = SideCB.AddPart(2);
 
 
-             database.Insert("commandespieces", DbColumn, request1);
+            database.Insert("commandespieces", DbColumn, request1);
             database.Insert("commandespieces", DbColumn, request1bis);
             database.Insert("commandespieces", DbColumn, request2);
 
@@ -328,21 +328,22 @@ namespace KewLox
             return total;
         }
 
-        public void MakeBill(Closet closet, long CommandID)
+        public void MakeBill(Closet closet, long CommandID, string[] clientinfo)
         {
             string text="";
             string header = "";
-            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
-            string companyaddress="<td>Client name <br> Client address & number <br> Post Code & town<br>Telephone<br>Email address <br>VAT number <br> Account number & BIC</td>";
+            string kewloxaddress="<table width ='1000px'><tr><td width='500px'>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
+            string companyaddress= string.Format("<td width='500px'>{0} <br> {1} <br> {2} <br>{3}<br>{4} <br>Telephone number: {5} <br> VAT number: {6}</td></table>",clientinfo[0],clientinfo[1],clientinfo[2], clientinfo[3], clientinfo[4], clientinfo[5], clientinfo[6]);
             string bodyheader;
             string body = "";
+            string totalbody = "";
             string bodyfooter;
-            string footer = "\u00a9 Kewlox 2017"; //alt 0169 release alt 
+            string footer = "\u00a9 Kewlox 2017</html>"; //alt 0169 release alt 
             DBConnect database = new DBConnect();
-            header = String.Format("<html>\n<head>\n<style>table, th, td {{{0}}},table, td.addresses{{{1}}}</style>\n</head>\n<body>\n<h1>Bill " +
+            header = String.Format("<html>\n<head>\n</head>\n<body>\n<h1>Bill " +
                 "n°{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
-                "collapse;","border:no-border",Convert.ToString(Program.Id));
-            bodyheader = "<table>\n<tr>\n<th>Part Name</th>\n<th>Description</th>\n<th>Amount</th>\n<th>Price per part</th>\n<th>Total</th>\n</tr>";
+                "collapse;","border:no-border",Convert.ToString(Program.Id), "\n width:1000px;","\n width:100px;","\n width:200px;");
+            bodyheader = "<table width='1000px'>\n<tr>\n<th width='200px'>Part Name</th>\n<th width='200px'>Description</th>\n<th width='100px'>Amount</th>\n<th width='200px'>Price per part</th>\n<th width='100px'>Total</th>\n</tr>";
             bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closet.GetPrice());
             string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
             text = header +kewloxaddress+companyaddress+ bodyheader;
@@ -354,10 +355,14 @@ namespace KewLox
                 string description = String.Join(" ", price[1, 1], price[2, 1], price[3, 1]);
                 body = String.Format("<tr>\n<td>{0}</td>\n<td>{1}</td>\n<td>{2}</td>\n", part.Key, description, part.Value);
                 body += String.Format("<td>{0}</td>\n<td>{1}</td>\n</tr>\n", price[0, 1], (Convert.ToDecimal(price[0, 1]) * Convert.ToInt32(part.Value)).ToString());
+                totalbody += body;
                 File.AppendAllText(path, body);
             }
-            //byte[] toBytes = Encoring.ASCII.GetBytes(somestring);
-            //System.IO.File.WriteAllBytes("hello.pdf", fileContent);
+
+            string somestring = text + totalbody + bodyfooter + footer;
+            byte[] toBytes = Encoding.ASCII.GetBytes(somestring);
+            System.IO.File.WriteAllBytes("hello.pdf", toBytes);
+
             File.AppendAllText(path,bodyfooter+footer);
         }
 

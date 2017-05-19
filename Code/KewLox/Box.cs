@@ -47,7 +47,6 @@ namespace KewLox
                 ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(Closet.Depth), Name = "Panneau GD" };
                 ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(Closet.Width), Name = "Panneau Ar" };
-                //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
                 
                 
@@ -86,7 +85,6 @@ namespace KewLox
                         new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                         new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                         new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                        //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                         new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                     };
                     parts.AddRange(pannelcodes);
@@ -227,7 +225,7 @@ namespace KewLox
                                     //Remove the amount taken in db "stock" and update "sold"
                                     database.Sold("sold", doors.Key, doors.Value);
                                     database.Sold("sold", cups.Key, cups.Value);
-
+                                    
                                 }
 
                                 if (answer == "No" || answer == "no")
@@ -242,7 +240,7 @@ namespace KewLox
 
                                     //Remove the amount taken in db "stock" and update "sold"
                                     database.Sold("sold", doors.Key, doors.Value);
-
+                                    
                                 }
                                 else
                                 {
@@ -265,7 +263,7 @@ namespace KewLox
 
                             //Remove the amount taken in db "stock" and update "sold"
                             database.Sold("sold", doors.Key, doors.Value);
-
+                            
                         }
                     }
                     else
