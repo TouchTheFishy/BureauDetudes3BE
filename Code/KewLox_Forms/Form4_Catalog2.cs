@@ -511,16 +511,14 @@ namespace KewLox_Forms
                 decimal total = 0;
                 string totalstring;
                 string[] values;
-                Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
-                total = Armoire.GetPrice();
-                Price = Armoire.GetPrice();
+                List<KeyValuePair<string, int>> Parts =Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
+                total = Armoire.GetPrice(Parts);
                 values = total.ToString().Split(Convert.ToChar(","));
                 totalstring = values[0] + "." + values[1];
-                Nodup = Armoire.RemoveDuplicates(Armoire.Parts);
-                //Nodup = new List<KeyValuePair<string, int>>();
-                //Price = 0;
+                Nodup = Armoire.RemoveDuplicates(Parts);
+                
 
-                Form5_Signup frm = new Form5_Signup(Nodup, Price);
+                Form5_Signup frm = new Form5_Signup(Nodup, total);
                 frm.Show();
                 Hide();
             }

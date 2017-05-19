@@ -64,7 +64,7 @@ namespace KewLox_Forms
 
 
 
-        public void AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight, string acolor, string pcolor,bool done)
+        public List<KeyValuePair<string, int>> AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight, string acolor, string pcolor,bool done)
         {
 
 
@@ -149,15 +149,16 @@ namespace KewLox_Forms
                 database.Insert("commandespieces", DbColumn, request1bis);
                 database.Insert("commandespieces", DbColumn, request2);
             }
+            return Parts;
 
 
         }
 
-        public decimal GetPrice()
+        public decimal GetPrice(List<KeyValuePair<string, int>> pieces)
         {
             DBConnect database = new DBConnect();
             decimal total = 0;
-            foreach (KeyValuePair<string, int> part in this.Parts)
+            foreach (KeyValuePair<string, int> part in pieces)
             {
                 string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='" + part.Key + "'");
                 decimal priceperpart = Convert.ToDecimal(int.Parse(prix[0, 1]));
