@@ -18,13 +18,27 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
-
-
-
-        public Form5_Signup(Closet closet)
+        public static List<KeyValuePair<string, int>> nodup;
+        public static List<KeyValuePair<string, int>> Nodup
         {
-            Armoire = closet;       
+            get { return nodup; }
+            set { nodup = value; }
+        }
+        public static decimal price;
+        public static decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+
+
+        public Form5_Signup(List<KeyValuePair<string, int>> nodupli,decimal prix)
+        {
+                  
             InitializeComponent();
+            Nodup = nodupli;
+            Price = prix;
         }
         private void Form5_Signup_Load(object sender, EventArgs e)
         {
@@ -34,6 +48,8 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
             Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
@@ -51,20 +67,57 @@ namespace KewLox_Forms
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
             DBConnect database = new DBConnect();
+            Closet closet1= new Closet();
+          
+            if (firstname.Text.GetType() != typeof(string) || firstname.Text.GetType() == null 
+                || lastname.Text.GetType() != typeof(string) || lastname.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your name");
+            }
+            //else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null 
+            //    || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null)
+            //{
+            //    MessageBox.Show("Please put a Login and a Password");
+            //}
+            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null 
+                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null 
+                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your contact information");
+            }
+            else if (enterprise.Text.GetType() == null && tva.Text.GetType() == null)
+            {
+                string company = "null";
+                int tva = 0;
+            }
+            else if (enterprise.Text.GetType() != typeof(string) || enterprise.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your company name");
+            }
+            else if (tva.Text.GetType() != typeof(int) || tva.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your TVA number");
+            }
+            else
+            {
+                //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
+                //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
 
-            database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Id));
+                database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "enterprise", "`id`", company, Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "TVA", "`id`", tva, Convert.ToInt32(Program.Id));
+                closet1.MakeBill(Price, Nodup);
 
 
-            Form6_Resume frm = new Form6_Resume();
-            frm.Show();
-            this.Close();
-
+                Form7_Final_bill frm = new Form7_Final_bill();
+                frm.Show();
+                this.Close();
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

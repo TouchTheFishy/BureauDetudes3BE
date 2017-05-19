@@ -31,6 +31,8 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
             Welcome_form frm = new Welcome_form(Closet);
             frm.Show();
             Hide();

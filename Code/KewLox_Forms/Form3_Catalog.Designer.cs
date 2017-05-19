@@ -69,22 +69,23 @@
             // 
             // Basket
             // 
-            this.Basket.Location = new System.Drawing.Point(849, 14);
+            this.Basket.Location = new System.Drawing.Point(1132, 17);
+            this.Basket.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Basket.Name = "Basket";
-            this.Basket.Size = new System.Drawing.Size(137, 51);
+            this.Basket.Size = new System.Drawing.Size(183, 63);
             this.Basket.TabIndex = 0;
             this.Basket.Text = "Basket";
             this.Basket.UseVisualStyleBackColor = true;
-            this.Basket.Click += new System.EventHandler(this.Basket_Click);
             // 
             // Logo
             // 
             this.Logo.AutoSize = true;
             this.Logo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Logo.Font = new System.Drawing.Font("Cambria", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Logo.Location = new System.Drawing.Point(12, 9);
+            this.Logo.Location = new System.Drawing.Point(16, 11);
+            this.Logo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(199, 59);
+            this.Logo.Size = new System.Drawing.Size(249, 72);
             this.Logo.TabIndex = 5;
             this.Logo.Text = "KewLox";
             this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -93,6 +94,7 @@
             // Recommand
             // 
             this.Recommand.FormattingEnabled = true;
+            this.Recommand.ItemHeight = 16;
             this.Recommand.Items.AddRange(new object[] {
             "I",
             "I",
@@ -184,17 +186,19 @@
             "I",
             "I",
             "I"});
-            this.Recommand.Location = new System.Drawing.Point(91, 127);
+            this.Recommand.Location = new System.Drawing.Point(121, 156);
+            this.Recommand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Recommand.MultiColumn = true;
             this.Recommand.Name = "Recommand";
             this.Recommand.ScrollAlwaysVisible = true;
-            this.Recommand.Size = new System.Drawing.Size(869, 147);
+            this.Recommand.Size = new System.Drawing.Size(1157, 180);
             this.Recommand.TabIndex = 6;
             this.Recommand.Click += new System.EventHandler(this.list);
             // 
             // Personnalise
             // 
             this.Personnalise.FormattingEnabled = true;
+            this.Personnalise.ItemHeight = 16;
             this.Personnalise.Items.AddRange(new object[] {
             "I",
             "I",
@@ -286,11 +290,12 @@
             "I",
             "I",
             "I"});
-            this.Personnalise.Location = new System.Drawing.Point(91, 314);
+            this.Personnalise.Location = new System.Drawing.Point(121, 386);
+            this.Personnalise.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Personnalise.MultiColumn = true;
             this.Personnalise.Name = "Personnalise";
             this.Personnalise.ScrollAlwaysVisible = true;
-            this.Personnalise.Size = new System.Drawing.Size(869, 147);
+            this.Personnalise.Size = new System.Drawing.Size(1157, 180);
             this.Personnalise.TabIndex = 7;
             this.Personnalise.SelectedIndexChanged += new System.EventHandler(this.Personnalise_SelectedIndexChanged);
             // 
@@ -298,9 +303,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(87, 102);
+            this.label1.Location = new System.Drawing.Point(116, 126);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 22);
+            this.label1.Size = new System.Drawing.Size(149, 28);
             this.label1.TabIndex = 8;
             this.label1.Text = "Recommand";
             // 
@@ -308,17 +314,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(87, 289);
+            this.label2.Location = new System.Drawing.Point(116, 356);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 22);
+            this.label2.Size = new System.Drawing.Size(155, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Personnalise";
             // 
             // Return_btn
             // 
-            this.Return_btn.Location = new System.Drawing.Point(782, 508);
+            this.Return_btn.Location = new System.Drawing.Point(1043, 625);
+            this.Return_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Return_btn.Name = "Return_btn";
-            this.Return_btn.Size = new System.Drawing.Size(100, 30);
+            this.Return_btn.Size = new System.Drawing.Size(133, 37);
             this.Return_btn.TabIndex = 15;
             this.Return_btn.Text = "Return";
             this.Return_btn.UseVisualStyleBackColor = true;
@@ -326,9 +334,10 @@
             // 
             // Confirm_btn
             // 
-            this.Confirm_btn.Location = new System.Drawing.Point(888, 508);
+            this.Confirm_btn.Location = new System.Drawing.Point(1184, 625);
+            this.Confirm_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Confirm_btn.Name = "Confirm_btn";
-            this.Confirm_btn.Size = new System.Drawing.Size(100, 30);
+            this.Confirm_btn.Size = new System.Drawing.Size(133, 37);
             this.Confirm_btn.TabIndex = 14;
             this.Confirm_btn.Text = "Confirm";
             this.Confirm_btn.UseVisualStyleBackColor = true;
@@ -337,9 +346,10 @@
             // pictureBox8
             // 
             this.pictureBox8.Image = global::KewLox_Forms_.Properties.Resources.closet_lac;
-            this.pictureBox8.Location = new System.Drawing.Point(832, 145);
+            this.pictureBox8.Location = new System.Drawing.Point(1109, 178);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(85, 92);
+            this.pictureBox8.Size = new System.Drawing.Size(113, 113);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 29;
             this.pictureBox8.TabStop = false;
@@ -347,9 +357,10 @@
             // case7
             // 
             this.case7.Image = ((System.Drawing.Image)(resources.GetObject("case7.Image")));
-            this.case7.Location = new System.Drawing.Point(832, 335);
+            this.case7.Location = new System.Drawing.Point(1109, 412);
+            this.case7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case7.Name = "case7";
-            this.case7.Size = new System.Drawing.Size(85, 92);
+            this.case7.Size = new System.Drawing.Size(113, 113);
             this.case7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case7.TabIndex = 28;
             this.case7.TabStop = false;
@@ -358,9 +369,10 @@
             // case6
             // 
             this.case6.Image = ((System.Drawing.Image)(resources.GetObject("case6.Image")));
-            this.case6.Location = new System.Drawing.Point(712, 335);
+            this.case6.Location = new System.Drawing.Point(949, 412);
+            this.case6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case6.Name = "case6";
-            this.case6.Size = new System.Drawing.Size(85, 92);
+            this.case6.Size = new System.Drawing.Size(113, 113);
             this.case6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case6.TabIndex = 27;
             this.case6.TabStop = false;
@@ -369,9 +381,10 @@
             // case5
             // 
             this.case5.Image = ((System.Drawing.Image)(resources.GetObject("case5.Image")));
-            this.case5.Location = new System.Drawing.Point(594, 335);
+            this.case5.Location = new System.Drawing.Point(792, 412);
+            this.case5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case5.Name = "case5";
-            this.case5.Size = new System.Drawing.Size(85, 92);
+            this.case5.Size = new System.Drawing.Size(113, 113);
             this.case5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case5.TabIndex = 26;
             this.case5.TabStop = false;
@@ -380,9 +393,10 @@
             // case4
             // 
             this.case4.Image = ((System.Drawing.Image)(resources.GetObject("case4.Image")));
-            this.case4.Location = new System.Drawing.Point(473, 335);
+            this.case4.Location = new System.Drawing.Point(631, 412);
+            this.case4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case4.Name = "case4";
-            this.case4.Size = new System.Drawing.Size(85, 92);
+            this.case4.Size = new System.Drawing.Size(113, 113);
             this.case4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case4.TabIndex = 25;
             this.case4.TabStop = false;
@@ -391,9 +405,10 @@
             // case3
             // 
             this.case3.Image = ((System.Drawing.Image)(resources.GetObject("case3.Image")));
-            this.case3.Location = new System.Drawing.Point(358, 335);
+            this.case3.Location = new System.Drawing.Point(477, 412);
+            this.case3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case3.Name = "case3";
-            this.case3.Size = new System.Drawing.Size(85, 92);
+            this.case3.Size = new System.Drawing.Size(113, 113);
             this.case3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case3.TabIndex = 24;
             this.case3.TabStop = false;
@@ -402,9 +417,10 @@
             // case2
             // 
             this.case2.Image = ((System.Drawing.Image)(resources.GetObject("case2.Image")));
-            this.case2.Location = new System.Drawing.Point(235, 335);
+            this.case2.Location = new System.Drawing.Point(313, 412);
+            this.case2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case2.Name = "case2";
-            this.case2.Size = new System.Drawing.Size(85, 92);
+            this.case2.Size = new System.Drawing.Size(113, 113);
             this.case2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case2.TabIndex = 23;
             this.case2.TabStop = false;
@@ -413,9 +429,10 @@
             // case1
             // 
             this.case1.Image = ((System.Drawing.Image)(resources.GetObject("case1.Image")));
-            this.case1.Location = new System.Drawing.Point(107, 335);
+            this.case1.Location = new System.Drawing.Point(143, 412);
+            this.case1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.case1.Name = "case1";
-            this.case1.Size = new System.Drawing.Size(85, 92);
+            this.case1.Size = new System.Drawing.Size(113, 113);
             this.case1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.case1.TabIndex = 22;
             this.case1.TabStop = false;
@@ -424,9 +441,10 @@
             // tiny_closet
             // 
             this.tiny_closet.Image = ((System.Drawing.Image)(resources.GetObject("tiny_closet.Image")));
-            this.tiny_closet.Location = new System.Drawing.Point(712, 145);
+            this.tiny_closet.Location = new System.Drawing.Point(949, 178);
+            this.tiny_closet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tiny_closet.Name = "tiny_closet";
-            this.tiny_closet.Size = new System.Drawing.Size(85, 92);
+            this.tiny_closet.Size = new System.Drawing.Size(113, 113);
             this.tiny_closet.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.tiny_closet.TabIndex = 21;
             this.tiny_closet.TabStop = false;
@@ -435,9 +453,10 @@
             // closet_wood
             // 
             this.closet_wood.Image = ((System.Drawing.Image)(resources.GetObject("closet_wood.Image")));
-            this.closet_wood.Location = new System.Drawing.Point(594, 145);
+            this.closet_wood.Location = new System.Drawing.Point(792, 178);
+            this.closet_wood.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closet_wood.Name = "closet_wood";
-            this.closet_wood.Size = new System.Drawing.Size(85, 92);
+            this.closet_wood.Size = new System.Drawing.Size(113, 113);
             this.closet_wood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_wood.TabIndex = 20;
             this.closet_wood.TabStop = false;
@@ -446,9 +465,10 @@
             // closet_white
             // 
             this.closet_white.Image = ((System.Drawing.Image)(resources.GetObject("closet_white.Image")));
-            this.closet_white.Location = new System.Drawing.Point(473, 145);
+            this.closet_white.Location = new System.Drawing.Point(631, 178);
+            this.closet_white.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closet_white.Name = "closet_white";
-            this.closet_white.Size = new System.Drawing.Size(85, 92);
+            this.closet_white.Size = new System.Drawing.Size(113, 113);
             this.closet_white.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_white.TabIndex = 19;
             this.closet_white.TabStop = false;
@@ -457,9 +477,10 @@
             // closet_orange_blue
             // 
             this.closet_orange_blue.Image = ((System.Drawing.Image)(resources.GetObject("closet_orange_blue.Image")));
-            this.closet_orange_blue.Location = new System.Drawing.Point(358, 145);
+            this.closet_orange_blue.Location = new System.Drawing.Point(477, 178);
+            this.closet_orange_blue.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closet_orange_blue.Name = "closet_orange_blue";
-            this.closet_orange_blue.Size = new System.Drawing.Size(85, 92);
+            this.closet_orange_blue.Size = new System.Drawing.Size(113, 113);
             this.closet_orange_blue.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_orange_blue.TabIndex = 18;
             this.closet_orange_blue.TabStop = false;
@@ -468,9 +489,10 @@
             // closet_glass
             // 
             this.closet_glass.Image = ((System.Drawing.Image)(resources.GetObject("closet_glass.Image")));
-            this.closet_glass.Location = new System.Drawing.Point(235, 145);
+            this.closet_glass.Location = new System.Drawing.Point(313, 178);
+            this.closet_glass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closet_glass.Name = "closet_glass";
-            this.closet_glass.Size = new System.Drawing.Size(85, 92);
+            this.closet_glass.Size = new System.Drawing.Size(113, 113);
             this.closet_glass.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_glass.TabIndex = 17;
             this.closet_glass.TabStop = false;
@@ -479,9 +501,10 @@
             // closet_multicolor
             // 
             this.closet_multicolor.Image = ((System.Drawing.Image)(resources.GetObject("closet_multicolor.Image")));
-            this.closet_multicolor.Location = new System.Drawing.Point(107, 145);
+            this.closet_multicolor.Location = new System.Drawing.Point(143, 178);
+            this.closet_multicolor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.closet_multicolor.Name = "closet_multicolor";
-            this.closet_multicolor.Size = new System.Drawing.Size(85, 92);
+            this.closet_multicolor.Size = new System.Drawing.Size(113, 113);
             this.closet_multicolor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.closet_multicolor.TabIndex = 16;
             this.closet_multicolor.TabStop = false;
@@ -489,10 +512,10 @@
             // 
             // Form3_Catalog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.ClientSize = new System.Drawing.Size(1333, 677);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.case7);
             this.Controls.Add(this.case6);
@@ -517,6 +540,7 @@
             this.Controls.Add(this.Recommand);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form3_Catalog";
             this.Text = "Form3_Catalog";
             this.Load += new System.EventHandler(this.Form3_Catalog_Load);

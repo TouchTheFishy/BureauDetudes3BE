@@ -64,7 +64,6 @@
             this.Glass_fltr = new System.Windows.Forms.ToolStripMenuItem();
             this.Cup_fltr = new System.Windows.Forms.ToolStripMenuItem();
             this.Return_btn = new System.Windows.Forms.Button();
-            this.Confirm_btn = new System.Windows.Forms.Button();
             this.Glass_btn = new System.Windows.Forms.Button();
             this.Cup_btn = new System.Windows.Forms.Button();
             this.Blue = new System.Windows.Forms.Button();
@@ -110,6 +109,7 @@
             this.T_white = new System.Windows.Forms.Button();
             this.T_panel = new System.Windows.Forms.Label();
             this.T_Brown = new System.Windows.Forms.Button();
+            this.ABrown = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Case)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closet_multicolor)).BeginInit();
@@ -146,7 +146,6 @@
             this.Basket.TabIndex = 16;
             this.Basket.Text = "Basket";
             this.Basket.UseVisualStyleBackColor = true;
-            this.Basket.Click += new System.EventHandler(this.Basket_Click);
             // 
             // menuStrip1
             // 
@@ -396,23 +395,13 @@
             // 
             // Return_btn
             // 
-            this.Return_btn.Location = new System.Drawing.Point(780, 494);
+            this.Return_btn.Location = new System.Drawing.Point(704, 486);
             this.Return_btn.Name = "Return_btn";
-            this.Return_btn.Size = new System.Drawing.Size(100, 30);
+            this.Return_btn.Size = new System.Drawing.Size(100, 38);
             this.Return_btn.TabIndex = 24;
             this.Return_btn.Text = "Return";
             this.Return_btn.UseVisualStyleBackColor = true;
             this.Return_btn.Click += new System.EventHandler(this.Return_btn_Click);
-            // 
-            // Confirm_btn
-            // 
-            this.Confirm_btn.Location = new System.Drawing.Point(886, 494);
-            this.Confirm_btn.Name = "Confirm_btn";
-            this.Confirm_btn.Size = new System.Drawing.Size(100, 30);
-            this.Confirm_btn.TabIndex = 23;
-            this.Confirm_btn.Text = "Confirm";
-            this.Confirm_btn.UseVisualStyleBackColor = true;
-            this.Confirm_btn.Click += new System.EventHandler(this.Confirm_btn_Click);
             // 
             // Glass_btn
             // 
@@ -638,11 +627,13 @@
             // 
             this.Futur_choices.AutoSize = true;
             this.Futur_choices.Font = new System.Drawing.Font("Cambria", 10.25F);
-            this.Futur_choices.Location = new System.Drawing.Point(810, 256);
+            this.Futur_choices.Location = new System.Drawing.Point(779, 242);
+            this.Futur_choices.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Futur_choices.Name = "Futur_choices";
-            this.Futur_choices.Size = new System.Drawing.Size(97, 16);
+            this.Futur_choices.Size = new System.Drawing.Size(210, 16);
             this.Futur_choices.TabIndex = 50;
-            this.Futur_choices.Text = "Future choices";
+            this.Futur_choices.Text = "Future choices (not yet available)";
+            this.Futur_choices.Click += new System.EventHandler(this.Futur_choices_Click);
             // 
             // Red
             // 
@@ -666,7 +657,7 @@
             // 
             // NextBox
             // 
-            this.NextBox.Location = new System.Drawing.Point(763, 424);
+            this.NextBox.Location = new System.Drawing.Point(820, 486);
             this.NextBox.Name = "NextBox";
             this.NextBox.Size = new System.Drawing.Size(164, 38);
             this.NextBox.TabIndex = 52;
@@ -680,6 +671,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(33, 20);
             this.textBox1.TabIndex = 53;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label6
             // 
@@ -862,12 +854,23 @@
             this.T_Brown.UseVisualStyleBackColor = true;
             this.T_Brown.Click += new System.EventHandler(this.T_Brown_Click);
             // 
+            // ABrown
+            // 
+            this.ABrown.Location = new System.Drawing.Point(626, 348);
+            this.ABrown.Name = "ABrown";
+            this.ABrown.Size = new System.Drawing.Size(64, 23);
+            this.ABrown.TabIndex = 73;
+            this.ABrown.Text = "Brown";
+            this.ABrown.UseVisualStyleBackColor = true;
+            this.ABrown.Click += new System.EventHandler(this.ABrown_Click);
+            // 
             // Form4_Catalog2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.ABrown);
             this.Controls.Add(this.A_chrom);
             this.Controls.Add(this.A_White);
             this.Controls.Add(this.Angles);
@@ -918,7 +921,6 @@
             this.Controls.Add(this.Basket);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Return_btn);
-            this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -944,7 +946,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.Button Return_btn;
-        private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.ToolStripMenuItem Accessories_Menu;
         private System.Windows.Forms.ToolStripMenuItem Glass_fltr;
         private System.Windows.Forms.ToolStripMenuItem Cup_fltr;
@@ -1017,5 +1018,6 @@
         private System.Windows.Forms.Button T_white;
         private System.Windows.Forms.Label T_panel;
         private System.Windows.Forms.Button T_Brown;
+        private System.Windows.Forms.Button ABrown;
     }
 }

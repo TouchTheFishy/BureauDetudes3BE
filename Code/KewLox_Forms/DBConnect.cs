@@ -52,10 +52,10 @@ namespace KewLox_Forms
                 switch (ex.Number)
                 {
                     case 0:
-                        Console.WriteLine("Can not connect to server. Contact administrator"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
+                        Console.WriteLine("Can not connect to server. Contact administrator");
                         break;
                     case 1045:
-                        Console.WriteLine("Invalid username/password, please try again"); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
+                        Console.WriteLine("Invalid username/password, please try again");
                         break;
                 }
                 return false;
@@ -72,13 +72,13 @@ namespace KewLox_Forms
             }
             catch (MySqlException ex)
             {
-                Console.WriteLine(ex.Message); // avant il y avait ça: MessageBox.Show(ex.Message); mais MessageBox n'est pas reconnu
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
 
         // Create table
-        public void CreateTable(string nametable) // Penser à avoir des "nametable" unique pour retrouver le client.
+        public void CreateTable(string nametable)
         {
             string query = "CREATE TABLE " + nametable +
                 " ( NameObject  varchar(255), Quantity int, Width int, Depth int, Height int, Color varchar(255))";
@@ -120,7 +120,6 @@ namespace KewLox_Forms
                 }
             }
             string query = "INSERT INTO " + table + " (" + columns + ") VALUES(" + values + ")";
-            //Console.WriteLine(query);
 
             // Open connection
 
@@ -170,9 +169,8 @@ namespace KewLox_Forms
 
         // Delete statement
         public void Delete(string table, string value)
-
-            {
-                string query = "DELETE FROM " + table + " WHERE " + value;
+        {
+            string query = "DELETE FROM " + table + " WHERE " + value;
 
             if (this.OpenConnection() == true)
                 {
@@ -196,7 +194,6 @@ namespace KewLox_Forms
 
             if (this.OpenConnection() == true) //Try if the connection to the db worked
             {
-
                 // Create Command
                 MySqlCommand cmd = new MySqlCommand(query, connection);
 
@@ -240,13 +237,18 @@ namespace KewLox_Forms
         }
 
         //Keep trace of how many pieces are sold. Each month the table can be print.
-        public void Sold(string table, string namepart, decimal numberpart, string table2 = "stock", string col11 = "Quantity", string col12 = "Namepart", string col21 = "Enstock", string col22 = "Code")
+        public void Sold(string table, string namepart, decimal numberpart,
+            string table2 = "stock", string col11 = "Quantity", string col12 = "Namepart", string col21 = "Enstock", string col22 = "Code")
         {
             string[,] m = Select(col21, table2, col22 + " = '" + namepart + "'");
+            string[,] mini = Select("Stockminimum", table2, col22 + " = '" + namepart + "'");
             decimal stock = Convert.ToDecimal(m[0, 1].ToString());
+            decimal stockmini = Convert.ToDecimal(mini[0, 1].ToString());
+            if (stock <= stockmini)
+            {
+                //Console.WriteLine("Warning: This is the last " + namepart + ", please contact management");
+            }
             stock = stock - numberpart;
-
-            Console.WriteLine(namepart);
 
             //Try the piece is already in the table
             try
@@ -275,45 +277,45 @@ namespace KewLox_Forms
 
         public void Cancel(decimal Id)
         {
+            // Erase all the piece in sold and commandespieces until there is an error (no more right ID)
             while (true)
             {
                 string columns = "Name, Height, Depth, Width, Quantity, Color";
 
                 string[,] result = Select(columns, "commandespieces", "OrderId = '" + Id + "'");
+
+                // error = no more ID
                 if (result[0, 0] == "error")
                 {
                     CloseConnection();
-                    Console.WriteLine("Canceled");
+                    //Console.WriteLine("Canceled");
                     break;
                 }
 
-                decimal quantity = Convert.ToDecimal(result[4, 1]); //System.IndexOutOfRangeException
+                decimal quantity = Convert.ToDecimal(result[4, 1]);
 
+                // Translate from english to french
                 string color = Translate(result[5, 1]);
                 string reference = Translate(result[0, 1]);
                 string hauteur = Translate(result[1, 1]);
 
-                string colstock = "Ref = '" + reference + "' AND hauteur = '" + hauteur + "' AND profondeur = '" + result[2, 1] + "' AND largeur = '" + result[3, 1] + "' AND Couleur = '" + color + "'";
+                // To be sure to get the right piece
+                string colstock = "Ref = '" + reference + "' AND hauteur = '" + hauteur + "' AND profondeur = '" +
+                    result[2, 1] + "' AND largeur = '" + result[3, 1] + "' AND Couleur = '" + color + "'";
+
                 string[,] stock = Select("Enstock, Code", "stock", colstock);
                 string code = stock[1, 1];
+
                 string[,] sold = Select("Enstock", "stock", "Code = '" + code + "'");
-
-
-
                 decimal newsold = Convert.ToDecimal(sold[0, 1]);
 
-                Console.WriteLine(newsold);
-                Console.WriteLine(stock[0, 1]);
-                Console.WriteLine(quantity);
-
+                // +quantity in stock and -quantity in sold 
                 newsold -= quantity;
                 quantity += Convert.ToDecimal(stock[0, 1]);
 
-
+                // Update stock and sold
                 UpdateDecString("stock", "Enstock", "Code", quantity, code);
                 UpdateDecString("sold", "Quantity", "NamePart", newsold, code);
-                Console.WriteLine(code);
-                Console.WriteLine(quantity);
 
                 Delete("commandespieces", "OrderId = '" + Id + "' AND Name = '" + result[0, 1] + "'");
             }
@@ -383,15 +385,11 @@ namespace KewLox_Forms
             {
                 m = "52";
             }
+            else if (s == "Coupelle")
+            {
+                m = "Coupelles";
+            }
             return m;
         }
-
-        // A voir si c'est interessant à implanter.
-        // Backup
-        public void Backup()
-            { }
-            // Restor
-            public void Restore()
-            { }
     }
 }
