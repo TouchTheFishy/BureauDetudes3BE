@@ -53,6 +53,8 @@
             this.tva = new System.Windows.Forms.TextBox();
             this.checkBox_Newsletter = new System.Windows.Forms.CheckBox();
             this.checkbox_Condition = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Confirm_btn
@@ -93,7 +95,7 @@
             this.Password.Location = new System.Drawing.Point(317, 96);
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
-            this.Password.Size = new System.Drawing.Size(100, 20);
+            this.Password.Size = new System.Drawing.Size(128, 20);
             this.Password.TabIndex = 34;
             // 
             // Password_label
@@ -118,9 +120,8 @@
             // 
             this.Login.Location = new System.Drawing.Point(316, 55);
             this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(100, 20);
+            this.Login.Size = new System.Drawing.Size(129, 20);
             this.Login.TabIndex = 31;
-            this.Login.TextChanged += new System.EventHandler(this.Login_TextChanged);
             // 
             // label1
             // 
@@ -144,7 +145,7 @@
             // 
             this.firstname.Location = new System.Drawing.Point(316, 162);
             this.firstname.Name = "firstname";
-            this.firstname.Size = new System.Drawing.Size(100, 20);
+            this.firstname.Size = new System.Drawing.Size(159, 20);
             this.firstname.TabIndex = 36;
             // 
             // label3
@@ -205,42 +206,42 @@
             // 
             this.enterprise.Location = new System.Drawing.Point(317, 336);
             this.enterprise.Name = "enterprise";
-            this.enterprise.Size = new System.Drawing.Size(100, 20);
+            this.enterprise.Size = new System.Drawing.Size(158, 20);
             this.enterprise.TabIndex = 44;
             // 
             // mail
             // 
             this.mail.Location = new System.Drawing.Point(316, 279);
             this.mail.Name = "mail";
-            this.mail.Size = new System.Drawing.Size(100, 20);
+            this.mail.Size = new System.Drawing.Size(159, 20);
             this.mail.TabIndex = 45;
             // 
             // phone
             // 
             this.phone.Location = new System.Drawing.Point(316, 247);
             this.phone.Name = "phone";
-            this.phone.Size = new System.Drawing.Size(100, 20);
+            this.phone.Size = new System.Drawing.Size(159, 20);
             this.phone.TabIndex = 46;
             // 
             // address
             // 
             this.address.Location = new System.Drawing.Point(317, 222);
             this.address.Name = "address";
-            this.address.Size = new System.Drawing.Size(100, 20);
+            this.address.Size = new System.Drawing.Size(158, 20);
             this.address.TabIndex = 47;
             // 
             // lastname
             // 
             this.lastname.Location = new System.Drawing.Point(317, 193);
             this.lastname.Name = "lastname";
-            this.lastname.Size = new System.Drawing.Size(100, 20);
+            this.lastname.Size = new System.Drawing.Size(158, 20);
             this.lastname.TabIndex = 48;
             // 
             // tva
             // 
             this.tva.Location = new System.Drawing.Point(316, 367);
             this.tva.Name = "tva";
-            this.tva.Size = new System.Drawing.Size(100, 20);
+            this.tva.Size = new System.Drawing.Size(159, 20);
             this.tva.TabIndex = 49;
             // 
             // checkBox_Newsletter
@@ -266,12 +267,23 @@
             this.checkbox_Condition.Text = "Utilisation\'s Conditions";
             this.checkbox_Condition.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(565, 75);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form5_Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.checkbox_Condition);
             this.Controls.Add(this.checkBox_Newsletter);
             this.Controls.Add(this.tva);
@@ -301,6 +313,7 @@
             this.Name = "Form5_Signup";
             this.Text = "Form5_Signup";
             this.Load += new System.EventHandler(this.Form5_Signup_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,5 +345,6 @@
         private System.Windows.Forms.TextBox tva;
         private System.Windows.Forms.CheckBox checkBox_Newsletter;
         private System.Windows.Forms.CheckBox checkbox_Condition;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -510,6 +510,9 @@ namespace KewLox_Forms
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_chrom;
         }
 
+        private void Futur_choices_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

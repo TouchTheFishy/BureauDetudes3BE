@@ -638,11 +638,12 @@
             // 
             this.Futur_choices.AutoSize = true;
             this.Futur_choices.Font = new System.Drawing.Font("Cambria", 10.25F);
-            this.Futur_choices.Location = new System.Drawing.Point(810, 256);
+            this.Futur_choices.Location = new System.Drawing.Point(787, 264);
             this.Futur_choices.Name = "Futur_choices";
-            this.Futur_choices.Size = new System.Drawing.Size(97, 16);
+            this.Futur_choices.Size = new System.Drawing.Size(210, 16);
             this.Futur_choices.TabIndex = 50;
-            this.Futur_choices.Text = "Future choices";
+            this.Futur_choices.Text = "Future choices (not yet available)";
+            this.Futur_choices.Click += new System.EventHandler(this.Futur_choices_Click);
             // 
             // Red
             // 
