@@ -391,13 +391,5 @@ namespace KewLox_Forms
             }
             return m;
         }
-
-        // A voir si c'est interessant à implanter.
-        // Backup
-        public void Backup()
-            { }
-            // Restor
-            public void Restore()
-            { }
     }
 }
