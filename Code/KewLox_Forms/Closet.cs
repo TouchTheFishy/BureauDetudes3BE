@@ -66,13 +66,17 @@ namespace KewLox_Forms
 
         public List<KeyValuePair<string, int>> AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight, string acolor, string pcolor,bool done)
         {
-
-
             Box box = new Box();
-            box.AddConstructionParts(boxheight, lcol, rcol, bcol, dcol, doorcol, doormat, width, depth);
-            foreach (KeyValuePair<string, int> boxpart in box.Parts)
+            if (done == false)
             {
-                parts.Add(boxpart);
+
+
+                
+                box.AddConstructionParts(boxheight, lcol, rcol, bcol, dcol, doorcol, doormat, width, depth);
+                foreach (KeyValuePair<string, int> boxpart in box.Parts)
+                {
+                    parts.Add(boxpart);
+                }
             }
             if (done == true)
             {

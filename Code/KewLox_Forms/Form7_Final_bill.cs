@@ -70,6 +70,10 @@ namespace KewLox_Forms
             string completepath =  path + String.Format("\\bill{0}.html", Convert.ToString(Program.Id));
             System.Diagnostics.Process.Start(completepath);
             MessageBox.Show("Thank you");
+            Closet Armoire = new Closet();
+            Welcome_form frm = new Welcome_form(Armoire);
+            frm.Show();
+            Hide();
         }
 
         //To show the result of the bill
@@ -81,6 +85,17 @@ namespace KewLox_Forms
         private void LastName_TextChanged(object sender, EventArgs e)
         {
         
+        }
+
+        private void Logo_Click(object sender, EventArgs e)
+        {
+            Closet Armoire = new Closet();
+
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
+            Welcome_form frm = new Welcome_form(Armoire);
+            frm.Show();
+            Hide();
         }
     }
 }

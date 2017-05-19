@@ -246,7 +246,7 @@ namespace KewLox_Forms
             decimal stockmini = Convert.ToDecimal(mini[0, 1].ToString());
             if (stock <= stockmini)
             {
-                Console.WriteLine("Warning: This is the last " + namepart + ", please contact management");
+                //Console.WriteLine("Warning: This is the last " + namepart + ", please contact management");
             }
             stock = stock - numberpart;
 
@@ -288,7 +288,7 @@ namespace KewLox_Forms
                 if (result[0, 0] == "error")
                 {
                     CloseConnection();
-                    Console.WriteLine("Canceled");
+                    //Console.WriteLine("Canceled");
                     break;
                 }
 
