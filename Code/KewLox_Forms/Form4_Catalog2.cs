@@ -135,6 +135,8 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
             Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
@@ -493,7 +495,7 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
-            if (BoxStep < Boxamount)
+            if (BoxStep <= Boxamount )
             {            
                 Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
                 BoxStep = BoxStep + 1;
@@ -501,7 +503,7 @@ namespace KewLox_Forms
             }
             
 
-            if (BoxStep >= Boxamount)
+            if (BoxStep > Boxamount)
             {
 
                 decimal total = 0;

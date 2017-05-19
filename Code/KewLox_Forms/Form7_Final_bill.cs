@@ -18,6 +18,7 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
+        
         public Form7_Final_bill()
         {
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace KewLox_Forms
             //string query = "SELECT " + columns + " FROM " + table + " WHERE " + equal;
             string[,] price= database.Select("Prix", "commandes", "Id = '" + Program.Id + "'");
             
+
             string[,] lastnamedb = database.Select("LastName", "commandes", "Id = '" + Program.Id + "'");
             Price.Text = price[0, 1];
             lastname.Text = lastnamedb[0, 1];
@@ -64,8 +66,14 @@ namespace KewLox_Forms
         private void Pay_btn_Click(object sender, EventArgs e)
         {
             //Open a browser to show the bill or a pop up for now
-
+            string path = System.IO.Directory.GetCurrentDirectory();
+            string completepath =  path + String.Format("\\bill{0}.html", Convert.ToString(Program.Id));
+            System.Diagnostics.Process.Start(completepath);
             MessageBox.Show("Thank you");
+            Closet Armoire = new Closet();
+            Welcome_form frm = new Welcome_form(Armoire);
+            frm.Show();
+            Hide();
         }
 
         //To show the result of the bill
@@ -77,6 +85,17 @@ namespace KewLox_Forms
         private void LastName_TextChanged(object sender, EventArgs e)
         {
         
+        }
+
+        private void Logo_Click(object sender, EventArgs e)
+        {
+            Closet Armoire = new Closet();
+
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
+            Welcome_form frm = new Welcome_form(Armoire);
+            frm.Show();
+            Hide();
         }
     }
 }

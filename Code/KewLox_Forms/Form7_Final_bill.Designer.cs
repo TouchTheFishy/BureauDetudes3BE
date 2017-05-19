@@ -51,6 +51,7 @@
             this.Logo.TabIndex = 53;
             this.Logo.Text = "KewLox";
             this.Logo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Logo.Click += new System.EventHandler(this.Logo_Click);
             // 
             // Return_btn
             // 
