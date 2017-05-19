@@ -494,19 +494,35 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
+            if (BoxStep <= Boxamount)
+            {
+
+                boxamouuunt.Text = Convert.ToString(Boxamount);
+
+                Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
+                BoxStep = BoxStep + 1;
+                textBox1.Text = Convert.ToString(BoxStep);
+            }
             
-            boxamouuunt.Text = Convert.ToString(Boxamount);
-
-            Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight);
-            BoxStep = BoxStep + 1;
-            textBox1.Text = Convert.ToString(BoxStep);
-
 
             if (BoxStep > Boxamount)
             {
-                
-                Continue.Enabled = true;
-                textBox1.Text = "hey";
+
+                decimal total = 0;
+                string totalstring;
+                string[] values;
+                Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
+                total = Armoire.GetPrice();
+                Price = Armoire.GetPrice();
+                values = total.ToString().Split(Convert.ToChar(","));
+                totalstring = values[0] + "." + values[1];
+                Nodup = Armoire.RemoveDuplicates(Armoire.Parts);
+                //Nodup = new List<KeyValuePair<string, int>>();
+                //Price = 0;
+
+                Form5_Signup frm = new Form5_Signup(Nodup, Price);
+                frm.Show();
+                Hide();
             }
 
             
@@ -579,23 +595,8 @@ namespace KewLox_Forms
 
         private void Continue_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "ho";
-            decimal total = 0;
-            string totalstring;
-            string[] values;
-            Armoire.FinishCloset(TotalHeight, Acolor, Tcolor, ClosetWidth, Depth);
-            textBox1.Text = "ho";
-            total = Armoire.GetPrice();
-            Price = Armoire.GetPrice();
-            values = total.ToString().Split(Convert.ToChar(","));
-            totalstring = values[0] + "." + values[1];
-            Nodup = Armoire.RemoveDuplicates(Armoire.Parts);
-            //Nodup = new List<KeyValuePair<string, int>>();
-            //Price = 0;
-
-            Form5_Signup frm = new Form5_Signup(Nodup, Price);
-            frm.Show();
-            Hide();
+           
+            
         }
     }
 }

@@ -243,7 +243,7 @@ namespace KewLox_Forms
         public void Sold(string table, string namepart, decimal numberpart, string table2 = "stock", string col11 = "Quantity", string col12 = "Namepart", string col21 = "Enstock", string col22 = "Code")
         {
             string[,] m = Select(col21, table2, col22 + " = '" + namepart + "'");
-            decimal stock = Convert.ToDecimal(m[0, 1].ToString());
+            decimal stock = Convert.ToDecimal(m[0, 1]);
             stock = stock - numberpart;
 
             Console.WriteLine(namepart);
