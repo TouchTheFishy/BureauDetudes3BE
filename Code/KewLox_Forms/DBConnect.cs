@@ -385,6 +385,10 @@ namespace KewLox_Forms
             {
                 m = "52";
             }
+            else if (s == "Coupelle")
+            {
+                m = "Coupelles";
+            }
             return m;
         }
 
