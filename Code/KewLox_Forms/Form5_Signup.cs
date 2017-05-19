@@ -52,13 +52,13 @@ namespace KewLox_Forms
         {
             DBConnect database = new DBConnect();
 
-            database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Id));
-            database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Id));
+            //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Id));
 
 
             Form6_Resume frm = new Form6_Resume();
@@ -68,6 +68,11 @@ namespace KewLox_Forms
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Login_TextChanged(object sender, EventArgs e)
         {
 
         }
