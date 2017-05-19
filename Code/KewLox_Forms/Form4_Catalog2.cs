@@ -20,6 +20,12 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
+        public static int boxstep;
+        public static int BoxStep
+        {
+            get { return boxstep; }
+            set { boxstep = value; }
+        }
         public static int closetwidth;
         public static int ClosetWidth
         {
@@ -86,10 +92,40 @@ namespace KewLox_Forms
             get { return boxheight; }
             set { boxheight = value; }
         }
+        public static string tcolor;
+        public static string Tcolor
+        {
+            get { return tcolor; }
+            set { tcolor = value; }
+        }
+        public static string acolor;
+        public static string Acolor
+        {
+            get { return acolor; }
+            set { acolor = value; }
+        }
+        public static List<KeyValuePair<string, int>> nodup;
+        public static List<KeyValuePair<string, int>> Nodup
+        {
+            get { return nodup; }
+            set { nodup = value; }
+        }
+        public static decimal price;
+        public static decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
         public Form4_Catalog2()
         {
+            BoxStep = 1;
+            
             InitializeComponent();
-            Closet Armoire = new Closet();
+            Continue.Enabled = false;
+            textBox1.Text = Convert.ToString(BoxStep);
+            Closet closet = new Closet();
+            Armoire = closet;
+
         }
 
         private void Form4_Catalog2_Load(object sender, EventArgs e)
@@ -121,13 +157,7 @@ namespace KewLox_Forms
             Hide();
         }
 
-        //To go forward
-        private void Confirm_btn_Click(object sender, EventArgs e)
-        {
-            Form5_Signup frm = new Form5_Signup(Armoire);
-            frm.Show();
-            Hide();
-        }
+      
 
         // To change the color or the material of the door with button
         private void Blue_Click(object sender, EventArgs e)
@@ -182,6 +212,7 @@ namespace KewLox_Forms
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_1case;
             Boxamount = 1;
+            
         }
 
         private void closet_2case_MouseHover(object sender, EventArgs e)
@@ -286,83 +317,85 @@ namespace KewLox_Forms
 
         private void Total_height_Textbox_TextChanged(object sender, EventArgs e)
         {
-            int Total_height = Convert.ToInt32(Total_height_Textbox.Text);
-            int maxbox = Total_height / 36;
-            switch (maxbox)
-            {
-                case 0:
-                    closet_1case.Enabled = false;
-                    closet_2case.Enabled = false;
-                    closet_3case.Enabled = false;
-                    closet_4case.Enabled = false;
-                    closet_5case.Enabled = false;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false;
-                    break;
-                case 1:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = false;
-                    closet_3case.Enabled = false;
-                    closet_4case.Enabled = false;
-                    closet_5case.Enabled = false;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false;
-                    break;
-                case 2:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = false;
-                    closet_4case.Enabled = false;
-                    closet_5case.Enabled = false;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false;
-                    break;
-                case 3:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = true;
-                    closet_4case.Enabled = false;
-                    closet_5case.Enabled = false;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false;
-                    break;
-                case 4:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = true;
-                    closet_4case.Enabled = true;
-                    closet_5case.Enabled = false;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false;
-                    break;
-                case 5:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = true;
-                    closet_4case.Enabled = true;
-                    closet_5case.Enabled = true;
-                    closet_6case.Enabled = false;
-                    closet_7case.Enabled = false; ;
-                    break;
-                case 6:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = true;
-                    closet_4case.Enabled = true;
-                    closet_5case.Enabled = true;
-                    closet_6case.Enabled = true;
-                    closet_7case.Enabled = false;
-                    break;
-                case 7:
-                    closet_1case.Enabled = true;
-                    closet_2case.Enabled = true;
-                    closet_3case.Enabled = true;
-                    closet_4case.Enabled = true;
-                    closet_5case.Enabled = true;
-                    closet_6case.Enabled = true;
-                    closet_7case.Enabled = true;
-                    break;
+            if (Total_height_Textbox.Text != ""){
+                int Total_height = Convert.ToInt32(Total_height_Textbox.Text);
+                int maxbox = Total_height / 36;
+                switch (maxbox)
+                {
+                    case 0:
+                        closet_1case.Enabled = false;
+                        closet_2case.Enabled = false;
+                        closet_3case.Enabled = false;
+                        closet_4case.Enabled = false;
+                        closet_5case.Enabled = false;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 1:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = false;
+                        closet_3case.Enabled = false;
+                        closet_4case.Enabled = false;
+                        closet_5case.Enabled = false;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 2:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = false;
+                        closet_4case.Enabled = false;
+                        closet_5case.Enabled = false;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 3:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = true;
+                        closet_4case.Enabled = false;
+                        closet_5case.Enabled = false;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 4:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = true;
+                        closet_4case.Enabled = true;
+                        closet_5case.Enabled = false;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 5:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = true;
+                        closet_4case.Enabled = true;
+                        closet_5case.Enabled = true;
+                        closet_6case.Enabled = false;
+                        closet_7case.Enabled = false; ;
+                        break;
+                    case 6:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = true;
+                        closet_4case.Enabled = true;
+                        closet_5case.Enabled = true;
+                        closet_6case.Enabled = true;
+                        closet_7case.Enabled = false;
+                        break;
+                    case 7:
+                        closet_1case.Enabled = true;
+                        closet_2case.Enabled = true;
+                        closet_3case.Enabled = true;
+                        closet_4case.Enabled = true;
+                        closet_5case.Enabled = true;
+                        closet_6case.Enabled = true;
+                        closet_7case.Enabled = true;
+                        break;
 
+                }
             }
             
         }
@@ -461,7 +494,24 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
-            Armoire.AddBoxes(Lcolor,Rcolor,Backcolor,Botcolor,Dcolor,Doormat,TotalHeight,ClosetWidth,Depth,Boxheight);
+            
+            boxamouuunt.Text = Convert.ToString(Boxamount);
+
+            Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight);
+            BoxStep = BoxStep + 1;
+            textBox1.Text = Convert.ToString(BoxStep);
+
+
+            if (BoxStep > Boxamount)
+            {
+                
+                Continue.Enabled = true;
+                textBox1.Text = "hey";
+            }
+
+            
+
+            
         }
 
         private void height36_Click(object sender, EventArgs e)
@@ -486,11 +536,13 @@ namespace KewLox_Forms
         private void T_Brown_Click(object sender, EventArgs e)
         {
             Case.Image = KewLox_Forms_.Properties.Resources.top_brown;
+            Tcolor = "Brown";
         }
 
         private void T_white_Click(object sender, EventArgs e)
         {
             Case.Image = KewLox_Forms_.Properties.Resources.top_white;
+            Tcolor = "White";
         }
 
 
@@ -498,18 +550,52 @@ namespace KewLox_Forms
         private void A_Black_Click(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_black;
+            Acolor = "Black";
         }
 
         private void A_White_Click(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_white;
+            Acolor = "White";
         }
 
         private void A_chrom_Click(object sender, EventArgs e)
         {
+            
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_chrom;
+            Acolor = "Chromed";
         }
 
+        private void ABrown_Click(object sender, EventArgs e)
+        {
+            closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_brown;
+            Acolor = "Brown";
+        }
 
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Continue_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "ho";
+            decimal total = 0;
+            string totalstring;
+            string[] values;
+            Armoire.FinishCloset(TotalHeight, Acolor, Tcolor, ClosetWidth, Depth);
+            textBox1.Text = "ho";
+            total = Armoire.GetPrice();
+            Price = Armoire.GetPrice();
+            values = total.ToString().Split(Convert.ToChar(","));
+            totalstring = values[0] + "." + values[1];
+            Nodup = Armoire.RemoveDuplicates(Armoire.Parts);
+            //Nodup = new List<KeyValuePair<string, int>>();
+            //Price = 0;
+
+            Form5_Signup frm = new Form5_Signup(Nodup, Price);
+            frm.Show();
+            Hide();
+        }
     }
 }

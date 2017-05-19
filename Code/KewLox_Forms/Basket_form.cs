@@ -44,12 +44,12 @@ namespace KewLox_Forms
         }
 
         //To go forward
-        private void Confirm_btn_Click(object sender, EventArgs e)
-        {
-            Form5_Signup frm = new Form5_Signup(Armoire);
-            frm.Show();
-            Hide();
-        }
+        //private void Confirm_btn_Click(object sender, EventArgs e)
+        //{
+        //    Form5_Signup frm = new Form5_Signup(Armoire);
+        //    frm.Show();
+        //    Hide();
+        //}
 
 
 

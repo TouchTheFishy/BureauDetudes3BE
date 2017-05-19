@@ -67,10 +67,10 @@ namespace KewLox_Forms
                 parts.AddRange(pannelcodes);
 
             //Remove the amount taken in db "stock" and update "sold"
-            for (int j = 0; j < pannelcodes.Count; j++)
-            {
-                database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
-            }
+            //for (int j = 0; j < pannelcodes.Count; j++)
+            //{
+            //    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
+            //}
             
             
             //each box has 1 front 1 back and 2 left/right traverses, only the last one has double so many
@@ -101,10 +101,10 @@ namespace KewLox_Forms
             database.Insert("commandespieces", DbColumn, request2);
 
             //Remove the amount taken in db "stock" and update "sold"
-            for (int i = 0; i < tasseauxTraverses.Count; i++)
-            {
-                database.Sold("sold", tasseauxTraverses[i].Key, tasseauxTraverses[i].Value);
-            }
+            //for (int i = 0; i < tasseauxTraverses.Count; i++)
+            //{
+            //    database.Sold("sold", tasseauxTraverses[i].Key, tasseauxTraverses[i].Value);
+            //}
 
             
             if (width>60)
@@ -152,8 +152,8 @@ namespace KewLox_Forms
                             database.Insert("commandespieces", DbColumn, cuprequest);
 
                             //Remove the amount taken in db "stock" and update "sold"
-                            database.Sold("sold", doors.Key, doors.Value);
-                            database.Sold("sold", cups.Key, cups.Value);
+                            //database.Sold("sold", doors.Key, doors.Value);
+                            //database.Sold("sold", cups.Key, cups.Value);
 
                         }
 
@@ -167,7 +167,7 @@ namespace KewLox_Forms
                             database.Insert("commandespieces", DbColumn, request);
                         
                             //Remove the amount taken in db "stock" and update "sold"
-                            database.Sold("sold", doors.Key, doors.Value);
+                            //database.Sold("sold", doors.Key, doors.Value);
 
                         }
                         
@@ -199,7 +199,7 @@ namespace KewLox_Forms
                         database.Insert("commandespieces", DbColumn, request);
 
                         //Remove the amount taken in db "stock" and update "sold"
-                        database.Sold("sold", doors.Key, doors.Value);
+                        //database.Sold("sold", doors.Key, doors.Value);
 
                     }
                 }

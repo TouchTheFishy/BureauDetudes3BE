@@ -64,14 +64,18 @@ namespace KewLox_Forms
         {
             DBConnect database = new DBConnect();
 
-            //database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Id));
-            //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Id));
-            closet1.MakeBill(Price,Nodup);
+
+            //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
+            //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+
+            database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+            closet1.MakeBill(Price, Nodup);
 
 
             Form6_Resume frm = new Form6_Resume();
