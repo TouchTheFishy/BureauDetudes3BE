@@ -135,6 +135,8 @@ namespace KewLox_Forms
         //To return to Main Menu
         private void Title_Click(object sender, EventArgs e)
         {
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
             Welcome_form frm = new Welcome_form(Armoire);
             frm.Show();
             Hide();
@@ -493,35 +495,38 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
-            if (BoxStep < Boxamount)
-            {            
-                Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
-                BoxStep = BoxStep + 1;
-                textBox1.Text = Convert.ToString(BoxStep);
-            }
-            
-
-            if (BoxStep >= Boxamount)
+            if (TotalHeight.GetType() == null || ClosetWidth.GetType() == null || Depth.GetType() == null)
             {
-
-                decimal total = 0;
-                string totalstring;
-                string[] values;
-                List<KeyValuePair<string, int>> Parts =Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
-                total = Armoire.GetPrice(Parts);
-                values = total.ToString().Split(Convert.ToChar(","));
-                totalstring = values[0] + "." + values[1];
-                Nodup = Armoire.RemoveDuplicates(Parts);
-                
-
-                Form5_Signup frm = new Form5_Signup(Nodup, total);
-                frm.Show();
-                Hide();
+                MessageBox.Show("Please choose a total height, a width and a depth.");
             }
+            else
+            {
+                if (BoxStep <= Boxamount)
+                {
+                    Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
+                    BoxStep = BoxStep + 1;
+                    textBox1.Text = Convert.ToString(BoxStep);
+                }
 
-            
 
-            
+                if (BoxStep > Boxamount)
+                {
+
+                    decimal total = 0;
+                    string totalstring;
+                    string[] values;
+                    List<KeyValuePair<string, int>> Parts = Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
+                    total = Armoire.GetPrice(Parts);
+                    values = total.ToString().Split(Convert.ToChar(","));
+                    totalstring = values[0] + "." + values[1];
+                    Nodup = Armoire.RemoveDuplicates(Parts);
+
+
+                    Form5_Signup frm = new Form5_Signup(Nodup, total);
+                    frm.Show();
+                    Hide();
+                }
+            }
         }
 
         private void height36_Click(object sender, EventArgs e)

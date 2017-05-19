@@ -114,7 +114,7 @@ namespace KewLox_Forms
                 new KeyValuePair<string, string>("Panneau HB", "PAH"),
                 new KeyValuePair<string, string>("Porte","POR"),
                 new KeyValuePair<string, string>("Cornière","COR"),
-                new KeyValuePair<string, string>("Coupelle","COUPEL"),
+                new KeyValuePair<string, string>("Coupelles","COUPEL"),
                 new KeyValuePair<string, string>("Tasseau","TAS"),
                 new KeyValuePair<string, string>("Traverse AR","TRR"),
                 new KeyValuePair<string, string>("Traverse AV","TRF"),
