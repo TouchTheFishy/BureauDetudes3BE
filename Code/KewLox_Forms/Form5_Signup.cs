@@ -68,28 +68,58 @@ namespace KewLox_Forms
         {
             DBConnect database = new DBConnect();
             Closet closet1= new Closet();
+          
+            if (firstname.Text.GetType() != typeof(string) || firstname.Text.GetType() == null 
+                || lastname.Text.GetType() != typeof(string) || lastname.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your name");
+            }
+            else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null 
+                || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put a Login and a Password");
+            }
+            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null 
+                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null 
+                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your contact information");
+            }
+            else if (enterprise.Text.GetType() == null && tva.Text.GetType() == null)
+            {
+                string company = "null";
+                int tva = 0;
+            }
+            else if (enterprise.Text.GetType() != typeof(string) || enterprise.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your company name");
+            }
+            else if (tva.Text.GetType() != typeof(int) || tva.Text.GetType() == null)
+            {
+                MessageBox.Show("Please put your TVA number");
+            }
+            else
+            {
+                //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
+                //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+                //database.Update("commandes", "Login", "`id`", Login.Text, Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "Password", "`id`", Password.Text, Convert.ToInt32(Program.Id));
+
+                database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "enterprise", "`id`", company, Convert.ToInt32(Program.Id));
+                //database.Update("commandes", "TVA", "`id`", tva, Convert.ToInt32(Program.Id));
+                closet1.MakeBill(Price, Nodup);
 
 
-            //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
-            //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
-            //database.Update("commandes", "Login", "`id`", Login.Text, Convert.ToInt32(Program.Id));
-            //database.Update("commandes", "Password", "`id`", Password.Text, Convert.ToInt32(Program.Id));
-
-            database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
-            //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
-            //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
-            //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
-            closet1.MakeBill(Price, Nodup);
-
-
-            Form7_Final_bill frm = new Form7_Final_bill();
-            frm.Show();
-            this.Close();
-
+                Form7_Final_bill frm = new Form7_Final_bill();
+                frm.Show();
+                this.Close();
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

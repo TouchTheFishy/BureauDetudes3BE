@@ -385,15 +385,11 @@ namespace KewLox_Forms
             {
                 m = "52";
             }
+            else if (s == "Coupelle")
+            {
+                m = "Coupelles";
+            }
             return m;
         }
-
-        // A voir si c'est interessant à implanter.
-        // Backup
-        public void Backup()
-            { }
-            // Restor
-            public void Restore()
-            { }
     }
 }
