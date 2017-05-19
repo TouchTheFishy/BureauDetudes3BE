@@ -70,6 +70,8 @@ namespace KewLox_Forms
 
             //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
             //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+            database.Update("commandes", "Login", "`id`", Login.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Password", "`id`", Password.Text, Convert.ToInt32(Program.Id));
 
             database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
             database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
@@ -89,11 +91,6 @@ namespace KewLox_Forms
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Login_TextChanged(object sender, EventArgs e)
         {
 
         }

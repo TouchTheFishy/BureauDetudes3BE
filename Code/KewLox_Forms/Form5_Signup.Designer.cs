@@ -53,6 +53,8 @@
             this.tva = new System.Windows.Forms.TextBox();
             this.checkBox_Newsletter = new System.Windows.Forms.CheckBox();
             this.checkbox_Condition = new System.Windows.Forms.CheckBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Confirm_btn
@@ -125,8 +127,8 @@
             this.Login.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(132, 22);
+
             this.Login.TabIndex = 31;
-            this.Login.TextChanged += new System.EventHandler(this.Login_TextChanged);
             // 
             // label1
             // 
@@ -289,6 +291,16 @@
             this.checkbox_Condition.Text = "Utilisation\'s Conditions";
             this.checkbox_Condition.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(565, 75);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(162, 149);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 52;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form5_Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -325,6 +337,7 @@
             this.Name = "Form5_Signup";
             this.Text = "Form5_Signup";
             this.Load += new System.EventHandler(this.Form5_Signup_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,5 +369,6 @@
         private System.Windows.Forms.TextBox tva;
         private System.Windows.Forms.CheckBox checkBox_Newsletter;
         private System.Windows.Forms.CheckBox checkbox_Condition;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

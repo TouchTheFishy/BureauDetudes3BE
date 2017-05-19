@@ -121,7 +121,6 @@ namespace KewLox_Forms
             BoxStep = 1;
             
             InitializeComponent();
-            Continue.Enabled = false;
             textBox1.Text = Convert.ToString(BoxStep);
             Closet closet = new Closet();
             Armoire = closet;
@@ -495,10 +494,7 @@ namespace KewLox_Forms
         private void NextBox_Click(object sender, EventArgs e)
         {
             if (BoxStep < Boxamount)
-            {
-
-                boxamouuunt.Text = Convert.ToString(Boxamount);
-
+            {            
                 Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
                 BoxStep = BoxStep + 1;
                 textBox1.Text = Convert.ToString(BoxStep);
@@ -580,6 +576,12 @@ namespace KewLox_Forms
             Acolor = "Chromed";
         }
 
+
+        private void Futur_choices_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void ABrown_Click(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.corniere_brown;
@@ -593,8 +595,12 @@ namespace KewLox_Forms
 
         private void Continue_Click(object sender, EventArgs e)
         {
-           
-            
+                   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
