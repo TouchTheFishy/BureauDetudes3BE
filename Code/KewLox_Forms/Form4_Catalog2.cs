@@ -20,85 +20,85 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
-        public static int boxstep;
+        public static int boxstep = 1;
         public static int BoxStep
         {
             get { return boxstep; }
             set { boxstep = value; }
         }
-        public static int closetwidth;
+        public static int closetwidth=80;
         public static int ClosetWidth
         {
             get { return closetwidth; }
             set { closetwidth = value; }
         }
-        public static int closetdepth;
+        public static int closetdepth=62;
         public static int Depth
         {
             get { return closetdepth; }
             set { closetdepth = value; }
         }
-        public static int totalHeight;
+        public static int totalHeight=125;
         public static int TotalHeight
         {
             get { return totalHeight; }
             set { totalHeight = value; }
         }
-        public static int boxamount;
+        public static int boxamount=1;
         public static int Boxamount
         {
             get { return boxamount; }
             set { boxamount = value; }
         }
-        public static string lcolor;
+        public static string lcolor="White";
         public static string Lcolor
         {
             get { return lcolor; }
             set { lcolor = value; }
         }
-        public static string rcolor;
+        public static string rcolor = "White";
         public static string Rcolor
         {
             get { return rcolor; }
             set { rcolor = value; }
         }
-        public static string backcolor;
+        public static string backcolor = "White";
         public static string Backcolor
         {
             get { return backcolor; }
             set { backcolor = value; }
         }
-        public static string dcolor;
+        public static string dcolor = "White";
         public static string Dcolor
         {
             get { return dcolor; }
             set { dcolor = value; }
         }
-        public static string botcolor;
+        public static string botcolor = "White";
         public static string Botcolor
         {
             get { return botcolor; }
             set { botcolor = value; }
         }
-        public static string doormat;
+        public static string doormat = "Cup";
         public static string Doormat
         {
             get { return doormat; }
             set { doormat = value; }
         }
-        public static int boxheight;
+        public static int boxheight=46;
         public static int Boxheight
         {
             get { return boxheight; }
             set { boxheight = value; }
         }
-        public static string tcolor;
+        public static string tcolor = "White";
         public static string Tcolor
         {
             get { return tcolor; }
             set { tcolor = value; }
         }
-        public static string acolor;
+        public static string acolor = "White";
         public static string Acolor
         {
             get { return acolor; }
@@ -494,7 +494,7 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
-            if (BoxStep <= Boxamount)
+            if (BoxStep < Boxamount)
             {
 
                 boxamouuunt.Text = Convert.ToString(Boxamount);
@@ -505,7 +505,7 @@ namespace KewLox_Forms
             }
             
 
-            if (BoxStep > Boxamount)
+            if (BoxStep >= Boxamount)
             {
 
                 decimal total = 0;

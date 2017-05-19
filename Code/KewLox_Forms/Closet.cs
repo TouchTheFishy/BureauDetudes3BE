@@ -83,7 +83,7 @@ namespace KewLox_Forms
                 DBConnect database = new DBConnect();
 
                 ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(totheight), Color = acolor };
-                //angles.Code = angles.MakeCode();
+                angles.Code = angles.MakeCode();
                 KeyValuePair<string, int> anglesparts = new KeyValuePair<string, int>(angles.Code, 4);
                 parts.Add(anglesparts);
                 string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
@@ -161,7 +161,7 @@ namespace KewLox_Forms
             foreach (KeyValuePair<string, int> part in pieces)
             {
                 string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='" + part.Key + "'");
-                decimal priceperpart = Convert.ToDecimal(int.Parse(prix[0, 1]));
+                decimal priceperpart = Convert.ToDecimal(prix[0, 1]);
                 decimal nbparts = Convert.ToDecimal(part.Value);
                 total += (priceperpart * nbparts);
             }
