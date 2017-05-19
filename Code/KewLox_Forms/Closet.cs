@@ -172,7 +172,7 @@ namespace KewLox_Forms
         {
             string text="";
             string header = "";
-            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
+            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Nueéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
             string companyaddress="<td>Client name <br> Client address & number <br> Post Code & town<br>Telephone<br>Email address <br>VAT number <br> Account number & BIC</td>";
             string bodyheader;
             string body = "";
@@ -180,14 +180,13 @@ namespace KewLox_Forms
             string footer = "\u00a9 Kewlox 2017"; //alt 0169 release alt 
             DBConnect database = new DBConnect();
             header = String.Format("<html>\n<head>\n<style>table, th, td {{{0}}},table, td.addresses{{{1}}}</style>\n</head>\n<body>\n<h1>Bill " +
-                "n°{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
+                "#{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
                 "collapse;","border:no-border",Convert.ToString(Program.Id));
             bodyheader = "<table>\n<tr>\n<th>Part Name</th>\n<th>Description</th>\n<th>Amount</th>\n<th>Price per part</th>\n<th>Total</th>\n</tr>";
             bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closetprice);
             string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
             text = header +kewloxaddress+companyaddress+ bodyheader;
             File.AppendAllText(path, text);
-            //List<KeyValuePair<string, int>> nodup = RemoveDuplicates(closet.Parts);
             foreach (KeyValuePair<string, int> part in nodup)
             {
                 string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");

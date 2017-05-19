@@ -33,10 +33,12 @@ namespace KewLox_Forms
 
 
 
-        public Form5_Signup(List<KeyValuePair<string, int>> nodup,decimal price)
+        public Form5_Signup(List<KeyValuePair<string, int>> nodupli,decimal prix)
         {
                   
             InitializeComponent();
+            Nodup = nodupli;
+            Price = prix;
         }
         private void Form5_Signup_Load(object sender, EventArgs e)
         {
@@ -63,6 +65,7 @@ namespace KewLox_Forms
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
             DBConnect database = new DBConnect();
+            Closet closet1= new Closet();
 
 
             //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
@@ -70,11 +73,12 @@ namespace KewLox_Forms
 
             database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
             database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
             closet1.MakeBill(Price, Nodup);
 
 
