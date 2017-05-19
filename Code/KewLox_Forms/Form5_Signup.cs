@@ -69,37 +69,26 @@ namespace KewLox_Forms
             DBConnect database = new DBConnect();
             Closet closet1= new Closet();
           
-            if (firstname.Text.GetType() != typeof(string) || firstname.Text.GetType() == null 
-                || lastname.Text.GetType() != typeof(string) || lastname.Text.GetType() == null)
+            if (firstname.Text.GetType() != typeof(string) || firstname.Text.GetType() == null || firstname.Text == ""
+                || lastname.Text.GetType() != typeof(string) || lastname.Text.GetType() == null || lastname.Text == "")
             {
                 MessageBox.Show("Please put your name");
             }
-            else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null 
-                || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null)
+            else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null || Login.Text == ""
+                || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null || Password.Text == "")
             {
                 MessageBox.Show("Please put a Login and a Password");
             }
-            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null 
-                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null 
-                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null)
+            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null || address.Text == ""
+                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null || phone.Text == ""
+                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null || mail.Text == "")
             {
-                MessageBox.Show("Please put your contact information");
+                MessageBox.Show("Please put your contact information" + address.Text.GetType() + phone.Text.GetType() + mail.Text.GetType());
             }
-            else if (enterprise.Text.GetType() == null && tva.Text.GetType() == null)
-            {
-                string company = "null";
-                int tva = 0;
-            }
-            else if (enterprise.Text.GetType() != typeof(string) || enterprise.Text.GetType() == null)
-            {
-                MessageBox.Show("Please put your company name");
-            }
-            else if (tva.Text.GetType() != typeof(int) || tva.Text.GetType() == null)
-            {
-                MessageBox.Show("Please put your TVA number");
-            }
+            
             else
             {
+
                 //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
                 //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
                 //database.Update("commandes", "Login", "`id`", Login.Text, Convert.ToInt32(Program.Id));

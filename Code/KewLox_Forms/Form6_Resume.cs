@@ -21,10 +21,20 @@ namespace KewLox_Forms
         public Form6_Resume()
         {
             DBConnect db = new DBConnect();
-            string[,] missing = db.Select("Code", "missingcomponents", "'CODE IS NOT NULL'");
-            foreach (string part in missing)
+            int i = 1;
+
+            while (true)
             {
-                MissingParts.Items.Add(part);
+                string[,] missing = db.Select("Code", "missingcomponents", "Id = " + i);
+
+                if (missing[0, 0] == "error")
+                {
+                    db.CloseConnection();
+                    break;
+                }
+                MissingParts.Items.Add(missing[0,1]);
+
+                i += 1;
             }
             InitializeComponent();
         }
