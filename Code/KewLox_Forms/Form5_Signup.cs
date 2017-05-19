@@ -74,14 +74,14 @@ namespace KewLox_Forms
             {
                 MessageBox.Show("Please put your name");
             }
-            else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null || Login.Text == ""
-                || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null || Password.Text == "")
-            {
-                MessageBox.Show("Please put a Login and a Password");
-            }
-            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null || address.Text == ""
-                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null || phone.Text == ""
-                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null || mail.Text == "")
+            //else if (Login.Text.GetType() != typeof(string) || Login.Text.GetType() == null 
+            //    || Password.Text.GetType() != typeof(string) || Password.Text.GetType() == null)
+            //{
+            //    MessageBox.Show("Please put a Login and a Password");
+            //}
+            else if (address.Text.GetType() != typeof(string) || address.Text.GetType() == null 
+                || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null 
+                || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null)
             {
                 MessageBox.Show("Please put your contact information" + address.Text.GetType() + phone.Text.GetType() + mail.Text.GetType());
             }
@@ -91,8 +91,6 @@ namespace KewLox_Forms
 
                 //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
                 //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
-                //database.Update("commandes", "Login", "`id`", Login.Text, Convert.ToInt32(Program.Id));
-                //database.Update("commandes", "Password", "`id`", Password.Text, Convert.ToInt32(Program.Id));
 
                 database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
                 database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
