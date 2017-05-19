@@ -94,12 +94,13 @@ namespace KewLox_Forms
 
                 database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
                 database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
-                //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
                 database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
                 database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
                 database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
-                //database.Update("commandes", "enterprise", "`id`", company, Convert.ToInt32(Program.Id));
-                //database.Update("commandes", "TVA", "`id`", tva, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
+                database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+                string[] customdata = new string[7] { firstname.Text, lastname.Text, address.Text, phone.Text, mail.Text, enterprise.Text, tva.Text };
                 closet1.MakeBill(Price, Nodup);
 
 

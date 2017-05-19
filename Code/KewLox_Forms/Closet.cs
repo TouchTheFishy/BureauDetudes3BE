@@ -168,12 +168,13 @@ namespace KewLox_Forms
             }
             return total;
         }
+       
 
-        public void MakeBill(Closet closet, long CommandID, string[] clientinfo)
+        public void MakeBill(decimal closetprice, List<KeyValuePair<string, int>> nodup)
         {
             string text="";
             DBConnect database = new DBConnect();
-            string[,] customer = database.Select("`FirstName`,`LastName`,`Address`,`Telephone`,`VAT`", "commandes", "id = "+CommandID.ToString());
+            string[,] customer = database.Select("`FirstName`,`LastName`,`Address`,`Telephone`,`VAT`", "commandes", "id = "+Program.Id.ToString());
             string header = "";
             string kewloxaddress="<table width ='1000px'><tr><td width='500px'>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
             string companyaddress= string.Format("<td width='500px'>{0} <br> {1}  <br>{2}<br>{3} <br>Telephone number: {4} <br> VAT number: {5}</td></table>",customer[0,0],customer[0,1],customer[0,2], customer[0,3], customer[0,4], customer[0,5]);
@@ -187,12 +188,11 @@ namespace KewLox_Forms
                 "n°{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
                 "collapse;","border:no-border",Convert.ToString(Program.Id), "\n width:1000px;","\n width:100px;","\n width:200px;");
             bodyheader = "<table width='1000px'>\n<tr>\n<th width='200px'>Part Name</th>\n<th width='200px'>Description</th>\n<th width='100px'>Amount</th>\n<th width='200px'>Price per part</th>\n<th width='100px'>Total</th>\n</tr>";
-            bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closet.GetPrice(closet.Parts));
+            bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closetprice);
             string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
 
             text = header +kewloxaddress+companyaddress+ bodyheader;
             File.AppendAllText(path, text);
-            List<KeyValuePair<string, int>> nodup = closet.RemoveDuplicates(closet.Parts);
             foreach (KeyValuePair<string, int> part in nodup)
             {
                 string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");
