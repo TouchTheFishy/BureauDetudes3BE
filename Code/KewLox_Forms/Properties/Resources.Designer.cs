@@ -323,6 +323,16 @@ namespace KewLox_Forms_.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap corniere_brown {
+            get {
+                object obj = ResourceManager.GetObject("corniere_brown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap corniere_chrom {
             get {
                 object obj = ResourceManager.GetObject("corniere_chrom", resourceCulture);
