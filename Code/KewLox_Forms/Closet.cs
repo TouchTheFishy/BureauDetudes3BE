@@ -64,7 +64,7 @@ namespace KewLox_Forms
 
 
 
-        public void AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight)
+        public List<KeyValuePair<string, int>> AddBoxes(string lcol, string rcol, string bcol, string dcol, string doorcol, string doormat, int totheight, int width, int depth, int boxheight, string acolor, string pcolor,bool done)
         {
 
 
@@ -74,147 +74,91 @@ namespace KewLox_Forms
             {
                 parts.Add(boxpart);
             }
-        }
-        public void FinishCloset() { 
-            
-            // All boxes have been added
-            //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
-            DBConnect database = new DBConnect();
-            bool ok = false;
-            // add corners
-            string answer;
-            while (ok == false)
-            {
-                Console.WriteLine("what Color would you like for your angles? Available: White, Black, Brown, Chromed");
-                answer = Console.ReadLine();
-                if (answer == "Black" || answer == "White" || answer == "Brown" || answer == "Chromed")
-                {
-                    ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(totheight), Color = answer };
-                    angles.Code = angles.MakeCode();
-                    KeyValuePair<string, int> anglesparts = new KeyValuePair<string, int>(angles.Code, 4);
-                    parts.Add(anglesparts);
-                    string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
-                    string[] data = angles.AddPart(4);
-                    database.Insert("commandespieces", query, data);
-                    ok = true;
-                }
-                else
-                {
-                    Console.WriteLine("Wrong input");
-                }
-            }
-            //Add the up panel in the end
-            ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
-            Console.WriteLine("Do you want to customize the up pannel color? Default color is White for every pannel. Yes/No");
-            answer = Console.ReadLine();
-            List<string> DbLink = new List<string>(6);
-            String[] DbColumn;
-            DbLink.Add("Name");
-            DbLink.Add("Height");
-            DbLink.Add("Depth");
-            DbLink.Add("Width");
-            DbLink.Add("Quantity");
-            DbLink.Add("OrderId");
-            DbLink.Add("Color");
-            DbColumn = DbLink.ToArray();
-            bool check = false;
-            if (answer == "Yes" || answer == "yes")
-            {
-                while (check == false)
-                {
-
-                    Console.WriteLine("Which color for the Up Pannel Brown or White?");
-                    string color = Console.ReadLine();
-                    if (color == "Brown" || color == "White")
-                    {
-                        UpP.Color = color;
-                        string[] request = UpP.AddPart(1);
-                        database.Insert("commandespieces", DbColumn, request);
-                        check = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please select an available color");
-                    }
-                }
-                //Add codes for pannels to parts
-                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
-                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
-                };
-                parts.AddRange(pannelcodes);
-
-                //Remove the amount taken in db "stock" and update "sold"
-                for (int j = 0; j < pannelcodes.Count; j++)
-                {
-                    database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
-                }
-            }
-            check = false;
-
-            
-            if (answer == "No" || answer == "no")
+            if (done == true)
             {
 
-                UpP.Color = "White";
+
+                // All boxes have been added
+                //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
+                DBConnect database = new DBConnect();
+
+                ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(totheight), Color = acolor };
+                angles.Code = angles.MakeCode();
+                KeyValuePair<string, int> anglesparts = new KeyValuePair<string, int>(angles.Code, 4);
+                parts.Add(anglesparts);
+                string[] query = new string[7] { "Name", "Height", "Depth", "Width", "Quantity", "OrderId", "Color" };
+                string[] data = angles.AddPart(4);
+                database.Insert("commandespieces", query, data);
+
+                //Add the up panel in the end
+                ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(depth), Width = Convert.ToString(width), Name = "Panneau HB" };
+
+                List<string> DbLink = new List<string>(6);
+                String[] DbColumn;
+                DbLink.Add("Name");
+                DbLink.Add("Height");
+                DbLink.Add("Depth");
+                DbLink.Add("Width");
+                DbLink.Add("Quantity");
+                DbLink.Add("OrderId");
+                DbLink.Add("Color");
+                DbColumn = DbLink.ToArray();
+
+                UpP.Color = pcolor;
                 string[] request = UpP.AddPart(1);
                 database.Insert("commandespieces", DbColumn, request);
-                check = true;
+
                 //Add codes for pannels to parts
-                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() {
-                new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
-                };
+                List<KeyValuePair<string, int>> pannelcodes = new List<KeyValuePair<string, int>>() { new KeyValuePair<string, int>(UpP.Code = UpP.MakeCode(), 1), };
                 parts.AddRange(pannelcodes);
+
                 //Remove the amount taken in db "stock" and update "sold"
                 for (int j = 0; j < pannelcodes.Count; j++)
                 {
                     database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
                 }
 
-            }
-            else
-            {
-                if (check == false)
-                {
-                    Console.WriteLine("Please answer Yes Or No");
-                }
-            }
-            //add the traverses for the last box (up pannel)
-            ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AV", Color = "" };
-            ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(Closet.Width), Name = "Traverse AR", Color = "" };
-            ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(Closet.Depth), Name = "Traverse GD", Color = "" };
 
-            //Build codes for tasseaux & traverses
-            List<KeyValuePair<string, int>> tasseauxTraverses = new List<KeyValuePair<string, int>>()
+
+                //add the traverses for the last box (up pannel)
+                ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(width), Name = "Traverse AV", Color = "" };
+                ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(width), Name = "Traverse AR", Color = "" };
+                ConstructionParts SideCB = new ConstructionParts() { Depth = Convert.ToString(depth), Name = "Traverse GD", Color = "" };
+
+                //Build codes for tasseaux & traverses
+                List<KeyValuePair<string, int>> tasseauxTraverses = new List<KeyValuePair<string, int>>()
             {
                 new KeyValuePair<string, int>(FrontCB.Code = FrontCB.MakeCode(),1),
                 new KeyValuePair<string, int>(BackCB.Code = BackCB.MakeCode(),1),
                 new KeyValuePair<string, int>(SideCB.Code = SideCB.MakeCode(),2),
             };
-            parts.AddRange(tasseauxTraverses);
+                parts.AddRange(tasseauxTraverses);
 
-            //Remove the amount taken in db "stock" and update "sold"
-            for (int j = 0; j < tasseauxTraverses.Count; j++)
-            {
-                database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
+                //Remove the amount taken in db "stock" and update "sold"
+                for (int j = 0; j < tasseauxTraverses.Count; j++)
+                {
+                    database.Sold("sold", tasseauxTraverses[j].Key, tasseauxTraverses[j].Value);
+                }
+
+                string[] request1 = FrontCB.AddPart(1);
+                string[] request1bis = BackCB.AddPart(1);
+                string[] request2 = SideCB.AddPart(2);
+
+
+                database.Insert("commandespieces", DbColumn, request1);
+                database.Insert("commandespieces", DbColumn, request1bis);
+                database.Insert("commandespieces", DbColumn, request2);
             }
-
-            string[] request1 = FrontCB.AddPart(1);
-            string[] request1bis = BackCB.AddPart(1);
-            string[] request2 = SideCB.AddPart(2);
-
-
-             database.Insert("commandespieces", DbColumn, request1);
-            database.Insert("commandespieces", DbColumn, request1bis);
-            database.Insert("commandespieces", DbColumn, request2);
+            return Parts;
 
 
         }
 
-        public decimal GetPrice()
+        public decimal GetPrice(List<KeyValuePair<string, int>> pieces)
         {
             DBConnect database = new DBConnect();
             decimal total = 0;
-            foreach (KeyValuePair<string, int> part in this.Parts)
+            foreach (KeyValuePair<string, int> part in pieces)
             {
                 string[,] prix = database.Select("`Prix-Client`", "stock", "`Code`='" + part.Key + "'");
                 decimal priceperpart = Convert.ToDecimal(prix[0, 1]);
@@ -224,11 +168,11 @@ namespace KewLox_Forms
             return total;
         }
 
-        public void MakeBill(Closet closet, long CommandID)
+        public void MakeBill(decimal closetprice, List<KeyValuePair<string, int>> nodup)
         {
             string text="";
             string header = "";
-            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
+            string kewloxaddress="<table id='addresses'><tr><td>Kewlox SPRL<br>Rue et Nueéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
             string companyaddress="<td>Client name <br> Client address & number <br> Post Code & town<br>Telephone<br>Email address <br>VAT number <br> Account number & BIC</td>";
             string bodyheader;
             string body = "";
@@ -236,18 +180,17 @@ namespace KewLox_Forms
             string footer = "\u00a9 Kewlox 2017"; //alt 0169 release alt 
             DBConnect database = new DBConnect();
             header = String.Format("<html>\n<head>\n<style>table, th, td {{{0}}},table, td.addresses{{{1}}}</style>\n</head>\n<body>\n<h1>Bill " +
-                "n°{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
+                "#{2}</h1>\n<h2>Kewlox thanks you for your purchase.</h2>\n</body>", "border:1px solid black;\nborder-collapse:" +
                 "collapse;","border:no-border",Convert.ToString(Program.Id));
             bodyheader = "<table>\n<tr>\n<th>Part Name</th>\n<th>Description</th>\n<th>Amount</th>\n<th>Price per part</th>\n<th>Total</th>\n</tr>";
-            bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closet.GetPrice());
+            bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closetprice);
             string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
             text = header +kewloxaddress+companyaddress+ bodyheader;
             File.AppendAllText(path, text);
-            List<KeyValuePair<string, int>> nodup = RemoveDuplicates(closet.Parts);
             foreach (KeyValuePair<string, int> part in nodup)
             {
                 string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");
-                string description = String.Join(" ", price[1, 1], price[2, 1], price[3, 1]);
+                string description = String.Join(" ", price[1, 0], price[2, 0], price[3, 0]);
                 body = String.Format("<tr>\n<td>{0}</td>\n<td>{1}</td>\n<td>{2}</td>\n", part.Key, description, part.Value);
                 body += String.Format("<td>{0}</td>\n<td>{1}</td>\n</tr>\n", price[0, 1], (Convert.ToDecimal(price[0, 1]) * Convert.ToInt32(part.Value)).ToString());
                 File.AppendAllText(path, body);
@@ -258,7 +201,7 @@ namespace KewLox_Forms
         }
 
         //Method to remove duplicate names from the list of parts, changes the number of parts from one pair and deletes the other one
-        private List<KeyValuePair<string,int>> RemoveDuplicates(List<KeyValuePair<string,int>> parts) //make private
+        public List<KeyValuePair<string,int>> RemoveDuplicates(List<KeyValuePair<string,int>> parts) //make private
         {
             List<string> keys = new List<string>();
             List<int> values = new List<int>();

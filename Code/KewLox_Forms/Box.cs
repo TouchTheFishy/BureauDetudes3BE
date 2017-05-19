@@ -10,7 +10,7 @@ namespace KewLox_Forms
 {
     class Box
     {
-        private List<KeyValuePair<string, int>> parts = new List<KeyValuePair<string, int>>();
+        public List<KeyValuePair<string, int>> parts = new List<KeyValuePair<string, int>>();
         public List<KeyValuePair<string,int>> Parts
         {
             get
@@ -71,8 +71,8 @@ namespace KewLox_Forms
             {
                 database.Sold("sold", pannelcodes[j].Key, pannelcodes[j].Value);
             }
-            
-            
+
+
             //each box has 1 front 1 back and 2 left/right traverses, only the last one has double so many
             ConstructionParts FrontCB = new ConstructionParts() { Width = Convert.ToString(width) , Name="Traverse AV", Color=""};
             ConstructionParts BackCB = new ConstructionParts() { Width = Convert.ToString(width), Name = "Traverse AR", Color = "" };
@@ -106,15 +106,74 @@ namespace KewLox_Forms
                 database.Sold("sold", tasseauxTraverses[i].Key, tasseauxTraverses[i].Value);
             }
 
-            
+
             if (width>60)
             {
                 
                 if (doormat !="None")
-                {
-                        
-                        if (doormat != "Glass")
+                {   
+                    
+                    if (doormat != "Glass")
+                    {
+                    List<KeyValuePair<int, int>> doorwidths = new List<KeyValuePair<int, int>>()
+                    {
+                        new KeyValuePair<int, int>(62,32),
+                        new KeyValuePair<int, int>(80,42),
+                        new KeyValuePair<int, int>(100,52),
+                        new KeyValuePair<int, int>(120,62)
+                    };
+
+                    int doorwidth = 0;
+                    foreach (KeyValuePair<int, int> pair in doorwidths)
+                    {
+                        if (pair.Key == width)
                         {
+                            doorwidth = pair.Value;
+                            break;
+                        }
+                    }
+
+
+
+                    //still need to add the door to this.parts (first make keyvaluepair)
+                    if (doormat == "Cup")
+                        {
+                            ConstructionParts Door = new ConstructionParts { Color = doorcol, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
+                            string[] request = Door.AddDoor();
+                            Door.Code = Door.MakeCode();
+                            KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
+                            parts.Add(doors);
+                            ConstructionParts Cup = new ConstructionParts { Name = "Coupelle", Color = "" };
+                            Cup.Code = Cup.MakeCode();
+                            KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
+                            parts.Add(cups);
+                            string[]cuprequest = Cup.AddPart(2);
+                            database.Insert("commandespieces", DbColumn, request);
+                            database.Insert("commandespieces", DbColumn, cuprequest);
+
+                            //Remove the amount taken in db "stock" and update "sold"
+                            database.Sold("sold", doors.Key, doors.Value);
+                            database.Sold("sold", cups.Key, cups.Value);
+
+                        }
+
+                        if (doormat=="Nocup")
+                        {
+                            ConstructionParts Door = new ConstructionParts { Color = doorcol, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
+                            string[] request = Door.AddDoor();
+                            Door.Code = Door.MakeCode();
+                            KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
+                            parts.Add(doors);
+                            database.Insert("commandespieces", DbColumn, request);
+                        
+                            //Remove the amount taken in db "stock" and update "sold"
+                            database.Sold("sold", doors.Key, doors.Value);
+
+                        }
+                        
+                    }
+                    else
+                    {
                         List<KeyValuePair<int, int>> doorwidths = new List<KeyValuePair<int, int>>()
                         {
                             new KeyValuePair<int, int>(62,32),
@@ -132,63 +191,20 @@ namespace KewLox_Forms
                                 break;
                             }
                         }
+                        ConstructionParts Door = new ConstructionParts { Color = doormat, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "No" };
+                        string[] request = Door.AddDoor();
+                        Door.Code = Door.MakeCode();
+                        KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
+                        parts.Add(doors);
+                        database.Insert("commandespieces", DbColumn, request);
 
+                        //Remove the amount taken in db "stock" and update "sold"
+                        database.Sold("sold", doors.Key, doors.Value);
 
-
-                        //still need to add the door to this.parts (first make keyvaluepair)
-                        if (doormat == "Cup")
-                            {
-                                ConstructionParts Door = new ConstructionParts { Color = doorcol, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
-                                string[] request = Door.AddDoor();
-                                Door.Code = Door.MakeCode();
-                                KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
-                                parts.Add(doors);
-                                ConstructionParts Cup = new ConstructionParts { Name = "Coupelle", Color = "" };
-                                Cup.Code = Cup.MakeCode();
-                                KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
-                                parts.Add(cups);
-                                string[]cuprequest = Cup.AddPart(2);
-                                database.Insert("commandespieces", DbColumn, request);
-                                database.Insert("commandespieces", DbColumn, cuprequest);
-
-                                //Remove the amount taken in db "stock" and update "sold"
-                                database.Sold("sold", doors.Key, doors.Value);
-                                database.Sold("sold", cups.Key, cups.Value);
-
-                            }
-
-                            if (doormat=="Nocup")
-                            {
-                                ConstructionParts Door = new ConstructionParts { Color = colordoor, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte"};
-                                string[] request = Door.AddDoor();
-                                Door.Code = Door.MakeCode();
-                                KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
-                                parts.Add(doors);
-                                database.Insert("commandespieces", DbColumn, request);
-                            
-                                //Remove the amount taken in db "stock" and update "sold"
-                                database.Sold("sold", doors.Key, doors.Value);
-
-                            }
-                            
-                        }
-                        else
-                        {
-                            ConstructionParts Door = new ConstructionParts { Color = doormat, Height = Convert.ToString(height), Width = Convert.ToString(doorwidth), Name = "Porte", Cup = "No" };
-                            string[] request = Door.AddDoor();
-                            Door.Code = Door.MakeCode();
-                            KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
-                            parts.Add(doors);
-                            database.Insert("commandespieces", DbColumn, request);
-
-                            //Remove the amount taken in db "stock" and update "sold"
-                            database.Sold("sold", doors.Key, doors.Value);
-
-                        }
                     }
                 }
-                
             }
-        } 
-    }
+        }
+    } 
 }
+

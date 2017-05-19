@@ -39,9 +39,9 @@ namespace KewLox_Forms
         //To go backward
         private void Return_btn_Click(object sender, EventArgs e)
         {
-            Form5_Signup frm = new Form5_Signup(Armoire);
-            frm.Show();
-            Hide();
+            //Form5_Signup frm = new Form5_Signup(Armoire);
+            //frm.Show();
+            //Hide();
         }
 
         //To go forward

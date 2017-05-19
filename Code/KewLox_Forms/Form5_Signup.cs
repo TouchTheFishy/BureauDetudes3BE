@@ -18,13 +18,27 @@ namespace KewLox_Forms
             get { return closet1; }
             set { closet1 = value; }
         }
-
-
-
-        public Form5_Signup(Closet closet)
+        public static List<KeyValuePair<string, int>> nodup;
+        public static List<KeyValuePair<string, int>> Nodup
         {
-            Armoire = closet;       
+            get { return nodup; }
+            set { nodup = value; }
+        }
+        public static decimal price;
+        public static decimal Price
+        {
+            get { return price; }
+            set { price = value; }
+        }
+
+
+
+        public Form5_Signup(List<KeyValuePair<string, int>> nodupli,decimal prix)
+        {
+                  
             InitializeComponent();
+            Nodup = nodupli;
+            Price = prix;
         }
         private void Form5_Signup_Load(object sender, EventArgs e)
         {
@@ -51,6 +65,8 @@ namespace KewLox_Forms
         private void Confirm_btn_Click(object sender, EventArgs e)
         {
             DBConnect database = new DBConnect();
+            Closet closet1= new Closet();
+
 
             //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
             //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
@@ -59,14 +75,16 @@ namespace KewLox_Forms
 
             database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
             database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Phone", "`id`", phone.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "Mail", "`id`", mail.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
-            database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+            database.Update("commandes", "Prix", "`id`", Convert.ToString(Price), Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
+            //database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+            closet1.MakeBill(Price, Nodup);
 
 
-            Form6_Resume frm = new Form6_Resume();
+            Form7_Final_bill frm = new Form7_Final_bill();
             frm.Show();
             this.Close();
 

@@ -12,9 +12,9 @@ namespace KewLox_Forms
         /// The main entry point for the application.
         /// </summary>
         
-        private static Int64 id;
+        private static Int32 id;
 
-        public static Int64 Id
+        public static Int32 Id
         {
             get { return id; }
             set { id = value; }
@@ -24,31 +24,19 @@ namespace KewLox_Forms
         static void Main(string[] args)
         {
             
-            decimal total = 0;
-            string totalstring;
-            string[] values;
+            
             DBConnect database = new DBConnect();
             string[] column = new string[1] { "FirstName" };
             string[] name = new string[1] { "temp" };
-            Id = database.Insert("commandes", column, name); //returns ID of command
+            long tempId = database.Insert("commandes", column, name); //returns ID of command
+            Id = Convert.ToInt32(tempId);
             Closet closet1 = new Closet();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Welcome_form(closet1));            
-
-            total = closet1.GetPrice();
-            values = total.ToString().Split(Convert.ToChar(","));
-            totalstring = values[0] + "." + values[1];
-            Console.WriteLine("What is your firstname?");
-            string firstname = Console.ReadLine();
-            Console.WriteLine("What is your lastname?");
-            string lastname = Console.ReadLine();
-            database.Update("commandes", "FirstName", "`id`", firstname, Convert.ToInt32(Id));
-            database.Update("commandes", "`LastName`", "`id`", lastname, Convert.ToInt32(Id));
-            database.Update("commandes", "`Prix`", "`id`", totalstring, Convert.ToInt32(Id));
+            Application.Run(new Welcome_form(closet1));          
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
-            closet1.MakeBill(closet1, Id);
+            
             
             Console.WriteLine("Press any key to exit");
             Console.ReadKey();

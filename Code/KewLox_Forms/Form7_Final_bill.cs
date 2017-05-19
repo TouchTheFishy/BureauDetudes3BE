@@ -26,9 +26,12 @@ namespace KewLox_Forms
 
             //Select(string columns, string table, string equal)
             //string query = "SELECT " + columns + " FROM " + table + " WHERE " + equal;
+            string[,] price= database.Select("Prix", "commandes", "Id = '" + Program.Id + "'");
+            
+            string[,] lastnamedb = database.Select("LastName", "commandes", "Id = '" + Program.Id + "'");
+            Price.Text = price[0, 1];
+            lastname.Text = lastnamedb[0, 1];
 
-           // Price.Text= database.Select("Prix", "Commande", Program.Id);
-            // lastname.Text = database.Select("LastName", "Commande", Convert.ToString(Program.Id));
 
         }
 
