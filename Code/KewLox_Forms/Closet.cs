@@ -184,13 +184,13 @@ namespace KewLox_Forms
                 "collapse;","border:no-border",Convert.ToString(Program.Id));
             bodyheader = "<table>\n<tr>\n<th>Part Name</th>\n<th>Description</th>\n<th>Amount</th>\n<th>Price per part</th>\n<th>Total</th>\n</tr>";
             bodyfooter = String.Format("<td><b>Total</b></td>\n<td></td>\n<td></td>\n<td></td>\n<td>{0}</td>\n</table>", closetprice);
-            string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()))+String.Format("/Bills/bill{0}.html",Convert.ToString(Program.Id));
+            string path = System.IO.Directory.GetCurrentDirectory() + String.Format("\\bill{0}.html", Convert.ToString(Program.Id));
             text = header +kewloxaddress+companyaddress+ bodyheader;
             File.AppendAllText(path, text);
             foreach (KeyValuePair<string, int> part in nodup)
             {
                 string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");
-                string description = String.Join(" ", price[1, 0], price[2, 0], price[3, 0]);
+                string description = String.Join(" ", price[1, 1], price[2, 1], price[3, 1]);
                 body = String.Format("<tr>\n<td>{0}</td>\n<td>{1}</td>\n<td>{2}</td>\n", part.Key, description, part.Value);
                 body += String.Format("<td>{0}</td>\n<td>{1}</td>\n</tr>\n", price[0, 1], (Convert.ToDecimal(price[0, 1]) * Convert.ToInt32(part.Value)).ToString());
                 File.AppendAllText(path, body);
