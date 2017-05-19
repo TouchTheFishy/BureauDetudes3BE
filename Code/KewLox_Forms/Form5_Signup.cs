@@ -82,7 +82,7 @@ namespace KewLox_Forms
             closet1.MakeBill(Price, Nodup);
 
 
-            Form6_Resume frm = new Form6_Resume();
+            Form7_Final_bill frm = new Form7_Final_bill();
             frm.Show();
             this.Close();
 

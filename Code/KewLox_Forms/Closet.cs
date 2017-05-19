@@ -190,7 +190,7 @@ namespace KewLox_Forms
             foreach (KeyValuePair<string, int> part in nodup)
             {
                 string[,] price = database.Select("`Prix-Client`,`Ref`,`Dimensions(cm)`,`Couleur`", "stock", "`Code`='" + part.Key + "'");
-                string description = String.Join(" ", price[1, 1], price[2, 1], price[3, 1]);
+                string description = String.Join(" ", price[1, 0], price[2, 0], price[3, 0]);
                 body = String.Format("<tr>\n<td>{0}</td>\n<td>{1}</td>\n<td>{2}</td>\n", part.Key, description, part.Value);
                 body += String.Format("<td>{0}</td>\n<td>{1}</td>\n</tr>\n", price[0, 1], (Convert.ToDecimal(price[0, 1]) * Convert.ToInt32(part.Value)).ToString());
                 File.AppendAllText(path, body);
