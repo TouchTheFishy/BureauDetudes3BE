@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace KewLox_Forms
 {
@@ -66,8 +67,8 @@ namespace KewLox_Forms
         private void Pay_btn_Click(object sender, EventArgs e)
         {
             //Open a browser to show the bill or a pop up for now
-            string path = System.IO.Directory.GetCurrentDirectory();
-            string completepath =  path + String.Format("\\bill{0}.html", Convert.ToString(Program.Id));
+            string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory()));
+            string completepath =  path + String.Format(@"\Bills\bill{0}.html", Convert.ToString(Program.Id));
             System.Diagnostics.Process.Start(completepath);
             MessageBox.Show("Thank you");
             Closet Armoire = new Closet();
