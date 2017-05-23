@@ -1,6 +1,4 @@
-/Code/KewLox/bin
-/Code/KewLox/obj
 /Code/.vs
-/Code/packages
-/Code/KewLox/Properties
-/Code/KewLox/Service References
+/Code/KewLox_Forms/bin
+/Code/KewLox_Forms/obj
+/.vs
