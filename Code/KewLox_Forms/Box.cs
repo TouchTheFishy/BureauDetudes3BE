@@ -44,7 +44,6 @@ namespace KewLox_Forms
             ConstructionParts LeftP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(depth), Name = "Panneau GD",Color = rcol };
             ConstructionParts RightP = new ConstructionParts() { Height = Convert.ToString(height), Depth = Convert.ToString(depth), Name = "Panneau GD", Color = lcol };
             ConstructionParts BackP = new ConstructionParts { Height = Convert.ToString(height), Width = Convert.ToString(width), Name = "Panneau Ar", Color = bcol };
-            //ConstructionParts UpP = new ConstructionParts { Depth = Convert.ToString(Closet.Depth), Width = Convert.ToString(Closet.Width), Name = "Panneau HB" };
             ConstructionParts DnP = new ConstructionParts { Depth = Convert.ToString(depth), Width = Convert.ToString(width), Name = "Panneau HB", Color=dcol};
             
             
@@ -61,7 +60,6 @@ namespace KewLox_Forms
                     new KeyValuePair<string, int>(LeftP.Code=LeftP.MakeCode(), 1),
                     new KeyValuePair<string, int>(RightP.Code=RightP.MakeCode(), 1),
                     new KeyValuePair<string, int>(BackP.Code=BackP.MakeCode(), 1),
-                    //new KeyValuePair<string, int>(UpP.Code=UpP.MakeCode(), 1),
                     new KeyValuePair<string, int>(DnP.Code=DnP.MakeCode(), 1)
                 };
                 parts.AddRange(pannelcodes);
@@ -143,7 +141,7 @@ namespace KewLox_Forms
                             Door.Code = Door.MakeCode();
                             KeyValuePair<string, int> doors = new KeyValuePair<string, int>(Door.Code, 2);
                             parts.Add(doors);
-                            ConstructionParts Cup = new ConstructionParts { Name = "Coupelle", Color = "" };
+                            ConstructionParts Cup = new ConstructionParts { Name = "Coupelles", Color = "" };
                             Cup.Code = Cup.MakeCode();
                             KeyValuePair<string, int> cups = new KeyValuePair<string, int>(Cup.Code, 2);
                             parts.Add(cups);

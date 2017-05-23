@@ -69,8 +69,6 @@ namespace KewLox_Forms
             Box box = new Box();
             if (done == false)
             {
-
-
                 
                 box.AddConstructionParts(boxheight, lcol, rcol, bcol, dcol, doorcol, doormat, width, depth);
                 foreach (KeyValuePair<string, int> boxpart in box.Parts)
@@ -83,7 +81,7 @@ namespace KewLox_Forms
 
 
                 // All boxes have been added
-                //Ajout des cornières et du panneau et des traverses du dessus à la fin de la commande
+                //Adding the corners, and the above pannel and 'traverses' at the end of the command
                 DBConnect database = new DBConnect();
 
                 ConstructionParts angles = new ConstructionParts() { Name = "Cornière", Height = Convert.ToString(totheight), Color = acolor };
@@ -170,14 +168,14 @@ namespace KewLox_Forms
         }
        
 
-        public void MakeBill(decimal closetprice, List<KeyValuePair<string, int>> nodup)
+        public void MakeBill(string closetprice, List<KeyValuePair<string, int>> nodup)
         {
             string text="";
             DBConnect database = new DBConnect();
-            string[,] customer = database.Select("`FirstName`,`LastName`,`Address`,`Telephone`,`VAT`", "commandes", "id = "+Program.Id.ToString());
+            string[,] customer = database.Select("`FirstName`,`LastName`,`Address`,`Numero`,`TVA`", "commandes", "id = "+Program.Id.ToString());
             string header = "";
             string kewloxaddress="<table width ='1000px'><tr><td width='500px'>Kewlox SPRL<br>Rue et Numéro de maison<br>Code Postal et Commune<br>Telephone<br>Email<br>VAT<br>Account number & BIC</td>";
-            string companyaddress= string.Format("<td width='500px'>{0} <br> {1}  <br>{2}<br>{3} <br>Telephone number: {4} <br> VAT number: {5}</td></table>",customer[0,0],customer[0,1],customer[0,2], customer[0,3], customer[0,4], customer[0,5]);
+            string companyaddress= string.Format("<td width='500px'>{0} <br> {1} <br>{2} <br>Telephone number: {3} <br> VAT number: {4}</td></table>",customer[0,1],customer[1,1],customer[2,1], customer[3,1], customer[4,1]);
 
             string bodyheader;
             string body = "";
@@ -204,14 +202,11 @@ namespace KewLox_Forms
             }
 
             string somestring = text + totalbody + bodyfooter + footer;
-            byte[] toBytes = Encoding.ASCII.GetBytes(somestring);
-            System.IO.File.WriteAllBytes("hello.pdf", toBytes);
-
             File.AppendAllText(path,bodyfooter+footer);
         }
 
         //Method to remove duplicate names from the list of parts, changes the number of parts from one pair and deletes the other one
-        public List<KeyValuePair<string,int>> RemoveDuplicates(List<KeyValuePair<string,int>> parts) //make private
+        public List<KeyValuePair<string,int>> RemoveDuplicates(List<KeyValuePair<string,int>> parts)
         {
             List<string> keys = new List<string>();
             List<int> values = new List<int>();
