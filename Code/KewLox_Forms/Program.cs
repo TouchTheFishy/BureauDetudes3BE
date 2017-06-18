@@ -20,6 +20,14 @@ namespace KewLox_Forms
             set { id = value; }
 
         }
+        public static bool outofstock=false;
+
+        public static bool OutOfStock
+        {
+            get { return outofstock; }
+            set { outofstock = value; }
+
+        }
 
         static void Main(string[] args)
         {

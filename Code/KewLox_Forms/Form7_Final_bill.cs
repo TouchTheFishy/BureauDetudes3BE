@@ -32,8 +32,19 @@ namespace KewLox_Forms
             
 
             string[,] lastnamedb = database.Select("LastName", "commandes", "Id = '" + Program.Id + "'");
-            Price.Text = price[0, 1];
-            lastname.Text = lastnamedb[0, 1];
+            label2.Text = "Thank you for your choice, Mister " + lastnamedb[0, 1];
+            if (Program.OutOfStock == false)
+            {
+                
+                label25.Text = "You have to pay " + price[0, 1] + "€  on the following account number : BE25 1234 5678 9012";
+                label1.Text = "";
+            }
+            if (Program.OutOfStock == true)
+            {
+                string depositprice = Convert.ToString(Convert.ToInt32(price[0, 1]) * 0.2);
+                label1.Text = "And come back in a few days to retrieve your materials";
+                label25.Text = "Some pieces are not in stock. Please pay a deposit of " + depositprice + "€  on the following account number : BE25 1234 5678 9012";
+            }
 
 
         }
