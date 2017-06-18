@@ -71,9 +71,7 @@ namespace KewLox_Forms
             string completepath =  path + String.Format(@"\Bills\bill{0}.html", Convert.ToString(Program.Id));
             System.Diagnostics.Process.Start(completepath);
             MessageBox.Show("Thank you");
-            Closet Armoire = new Closet();
-            Welcome_form frm = new Welcome_form(Armoire);
-            frm.Show();
+            Application.Restart();
             Hide();
         }
 

@@ -36,9 +36,6 @@ namespace KewLox_Forms
             //ChooseProvider bestprovider = new ChooseProvider("COR36BR", database);
             //Console.WriteLine(bestprovider.Provider);
             
-            
-            Console.WriteLine("Press any key to exit");
-            Console.ReadKey();
 
         }
     }

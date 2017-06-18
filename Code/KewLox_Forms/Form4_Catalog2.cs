@@ -121,8 +121,10 @@ namespace KewLox_Forms
             BoxStep = 1;
             
             InitializeComponent();
+            NextBox.Enabled = false;
             textBox1.Text = Convert.ToString(BoxStep);
             Closet closet = new Closet();
+            
             Armoire = closet;
 
         }
@@ -213,7 +215,8 @@ namespace KewLox_Forms
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_1case;
             Boxamount = 1;
-            
+            NextBox.Enabled = true;
+
         }
 
         private void closet_2case_MouseHover(object sender, EventArgs e)
@@ -221,18 +224,21 @@ namespace KewLox_Forms
            
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_2case;
             Boxamount = 2;
+            NextBox.Enabled = true;
         }
 
         private void closet_3case_MouseHover(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_3case;
             Boxamount = 3;
+            NextBox.Enabled = true;
         }
 
         private void closet_4case_MouseHover(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_4case;
             Boxamount = 4;
+            NextBox.Enabled = true;
         }
 
         private void closet_5case_MouseHover(object sender, EventArgs e)
@@ -240,18 +246,21 @@ namespace KewLox_Forms
             
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_5case;
             Boxamount = 5;
+            NextBox.Enabled = true;
         }
 
         private void closet_6case_MouseHover(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_6case;
             Boxamount = 6;
+            NextBox.Enabled = true;
         }
 
         private void closet_7case_MouseHover(object sender, EventArgs e)
         {
             closet_multicolor.Image = KewLox_Forms_.Properties.Resources.closet_7case;
             Boxamount = 7;
+            NextBox.Enabled = true;
         }
 
         //The different values of Depth
@@ -281,36 +290,64 @@ namespace KewLox_Forms
         private void W_32_Click(object sender, EventArgs e)
         {
             ClosetWidth = 32;
+            Glass_btn.Enabled = false;
+            Cup_btn.Enabled = false;
+            No_cup.Enabled = false;
+            nodoor.Enabled = false;
         }
 
         private void W_42_Click(object sender, EventArgs e)
         {
             ClosetWidth = 42;
+            Glass_btn.Enabled = false;
+            Cup_btn.Enabled = false;
+            No_cup.Enabled = false;
+            nodoor.Enabled = false;
         }
 
         private void W_52_Click(object sender, EventArgs e)
         {
             ClosetWidth = 52;
+            Glass_btn.Enabled = false;
+            Cup_btn.Enabled = false;
+            No_cup.Enabled = false;
+            nodoor.Enabled = false;
         }
 
         private void W_62_Click(object sender, EventArgs e)
         {
             ClosetWidth = 62;
+            Glass_btn.Enabled = true;
+            Cup_btn.Enabled = true;
+            No_cup.Enabled = true;
+            nodoor.Enabled = true;
         }
 
         private void W_80_Click(object sender, EventArgs e)
         {
             ClosetWidth = 80;
+            Glass_btn.Enabled = true;
+            Cup_btn.Enabled = true;
+            No_cup.Enabled = true;
+            nodoor.Enabled = true;
         }
 
         private void W_100_Click(object sender, EventArgs e)
         {
             ClosetWidth = 100;
+            Glass_btn.Enabled = true;
+            Cup_btn.Enabled = true;
+            No_cup.Enabled = true;
+            nodoor.Enabled = true;
         }
 
         private void W_120_Click(object sender, EventArgs e)
         {
             ClosetWidth = 120;
+            Glass_btn.Enabled = true;
+            Cup_btn.Enabled = true;
+            No_cup.Enabled = true;
+            nodoor.Enabled = true;
         }
 
 

@@ -170,17 +170,17 @@
             // 
             // enterprise
             // 
-            this.enterprise.Location = new System.Drawing.Point(363, 271);
+            this.enterprise.Location = new System.Drawing.Point(362, 275);
             this.enterprise.Name = "enterprise";
             this.enterprise.Size = new System.Drawing.Size(100, 20);
-            this.enterprise.TabIndex = 44;
+            this.enterprise.TabIndex = 48;
             // 
             // mail
             // 
             this.mail.Location = new System.Drawing.Point(362, 214);
             this.mail.Name = "mail";
             this.mail.Size = new System.Drawing.Size(100, 20);
-            this.mail.TabIndex = 45;
+            this.mail.TabIndex = 47;
             // 
             // phone
             // 
@@ -191,17 +191,17 @@
             // 
             // address
             // 
-            this.address.Location = new System.Drawing.Point(363, 157);
+            this.address.Location = new System.Drawing.Point(362, 157);
             this.address.Name = "address";
             this.address.Size = new System.Drawing.Size(100, 20);
-            this.address.TabIndex = 47;
+            this.address.TabIndex = 45;
             // 
             // lastname
             // 
-            this.lastname.Location = new System.Drawing.Point(363, 128);
+            this.lastname.Location = new System.Drawing.Point(362, 128);
             this.lastname.Name = "lastname";
             this.lastname.Size = new System.Drawing.Size(100, 20);
-            this.lastname.TabIndex = 48;
+            this.lastname.TabIndex = 44;
             // 
             // tva
             // 

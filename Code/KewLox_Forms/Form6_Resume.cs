@@ -22,22 +22,24 @@ namespace KewLox_Forms
         {
             InitializeComponent();
             DBConnect db = new DBConnect();
-            int i = 1;
-
-            while (true)
+            int i = 0;
+            List<string> missing = db.SelectCol("Code", "missingcomponents");
+            while (i<missing.Count)
             {
-                string[,] missing = db.Select("Code", "missingcomponents", "Id = " + i);
-               
-                if (missing[0, 0] == "error")
+                
+
+                if (missing[0] == "error")
                 {
                     db.CloseConnection();
                     break;
                 }
-                MissingParts.Items.Add(missing[0,1]);
+                MissingParts.Items.Add(missing[i]);
 
                 i += 1;
+                
             }
-            
+            db.CloseConnection();
+
         }
 
         private void Form6_Resume_Load(object sender, EventArgs e)
@@ -75,6 +77,13 @@ namespace KewLox_Forms
         private void label15_Click(object sender, EventArgs e)
         {
             //Has to stay there
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DBConnect db = new DBConnect();
+            db.Drop("missingcomponents");
+            db.CloseConnection();
         }
     }
 }

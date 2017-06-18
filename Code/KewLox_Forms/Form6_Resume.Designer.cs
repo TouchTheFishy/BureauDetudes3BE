@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6_Resume));
             this.Title = new System.Windows.Forms.Label();
-            this.Return_btn = new System.Windows.Forms.Button();
             this.Confirm_btn = new System.Windows.Forms.Button();
             this.MissingParts = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Title
@@ -48,16 +48,6 @@
             this.Title.Text = "KewLox";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Title.Click += new System.EventHandler(this.Title_Click);
-            // 
-            // Return_btn
-            // 
-            this.Return_btn.Location = new System.Drawing.Point(785, 504);
-            this.Return_btn.Name = "Return_btn";
-            this.Return_btn.Size = new System.Drawing.Size(100, 30);
-            this.Return_btn.TabIndex = 54;
-            this.Return_btn.Text = "Return";
-            this.Return_btn.UseVisualStyleBackColor = true;
-            this.Return_btn.Click += new System.EventHandler(this.Return_btn_Click);
             // 
             // Confirm_btn
             // 
@@ -86,16 +76,26 @@
             this.label1.TabIndex = 56;
             this.label1.Text = "Missing parts";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(379, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 35);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Order Done";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form6_Resume
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 550);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.MissingParts);
             this.Controls.Add(this.Title);
-            this.Controls.Add(this.Return_btn);
             this.Controls.Add(this.Confirm_btn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -109,9 +109,9 @@
 
         #endregion
         private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Button Return_btn;
         private System.Windows.Forms.Button Confirm_btn;
         private System.Windows.Forms.ListBox MissingParts;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

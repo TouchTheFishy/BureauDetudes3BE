@@ -180,7 +180,64 @@ namespace KewLox_Forms
                 }
             }
 
-           // Select statement
+        // Select statement
+        public List<String> SelectCol(string columns, string table)
+        {
+            string query = "SELECT " + columns + " FROM " + table;
+
+            //Divide columns string into an array with the different columns and compute the number of fields
+            string[] allcolumns = columns.Split(Convert.ToChar(","));
+            int nbfields = allcolumns.Length;
+
+            // Create an array of arrays to store the result {{column1,value1},{column2,value2},...}
+
+            List<String> values = new List<String>();
+            if (this.OpenConnection() == true) //Try if the connection to the db worked
+            {
+                
+                // Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                // Create a data reader and Execute the command
+                MySqlDataReader dataReader = cmd.ExecuteReader();
+
+                //check that the part exists
+                if (dataReader.HasRows)
+                {
+                    // Read the data and store in the array
+                    while (dataReader.Read())
+                    {
+                        for (int i = 0; i < nbfields; i++)
+                        {
+                            values.Add( dataReader[i].ToString());
+                        }
+                    }
+
+                    // Close Data Reader
+                    dataReader.Close();
+
+                    // Close Connection
+                    this.CloseConnection();
+
+                    // return list to be displayed
+                    return values;
+
+                }
+                //if the part does not exist
+                else
+                {
+                    // Close Connection
+                    this.CloseConnection();
+
+                    return values = new List<string> {  "error" };
+                }
+            }
+            //if the connection failed
+            else
+            {
+                return values = new List<string> { "error" };
+            }
+        }
         public string[,] Select(string columns, string table, string equal)
         {
             string query = "SELECT " +  columns + " FROM " + table + " WHERE " + equal;
@@ -249,7 +306,15 @@ namespace KewLox_Forms
             decimal stockmini = Convert.ToDecimal(mini[0, 1].ToString());
             if (stock <= stockmini)
             {
-                //Console.WriteLine("Warning: This is the last " + namepart + ", please contact management");
+                string[] col = { col22 };
+                string[] value = { namepart };
+                string[,] check = Select("Id", "missingcomponents", col22 + " = '" + namepart + "'");
+                if (check[0, 0] == "error")
+                {
+                    Insert("missingcomponents", col, value);
+                }
+                
+
             }
             stock = stock - numberpart;
 
@@ -328,6 +393,29 @@ namespace KewLox_Forms
         public void UpdateDecString(string table, string namecolumn1, string namecolumn2, decimal value1, string value2)
         {
             string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+                // create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+
+                // Assign the query using CommandText
+                cmd.CommandText = query;
+
+                // Assign the connection using Connection
+                cmd.Connection = connection;
+
+                // Execute query
+                cmd.ExecuteNonQuery();
+
+                // Close connection
+                this.CloseConnection();
+            }
+        }
+        public void Drop(string table)
+        {
+            string query = "DELETE FROM " + table +" WHERE 1";
 
             // Open connection
             if (this.OpenConnection() == true)
