@@ -83,31 +83,43 @@ namespace KewLox_Forms
                 || phone.Text.GetType() != typeof(string) || phone.Text.GetType() == null 
                 || mail.Text.GetType() != typeof(string) || mail.Text.GetType() == null)
             {
-                MessageBox.Show("Please put your contact information" + address.Text.GetType() + phone.Text.GetType() + mail.Text.GetType());
+                MessageBox.Show("Please verify your contact information");
             }
             
             else
             {
-
+                
                 //Update(string table, string namecolumn1, string namecolumn2, string value1, int value2)
                 //string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
                 string[] prixdb = (Price.ToString()).Split(Convert.ToChar(","));
                 string prixDb = prixdb[0] + "." + prixdb[1];
-                database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "Prix", "`id`", Price.ToString("F"), Convert.ToInt32(Program.Id));
-                database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
-                database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
-                string[] customdata = new string[7] { firstname.Text, lastname.Text, address.Text, phone.Text, mail.Text, enterprise.Text, tva.Text };
-                closet1.MakeBill(prixDb, Nodup);
+                try
+                {
+                    Convert.ToInt32(phone.Text);
+                    Convert.ToInt32(tva.Text);
+                    database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "Prix", "`id`", Price.ToString("F"), Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "enterprise", "`id`", enterprise.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "FirstName", "`id`", firstname.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "LastName", "`id`", lastname.Text, Convert.ToInt32(Program.Id));
+                    database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
+                    string[] customdata = new string[7] { firstname.Text, lastname.Text, address.Text, phone.Text, mail.Text, enterprise.Text, tva.Text };
+                    closet1.MakeBill(prixDb, Nodup);
 
 
-                Form7_Final_bill frm = new Form7_Final_bill();
-                frm.Show();
-                this.Close();
+                    Form7_Final_bill frm = new Form7_Final_bill();
+                    frm.Show();
+                    this.Close();
+                }
+                catch (System.FormatException)
+                {
+                    MessageBox.Show("Please verify your contact information");
+                }
+                
+                
+                
             }
         }
 
