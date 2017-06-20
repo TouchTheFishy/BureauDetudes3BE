@@ -32,7 +32,7 @@ namespace KewLox_Forms
             
 
             string[,] lastnamedb = database.Select("LastName", "commandes", "Id = '" + Program.Id + "'");
-            label2.Text = "Thank you for your choice, Mister " + lastnamedb[0, 1];
+            label2.Text = "Thank you for your choice, Mister/Miss " + lastnamedb[0, 1];
             if (Program.OutOfStock == false)
             {
                 
