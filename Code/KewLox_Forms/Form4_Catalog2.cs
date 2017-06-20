@@ -356,83 +356,90 @@ namespace KewLox_Forms
         private void Total_height_Textbox_TextChanged(object sender, EventArgs e)
         {
             if (Total_height_Textbox.Text != ""){
-                int Total_height = Convert.ToInt32(Total_height_Textbox.Text);
-                int maxbox = Total_height / 36;
-                switch (maxbox)
+                try
                 {
-                    case 0:
-                        closet_1case.Enabled = false;
-                        closet_2case.Enabled = false;
-                        closet_3case.Enabled = false;
-                        closet_4case.Enabled = false;
-                        closet_5case.Enabled = false;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 1:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = false;
-                        closet_3case.Enabled = false;
-                        closet_4case.Enabled = false;
-                        closet_5case.Enabled = false;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 2:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = false;
-                        closet_4case.Enabled = false;
-                        closet_5case.Enabled = false;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 3:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = true;
-                        closet_4case.Enabled = false;
-                        closet_5case.Enabled = false;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 4:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = true;
-                        closet_4case.Enabled = true;
-                        closet_5case.Enabled = false;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 5:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = true;
-                        closet_4case.Enabled = true;
-                        closet_5case.Enabled = true;
-                        closet_6case.Enabled = false;
-                        closet_7case.Enabled = false; ;
-                        break;
-                    case 6:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = true;
-                        closet_4case.Enabled = true;
-                        closet_5case.Enabled = true;
-                        closet_6case.Enabled = true;
-                        closet_7case.Enabled = false;
-                        break;
-                    case 7:
-                        closet_1case.Enabled = true;
-                        closet_2case.Enabled = true;
-                        closet_3case.Enabled = true;
-                        closet_4case.Enabled = true;
-                        closet_5case.Enabled = true;
-                        closet_6case.Enabled = true;
-                        closet_7case.Enabled = true;
-                        break;
+                    int Total_height = Convert.ToInt32(Total_height_Textbox.Text);
+                    int maxbox = Total_height / 56;
+                    switch (maxbox)
+                    {
+                        case 0:
+                            closet_1case.Enabled = false;
+                            closet_2case.Enabled = false;
+                            closet_3case.Enabled = false;
+                            closet_4case.Enabled = false;
+                            closet_5case.Enabled = false;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 1:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = false;
+                            closet_3case.Enabled = false;
+                            closet_4case.Enabled = false;
+                            closet_5case.Enabled = false;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 2:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = false;
+                            closet_4case.Enabled = false;
+                            closet_5case.Enabled = false;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 3:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = true;
+                            closet_4case.Enabled = false;
+                            closet_5case.Enabled = false;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 4:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = true;
+                            closet_4case.Enabled = true;
+                            closet_5case.Enabled = false;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 5:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = true;
+                            closet_4case.Enabled = true;
+                            closet_5case.Enabled = true;
+                            closet_6case.Enabled = false;
+                            closet_7case.Enabled = false; ;
+                            break;
+                        case 6:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = true;
+                            closet_4case.Enabled = true;
+                            closet_5case.Enabled = true;
+                            closet_6case.Enabled = true;
+                            closet_7case.Enabled = false;
+                            break;
+                        case 7:
+                            closet_1case.Enabled = true;
+                            closet_2case.Enabled = true;
+                            closet_3case.Enabled = true;
+                            closet_4case.Enabled = true;
+                            closet_5case.Enabled = true;
+                            closet_6case.Enabled = true;
+                            closet_7case.Enabled = true;
+                            break;
 
+                    }
+                }
+                catch (System.FormatException)
+                {
+                    MessageBox.Show("Please enter a number");
                 }
             }
             
