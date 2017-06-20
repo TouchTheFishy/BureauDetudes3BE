@@ -116,6 +116,12 @@ namespace KewLox_Forms
             get { return price; }
             set { price = value; }
         }
+        public static int realheight=0;
+        public static int RealHeight
+        {
+            get { return realheight; }
+            set { realheight = value; }
+        }
         public Form4_Catalog2()
         {
             BoxStep = 1;
@@ -539,6 +545,7 @@ namespace KewLox_Forms
 
         private void NextBox_Click(object sender, EventArgs e)
         {
+            RealHeight += Boxheight;
             if (TotalHeight.GetType() == null || ClosetWidth.GetType() == null || Depth.GetType() == null)
             {
                 MessageBox.Show("Please choose a total height, a width and a depth.");
@@ -559,7 +566,7 @@ namespace KewLox_Forms
                     decimal total = 0;
                     string totalstring;
                     string[] values;
-                    List<KeyValuePair<string, int>> Parts = Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
+                    List<KeyValuePair<string, int>> Parts = Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, RealHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, true);
                     total = Armoire.GetPrice(Parts);
                     values = total.ToString().Split(Convert.ToChar(","));
                     totalstring = values[0] + "." + values[1];

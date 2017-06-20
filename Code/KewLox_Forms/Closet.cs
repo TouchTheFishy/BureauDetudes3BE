@@ -58,7 +58,7 @@ namespace KewLox_Forms
         public static int TotalHeight
         {
             get { return totalHeight; }
-            set { depth = value; }
+            set { totalHeight = value; }
 
         }
 
