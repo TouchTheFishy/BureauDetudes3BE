@@ -33,8 +33,7 @@ namespace KewLox_Forms
         {
             DBConnect db = new DBConnect();
             db.Cancel(Program.Id);
-            Welcome_form frm = new Welcome_form(Closet);
-            frm.Show();
+            Application.Restart();
             Hide();
         }
         //To show the Basket of the Client
@@ -48,8 +47,9 @@ namespace KewLox_Forms
         //To go backward
         private void Return_btn_Click(object sender, EventArgs e)
         {
-            Welcome_form frm = new Welcome_form(Closet);
-            frm.Show();
+            DBConnect db = new DBConnect();
+            db.Cancel(Program.Id);
+            Application.Restart();
             Hide();
         }
 

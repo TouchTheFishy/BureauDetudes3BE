@@ -50,6 +50,7 @@
             this.Title.TabIndex = 53;
             this.Title.Text = "KewLox";
             this.Title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Title.Click += new System.EventHandler(this.Title_Click_1);
             // 
             // textBox1
             // 

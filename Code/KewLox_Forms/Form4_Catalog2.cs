@@ -145,8 +145,7 @@ namespace KewLox_Forms
         {
             DBConnect db = new DBConnect();
             db.Cancel(Program.Id);
-            Welcome_form frm = new Welcome_form(Armoire);
-            frm.Show();
+            Application.Restart();
             Hide();
         }
         
@@ -154,14 +153,6 @@ namespace KewLox_Forms
         private void Basket_Click(object sender, EventArgs e)
         {
             Basket_form frm = new Basket_form();
-            frm.Show();
-            Hide();
-        }
-
-        //To go backward
-        private void Return_btn_Click(object sender, EventArgs e)
-        {
-            Form3_Catalog frm = new Form3_Catalog(Armoire);
             frm.Show();
             Hide();
         }
@@ -554,7 +545,7 @@ namespace KewLox_Forms
             {
                 if (BoxStep <= Boxamount)
                 {
-                    Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, TotalHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
+                    Armoire.AddBoxes(Lcolor, Rcolor, Backcolor, Botcolor, Dcolor, Doormat, RealHeight, ClosetWidth, Depth, Boxheight, Acolor, Tcolor, false);
                     BoxStep = BoxStep + 1;
                     textBox1.Text = Convert.ToString(BoxStep);
                 }

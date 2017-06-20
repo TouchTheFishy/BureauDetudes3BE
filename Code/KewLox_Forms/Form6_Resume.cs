@@ -52,8 +52,7 @@ namespace KewLox_Forms
         {
             DBConnect db = new DBConnect();
             db.Cancel(Program.Id);
-            Welcome_form frm = new Welcome_form(Armoire);
-            frm.Show();
+            Application.Restart();
             Hide();
         }
 
