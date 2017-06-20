@@ -417,6 +417,29 @@ namespace KewLox_Forms
                 this.CloseConnection();
             }
         }
+        public void UpdateInt(string table, string namecolumn1, string namecolumn2, int value1, string value2)
+        {
+            string query = "UPDATE " + table + " SET " + namecolumn1 + "='" + value1 + "' WHERE " + namecolumn2 + "='" + value2 + "'";
+
+            // Open connection
+            if (this.OpenConnection() == true)
+            {
+                // create mysql command
+                MySqlCommand cmd = new MySqlCommand();
+
+                // Assign the query using CommandText
+                cmd.CommandText = query;
+
+                // Assign the connection using Connection
+                cmd.Connection = connection;
+
+                // Execute query
+                cmd.ExecuteNonQuery();
+
+                // Close connection
+                this.CloseConnection();
+            }
+        }
         public void Drop(string table)
         {
             string query = "DELETE FROM " + table +" WHERE 1";

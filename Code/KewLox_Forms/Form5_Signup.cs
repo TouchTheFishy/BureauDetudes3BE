@@ -68,6 +68,7 @@ namespace KewLox_Forms
         {
             DBConnect database = new DBConnect();
             Closet closet1= new Closet();
+            bool done = false;
           
             if (firstname.Text.GetType() != typeof(string) || firstname.Text.GetType() == null || firstname.Text == ""
                 || lastname.Text.GetType() != typeof(string) || lastname.Text.GetType() == null || lastname.Text == "")
@@ -95,8 +96,8 @@ namespace KewLox_Forms
                 string prixDb = prixdb[0] + "." + prixdb[1];
                 try
                 {
-                    Convert.ToInt32(phone.Text);
-                    Convert.ToInt32(tva.Text);
+                    //Convert.ToInt32(phone.Text);
+                    //Convert.ToInt32(tva.Text);
                     database.Update("commandes", "TVA", "`id`", tva.Text, Convert.ToInt32(Program.Id));
                     database.Update("commandes", "Numero", "`id`", phone.Text, Convert.ToInt32(Program.Id));
                     database.Update("commandes", "Email", "`id`", mail.Text, Convert.ToInt32(Program.Id));
@@ -107,15 +108,19 @@ namespace KewLox_Forms
                     database.Update("commandes", "Address", "`id`", address.Text, Convert.ToInt32(Program.Id));
                     string[] customdata = new string[7] { firstname.Text, lastname.Text, address.Text, phone.Text, mail.Text, enterprise.Text, tva.Text };
                     closet1.MakeBill(prixDb, Nodup);
+                    done = true;
 
-
-                    Form7_Final_bill frm = new Form7_Final_bill();
-                    frm.Show();
-                    this.Close();
+                    
                 }
                 catch (System.FormatException)
                 {
                     MessageBox.Show("Please verify your contact information");
+                }
+                if (done == true)
+                {
+                    Form7_Final_bill frm = new Form7_Final_bill();
+                    frm.Show();
+                    Hide();
                 }
                 
                 

@@ -85,5 +85,12 @@ namespace KewLox_Forms
             db.Drop("missingcomponents");
             db.CloseConnection();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form8_DB_Change frm = new Form8_DB_Change();
+            frm.Show();
+            Hide();
+        }
     }
 }

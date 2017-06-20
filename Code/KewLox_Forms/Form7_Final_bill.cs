@@ -41,7 +41,9 @@ namespace KewLox_Forms
             }
             if (Program.OutOfStock == true)
             {
-                string depositprice = Convert.ToString(Convert.ToInt32(price[0, 1]) * 0.2);
+                double test = Convert.ToDouble(price[0, 1]);
+                test = test * 0.2;
+                string depositprice = Convert.ToString(test);
                 label1.Text = "And come back in a few days to retrieve your materials";
                 label25.Text = "Some pieces are not in stock. Please pay a deposit of " + depositprice + "€  on the following account number : BE25 1234 5678 9012";
             }
