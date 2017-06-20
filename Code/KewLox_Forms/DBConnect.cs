@@ -317,6 +317,10 @@ namespace KewLox_Forms
 
             }
             stock = stock - numberpart;
+            if (stock < 0)
+            {
+                Program.OutOfStock = true;
+            }
 
             //Try the piece is already in the table
             try
